@@ -47,7 +47,7 @@ public class EndToEnd extends Base {
         unitsAndSteps = new UnitsAndStepsValidation();
 
         try {
-            hP.click_Btn();
+        	//login
             lP.email(prop.getProperty("myEmail"));
             lP.pssWrd(prop.getProperty("myPassword"));
             lP.loginBtn();
