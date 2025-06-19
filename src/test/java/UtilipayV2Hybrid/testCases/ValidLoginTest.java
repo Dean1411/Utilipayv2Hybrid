@@ -24,7 +24,7 @@ public class ValidLoginTest extends Base {
 		LoginPage lP = new LoginPage(Base.getDriver());
 		
 		logger.info("***Click Developer/Tester Login***");
-		hP.click_Btn();
+		//hP.click_Btn();
 		
 		logger.info("***Enter login credentials/Click Login***");
 		lP.email(prop.getProperty("myEmail"));
