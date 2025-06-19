@@ -19,7 +19,6 @@ public class MtrLookup extends Base {
 		NavigationPage nav = new NavigationPage(Base.getDriver());
 		TransactPage tranPg = new TransactPage(Base.getDriver());
 		
-		hP.click_Btn();
 		
 		lP.email(prop.getProperty("myEmail"));
 		lP.pssWrd(prop.getProperty("myPassword"));		
