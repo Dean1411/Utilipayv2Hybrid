@@ -28,7 +28,7 @@ public class AddUser extends Base {
 		SoftAssert sftAssert = new SoftAssert();
 		
 		logger.info("***Click Developer/Tester Login***");
-		hP.click_Btn();
+		//hP.click_Btn();
 		
 		logger.info("***Enter login credentials/Click Login***");
 		lP.email(prop.getProperty("myEmail"));

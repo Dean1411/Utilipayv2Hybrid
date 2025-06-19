@@ -46,7 +46,7 @@ public class LoginUtil extends Base {
 
     private void login(String email, String password) {
         try {
-            hP.click_Btn();
+            //hP.click_Btn();
             lP.email(email);
             lP.pssWrd(password);
             lP.loginBtn();

@@ -22,7 +22,7 @@ public class AddTariff extends Base {
 		MunicipalMaintenancePage mun = new MunicipalMaintenancePage(Base.getDriver());
 		
 		logger.info("***Click Developer/Tester Login***");
-		hP.click_Btn();
+		//hP.click_Btn();
 		
 		logger.info("***Enter login credentials/Click Login***");
 		lP.email(prop.getProperty("myEmail"));
