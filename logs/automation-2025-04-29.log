@@ -1,0 +1,43 @@
+2025-04-29 11:17:56.331 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 11:18:07.876 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
+2025-04-29 11:18:07.876 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 11:19:00.318 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\Dean.Aschendorf\source\repos\UtilipayV2_Hybrid\UtilipayV2Hybrid\master.xml"
+2025-04-29 11:19:14.376 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
+2025-04-29 11:19:14.467 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 11:19:15.648 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 11:21:46.405 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\Dean.Aschendorf\source\repos\UtilipayV2_Hybrid\UtilipayV2Hybrid\groups.xml"
+2025-04-29 11:21:57.288 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Generate Engineering token Test***
+2025-04-29 11:21:57.405 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 11:21:58.573 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 11:21:59.041 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
+2025-04-29 11:22:06.777 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter parameters and generate token***
+2025-04-29 11:22:38.361 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 11:22:38.416 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 11:29:49.792 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\Dean.Aschendorf\source\repos\UtilipayV2_Hybrid\UtilipayV2Hybrid\groups.xml"
+2025-04-29 11:30:01.901 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Generate Engineering token Test***
+2025-04-29 11:30:02.052 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 11:30:03.752 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 11:30:04.248 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
+2025-04-29 11:30:09.248 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter parameters and generate token***
+2025-04-29 11:30:32.928 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 11:30:34.262 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 11:34:34.437 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\Dean.Aschendorf\source\repos\UtilipayV2_Hybrid\UtilipayV2Hybrid\groups.xml"
+2025-04-29 11:39:04.418 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\Dean.Aschendorf\source\repos\UtilipayV2_Hybrid\UtilipayV2Hybrid\groups.xml"
+2025-04-29 11:51:16.905 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\Dean.Aschendorf\source\repos\UtilipayV2_Hybrid\UtilipayV2Hybrid\master.xml"
+2025-04-29 11:51:28.764 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 11:51:29.862 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 11:51:35.921 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 16:05:57.792 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 16:05:59.194 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 16:05:59.731 [TestNG-tests-1] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 16:06:01.537 [TestNG-tests-1] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 16:06:07.541 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 16:06:09.561 [TestNG-tests-1] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 16:08:13.713 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 16:08:14.951 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 16:18:46.944 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 16:18:48.231 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 16:19:48.064 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 16:20:35.352 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-29 16:20:36.175 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-29 16:20:42.400 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***

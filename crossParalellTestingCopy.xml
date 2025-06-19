@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="5" parallel="tests">
+
+	<listeners>
+		<listener class-name="UtilipayV2Hybrid.utilities.ExtentReportNG" />
+		<!--		<listener class-name="UtilipayV2Hybrid.utilities.TestTransformer"
+		/>-->
+		<listener class-name="UtilipayV2Hybrid.utilities.TestTransformer"></listener>
+	</listeners>
+
+	<test name="Chrome">
+		<parameter name="Browser" value="chrome"></parameter>
+		<parameter name="OS" value="windows"></parameter>
+
+		<classes>
+			<!--<class name="UtilipayV2Hybrid.testBase.Base"/>-->
+<!--			<class name="UtilipayV2Hybrid.testCases.ValidLoginTest" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.GenerateEngineeringToken" />-->
+			<class name="UtilipayV2Hybrid.testCases.AddUser" />
+<!--			<class name="UtilipayV2Hybrid.testCases.AddMunicipality" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.MtrLookup" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.Transact" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.Import_Export" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.EndToEnd" />-->
+		</classes>
+	</test> <!--
+	Test -->
+
+	<!--	<test name="Firefox">-->
+	<!--		<parameter name="Browser" value="firefox"></parameter>-->
+	<!--		<classes>-->
+	<!--			<class name="UtilipayV2Hybrid.testBase.Base"/>-->
+	<!--			<class name="UtilipayV2Hybrid.testCases.ValidLoginTest" />-->
+	<!--			<class name="UtilipayV2Hybrid.testCases.GenerateEngineeringToken" />-->
+	<!--			<class name="UtilipayV2Hybrid.testCases.AddUser" />-->
+	<!--			<class name="UtilipayV2Hybrid.testCases.AddMunicipality" />-->
+	<!--		</classes>-->
+	<!--	</test> -->
+	<!--	Test -->
+
+	<test name="Edge">
+		<parameter name="Browser" value="edge"></parameter>
+		<classes>
+			<!--<class name="UtilipayV2Hybrid.testBase.Base"/>-->
+<!--			<class name="UtilipayV2Hybrid.testCases.ValidLoginTest" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.Import_Export" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.EndToEnd" />-->
+			<!--			<class
+			name="UtilipayV2Hybrid.testCases.GenerateEngineeringToken" />-->
+						<class name="UtilipayV2Hybrid.testCases.AddUser" />
+			<!--			<class name="UtilipayV2Hybrid.testCases.AddMunicipality" /> -->
+			<!--			<class name="UtilipayV2Hybrid.testCases.MtrLookup"/>-->
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->
+
+
+

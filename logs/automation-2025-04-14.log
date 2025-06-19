@@ -1,0 +1,38 @@
+2025-04-10 14:51:12.722 [azure-sdk-global-thread-0] DEBUG com.azure.identity.IntelliJCredential - Azure Identity => ERROR in getToken() call for scopes [https://database.windows.net//.default]: IntelliJ authentication not available. Please login with the Azure Toolkit for IntelliJ. You may also need to upgrade to a newer version of the Azure Toolkit for IntelliJ. This authentication is supported on version 3.53 and higher. Please see https://aka.ms/azsdk/java/identity/intellijcredential/troubleshoot for more information.
+2025-04-10 14:51:12.726 [azure-sdk-global-thread-0] INFO  com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential IntelliJCredential is unavailable.
+2025-04-10 14:51:27.951 [main] DEBUG org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+2025-04-10 14:51:44.762 [azure-sdk-global-thread-0] DEBUG com.azure.identity.implementation.IdentityClient - Azure CLI Authentication => A token response was received from Azure CLI, deserializing the response into an Access Token.
+2025-04-10 14:51:46.077 [azure-sdk-global-thread-0] DEBUG com.azure.identity.AzureCliCredential - Azure Identity => getToken() result for scopes [https://database.windows.net//.default]: SUCCESS
+2025-04-10 14:51:46.077 [azure-sdk-global-thread-0] INFO  com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential AzureCliCredential returns a token
+2025-04-10 15:09:57.376 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\Dean.Aschendorf\source\repos\UtilipayV2_Hybrid\UtilipayV2Hybrid\master.xml"
+2025-04-10 15:10:34.827 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-10 15:10:36.794 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-11 11:11:53.975 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-11 11:11:54.872 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-11 11:14:17.853 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-11 11:14:18.721 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-11 11:22:48.304 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-11 11:22:49.149 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-11 11:23:54.642 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-11 11:24:36.237 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-11 11:24:36.966 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-11 11:24:42.305 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Verifying toaster message***
+2025-04-11 11:29:59.000 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-11 11:29:59.887 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-11 11:31:26.938 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-11 11:31:27.657 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-11 11:31:50.435 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-11 11:32:28.605 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-11 11:32:29.335 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-11 11:32:36.059 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Verifying toaster message***
+2025-04-12 11:44:31.734 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-12 11:45:12.145 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-12 11:47:13.317 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-12 11:48:19.684 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-12 11:48:20.958 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-12 11:48:30.945 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Verifying toaster message***
+2025-04-14 09:19:44.704 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-14 09:19:48.076 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-04-14 09:19:59.712 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Verifying toaster message***
+2025-04-14 09:37:15.827 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-04-14 09:37:17.310 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***

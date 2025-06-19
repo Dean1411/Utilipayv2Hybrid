@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<groups>
+		<run>
+			<include name="Regression"></include>
+			<!-- <exclude name=""></exclude> -->
+		</run>
+	</groups>
+	<parameter name="Browser" value="chrome"></parameter>
+	<parameter name="OS" value="windows" />
+
+	<listeners>
+		<listener class-name="UtilipayV2Hybrid.utilities.ExtentReportNG" />
+		<!--		<listener class-name="UtilipayV2Hybrid.utilities.TestTransformer"
+		/>-->
+		<listener class-name="UtilipayV2Hybrid.utilities.TestTransformer"></listener>
+	</listeners>
+
+	<test thread-count="5" name="Test">
+		<classes>
+<!--			<class name="UtilipayV2Hybrid.testCases.ValidLoginTest" />-->
+<!--			<class-->
+<!--				name="UtilipayV2Hybrid.testCases.GenerateEngineeringToken" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.AddUser" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.AddMunicipality" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.MtrLookup" />-->
+			<class name="UtilipayV2Hybrid.testCases.Transact" />
+<!--			<class name="UtilipayV2Hybrid.testCases.AddTariff" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.PerformKeyChange" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.ManagementFunctionToken" />-->
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->
