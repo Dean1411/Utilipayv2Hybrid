@@ -22,7 +22,7 @@ public class UnitsAndStepsValidation extends Base {
         LoginPage lP = new LoginPage(Base.getDriver());
         NavigationPage nav = new NavigationPage(Base.getDriver());
 
-        hP.click_Btn();
+        //hP.click_Btn();
         lP.email(prop.getProperty("myEmail"));
         lP.pssWrd(prop.getProperty("myPassword"));
         lP.loginBtn();
