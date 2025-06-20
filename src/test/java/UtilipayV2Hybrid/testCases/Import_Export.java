@@ -26,7 +26,7 @@ public class Import_Export extends Base{
 		Import_ExportPage importExport = new Import_ExportPage(Base.getDriver());
 		
 		logger.info("***Click Developer/Tester Login***");
-		hP.click_Btn();
+		//hP.click_Btn();
 		
 		logger.info("***Enter login credentials/Click Login***");
 		lP.email(prop.getProperty("myEmail"));
