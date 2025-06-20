@@ -92,30 +92,6 @@ public class UserManagementPage extends BaseComponent {
 		wait.until(ExpectedConditions.elementToBeClickable(phnNum));
 		phnNum.sendKeys(pNum);
 	}
-
-//	public void selectMun() throws InterruptedException {
-//		
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].click();", selectMunicipality);
-//		
-//		Thread.sleep(1000l);
-//		
-//	    List<WebElement> municipality = driver.findElements(By.xpath("//*[@id='select2Multiple']/optgroup/option"));
-//
-//	    if (!municipality.isEmpty()) { 
-//	        Random random = new Random();
-//	        int randomIndex = random.nextInt(municipality.size()); // Generate a random index
-//
-//	        // Click on the randomly selected option
-//	        municipality.get(randomIndex).click();
-//
-//	        System.out.println("Selected Option: " + municipality.get(randomIndex).getText());
-//	    } else {
-//	        System.out.println("No options available in the dropdown.");
-//	    }
-//	    
-//	    selectMunicipality.sendKeys(Keys.TAB);
-//	}
 	
 	public void selectMun(String clientName) throws InterruptedException {
 		
@@ -123,7 +99,7 @@ public class UserManagementPage extends BaseComponent {
 		    JavascriptExecutor js = (JavascriptExecutor) driver;
 		    js.executeScript("arguments[0].click();", selectMunicipality);
 
-		    Thread.sleep(1000L); // Consider replacing this with WebDriverWait for better stability
+		    Thread.sleep(1000L); 
 
 		    List<WebElement> municipality = driver.findElements(By.xpath("//*[@id='select2Multiple']/optgroup/option"));
 
@@ -207,7 +183,7 @@ public class UserManagementPage extends BaseComponent {
 	        if (!checkbox.isSelected()) {
 	            checkbox.click();
 	            
-	            String roleName = "Unknown Role";
+	            String roleName = "";
 	            try {
 	                roleName = checkbox.findElement(By.xpath("following-sibling::label")).getText();
 	            } catch (Exception e) {

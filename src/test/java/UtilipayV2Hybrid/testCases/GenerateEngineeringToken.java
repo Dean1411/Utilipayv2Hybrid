@@ -31,7 +31,7 @@ public class GenerateEngineeringToken extends Base {
 			EncryptCreditToken ect = new EncryptCreditToken(Base.getDriver());
 			
 			logger.info("***Click Developer/Tester Login***");
-			hP.click_Btn();
+			//hP.click_Btn();
 			
 			logger.info("***Enter login credentials/Click Login***");
 			lP.email(prop.getProperty("myEmail"));
@@ -53,6 +53,7 @@ public class GenerateEngineeringToken extends Base {
 			ect.enterTransferAmount(prop.getProperty("tranAmount"));
 			ect.disableKrn();
 			ect.clickSubmit();
+			ect.okConfirmation();
 			
 			
 			WebDriverWait wait = new WebDriverWait(Base.getDriver(), Duration.ofSeconds(8));

@@ -13,16 +13,14 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-
-
-
-
 public class EncryptCreditToken extends BaseComponent {
 	
 	public EncryptCreditToken(WebDriver driver) {
 		
 		super(driver);
 	}
+	
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	
 	@FindBy(xpath="//button[normalize-space()='Bulk Vend']")
 	WebElement bulkVendBtn;
@@ -65,6 +63,9 @@ public class EncryptCreditToken extends BaseComponent {
 	
 	@FindBy(xpath="//a[normalize-space()='Cancel']")
 	WebElement cancelBtn;
+	
+    @FindBy(xpath="//button[normalize-space()='OK']")
+    WebElement confirm_okBtn;
 	
 	public void enterMeterNumber(String mtrNum) {
 		mtrNmb.sendKeys(mtrNum);
@@ -116,15 +117,15 @@ public class EncryptCreditToken extends BaseComponent {
 	
 	public void performBulkVend() {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		
 		wait.until(ExpectedConditions.elementToBeClickable(bulkVendBtn));
 		
-		bulkVendBtn.click();
+		bulkVendBtn.click();		
+	}
+	
+	public void okConfirmation() {
 		
-		
-		
-		
+		wait.until(ExpectedConditions.elementToBeClickable(confirm_okBtn));
+		confirm_okBtn.click();
 		
 	}
 
