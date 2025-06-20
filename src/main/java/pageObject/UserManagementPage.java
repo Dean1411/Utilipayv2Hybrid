@@ -123,7 +123,7 @@ public class UserManagementPage extends BaseComponent {
 		    JavascriptExecutor js = (JavascriptExecutor) driver;
 		    js.executeScript("arguments[0].click();", selectMunicipality);
 
-		    Thread.sleep(1000L); // Consider replacing this with WebDriverWait for better stability
+		    Thread.sleep(1000L); 
 
 		    List<WebElement> municipality = driver.findElements(By.xpath("//*[@id='select2Multiple']/optgroup/option"));
 
