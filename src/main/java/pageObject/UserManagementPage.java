@@ -93,29 +93,6 @@ public class UserManagementPage extends BaseComponent {
 		phnNum.sendKeys(pNum);
 	}
 
-//	public void selectMun() throws InterruptedException {
-//		
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].click();", selectMunicipality);
-//		
-//		Thread.sleep(1000l);
-//		
-//	    List<WebElement> municipality = driver.findElements(By.xpath("//*[@id='select2Multiple']/optgroup/option"));
-//
-//	    if (!municipality.isEmpty()) { 
-//	        Random random = new Random();
-//	        int randomIndex = random.nextInt(municipality.size()); // Generate a random index
-//
-//	        // Click on the randomly selected option
-//	        municipality.get(randomIndex).click();
-//
-//	        System.out.println("Selected Option: " + municipality.get(randomIndex).getText());
-//	    } else {
-//	        System.out.println("No options available in the dropdown.");
-//	    }
-//	    
-//	    selectMunicipality.sendKeys(Keys.TAB);
-//	}
 	
 	public void selectMun(String clientName) throws InterruptedException {
 		
