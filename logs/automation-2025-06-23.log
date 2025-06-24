@@ -1,6 +1,7 @@
 2025-06-23 14:04:59.327 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
 2025-06-23 14:06:25.472 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Generate Engineering token Test***
 2025-06-23 14:06:25.600 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-06-23 14:06:25.602 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
 2025-06-23 14:06:27.411 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
 2025-06-23 14:09:20.040 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Generate Engineering token Test***
 2025-06-23 14:09:20.148 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
