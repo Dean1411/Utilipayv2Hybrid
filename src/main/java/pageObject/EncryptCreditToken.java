@@ -13,10 +13,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-
-
-
-
 public class EncryptCreditToken extends BaseComponent {
 	
 	public EncryptCreditToken(WebDriver driver) {
@@ -24,11 +20,19 @@ public class EncryptCreditToken extends BaseComponent {
 		super(driver);
 	}
 	
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	
 	@FindBy(xpath="//button[normalize-space()='Bulk Vend']")
 	WebElement bulkVendBtn;
 	
 	@FindBy(xpath="//div[@class='dz-message needsclick']")
 	WebElement fileSelection;
+	
+	@FindBy(xpath="//button[normalize-space()='Process File']")
+	WebElement processFileBtn;
+	
+	@FindBy(xpath="//*[@id=\"toast-container\"]/div/div[2]")
+	WebElement fileValidityMsg;
 	
 	@FindBy(xpath="//input[@id='MeterNumber']")
 	WebElement mtrNmb;
@@ -91,7 +95,6 @@ public class EncryptCreditToken extends BaseComponent {
 	
 
 	public void selectEncryptionAlgorithm() {		
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 	    wait.until(ExpectedConditions.elementToBeClickable(encrAlg)).click();
 
@@ -116,16 +119,11 @@ public class EncryptCreditToken extends BaseComponent {
 	
 	public void performBulkVend() {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		
 		wait.until(ExpectedConditions.elementToBeClickable(bulkVendBtn));
 		
-		bulkVendBtn.click();
-		
-		
-		
-		
-		
+		bulkVendBtn.click();		
 	}
+	
+	
 
 }
