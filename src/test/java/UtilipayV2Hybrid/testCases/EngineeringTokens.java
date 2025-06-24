@@ -55,7 +55,7 @@ public class EngineeringTokens extends Base{
         for (String option : engineeringOption) {
             logger.info("Processing: " + option);
             
-            String validityMsg = (String) eP.clickOption(option); 
+            validityMsg = (String) eP.clickOption(option); 
             System.out.println("Validity message for " + option + ": " + validityMsg);
 
             softAssert.assertNotNull(validityMsg, "Validity message is null for option: " + option);
