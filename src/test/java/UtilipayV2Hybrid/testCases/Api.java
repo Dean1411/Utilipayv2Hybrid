@@ -1,0 +1,182 @@
+package UtilipayV2Hybrid.testCases;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import UtilipayV2Hybrid.utilities.ReferenceGenerator;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import UtilipayV2Hybrid.utilities.ConfigReader;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import static io.restassured.RestAssured.*;
+
+
+public class Api {
+	
+	private String baseUrl;
+	private String bearerToken;
+	private String switchUrl;
+	private String switchBearerToken;
+	private String transactionId;
+	
+	@BeforeClass
+	public void authentication() {
+		
+		baseUrl = ConfigReader.get("base.url");
+		switchUrl = ConfigReader.get("switch.url");
+		
+		String username = ConfigReader.get("username");
+		String password = ConfigReader.get("password");
+		String securityEndpoint = ConfigReader.get("security");
+		
+		String jsonBodyBase = String.format("{ \"username\": \"%s\", \"password\": \"%s\" }", username, password);
+		Response responseBase = given()
+				.header("Content-Type", "application/json")
+				.body(jsonBodyBase)
+				.when()
+				.post(baseUrl + securityEndpoint); 
+		
+        Assert.assertEquals(responseBase.statusCode(), 200, "Authentication to baseUrl failed");
+        bearerToken = responseBase.jsonPath().getString("token.result");
+        Assert.assertNotNull(bearerToken, "Base token is null");
+        Assert.assertFalse(bearerToken.isEmpty(), "Base token is empty");
+
+        // Switch URL authentication
+        String switchUsername = ConfigReader.get("switch.username");
+        String switchPassword = ConfigReader.get("switch.password");
+        String switchEndpoint = ConfigReader.get("switch.endpoint");
+
+        String fullSwitchAuthUrl = switchUrl + switchEndpoint + "?username=" + switchUsername + "&password=" + switchPassword;
+//        System.out.println("Calling Switch Auth URL: " + fullSwitchAuthUrl);
+
+        Response responseSwitch = given()
+            .when()
+            .get(fullSwitchAuthUrl);
+
+//        System.out.println("Switch Auth Response: " + responseSwitch.getBody().asString());
+
+        Assert.assertEquals(responseSwitch.statusCode(), 200, "Authentication to switchUrl failed");
+        switchBearerToken = responseSwitch.getBody().asString().replace("\"", "");
+        Assert.assertNotNull(switchBearerToken, "Switch token is null");
+        Assert.assertFalse(switchBearerToken.isEmpty(), "Switch token is empty");
+	}
+	
+	 @Test
+	    public void emsVendTest() {
+
+	        int vends = 2;
+	        int total = 0;
+	        String filePath = "ems_vend_results.txt"; 
+
+	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+
+	            for (int i = 0; i < vends; i++) {
+
+	                String emsVendEndpoint = ConfigReader.get("emsVend");
+
+	                Response response = given()
+	                        .header("Authorization", "Bearer " + bearerToken)
+	                        .when()
+	                        .post(baseUrl + emsVendEndpoint);
+
+	                String responseBody = response.getBody().asString();
+	                System.out.println("EMS Vend Response: " + responseBody);
+
+	                JsonPath jsonPath = new JsonPath(responseBody);
+	                transactionId = jsonPath.getString("transactionId");
+	                System.out.println("Transaction Id: " + transactionId);
+
+	                // Write to file
+	                writer.write("Vend #" + (i + 1));
+	                writer.newLine();
+	                writer.write("Transaction ID: " + transactionId);
+	                writer.newLine();
+	                writer.write("Response: " + responseBody);
+	                writer.newLine();
+	                writer.write("------------------------------");
+	                writer.newLine();
+
+	                Assert.assertEquals(response.statusCode(), 200, "EMS Vend request failed");
+
+	                total++;
+	            }
+
+	            System.out.println("Total purchases: " + total);
+
+	        } catch (IOException e) {
+	            System.err.println("Error writing to file: " + e.getMessage());
+	        }
+	    }
+	 
+	 @Test(dependsOnMethods = "emsVendTest")
+	    public void confirmTransactionTest() {
+	        Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
+	        String confirmEndpoint = ConfigReader.get("confirmTransaction");
+	        String confirmJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
+
+	        Response response = given()
+	            .header("Authorization", "Bearer " + bearerToken)
+	            .header("Content-Type", "application/json")
+	            .body(confirmJsonBody)
+	        .when()
+	            .post(baseUrl + confirmEndpoint);
+
+	        System.out.println("Confirm Transaction Response: " + response.getBody().asString());
+	        Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
+	        System.out.println();
+	    }
+
+	    @Test
+	    public void switchMunLookup() {
+	        String mtrLookup = ConfigReader.get("municipalityLookup");
+
+	        Response response = given()
+	            .header("Authorization", "Bearer " + bearerToken)
+	        .when()
+	            .post(baseUrl + mtrLookup);
+
+	        System.out.println("Municipality Lookup Response: " + response.getBody().asString());
+	        Assert.assertEquals(response.statusCode(), 200, "Municipality Lookup request failed");
+	        System.out.println();
+	    }
+
+	    @Test
+	    public void switchVend() {
+	        String switchVend = ConfigReader.get("switchVend");
+
+	        Response response = given()
+	            .header("Authorization", "Bearer " + bearerToken)
+	        .when()
+	            .post(baseUrl + switchVend);
+
+	        System.out.println("Switch Vend Response: " + response.getBody().asString());
+	        Assert.assertEquals(response.statusCode(), 200, "Switch vend request failed");
+	        System.out.println();
+	    }
+
+	    @Test
+	    public void switchMeterLookup() {
+	        String meterLookup = ConfigReader.get("switchMtrLookup");
+	        String extReferenceNo = ReferenceGenerator.generateNextReference();
+
+	        String jsonBody = String.format(
+	            "{ \"distributorId\": %d, \"productTypeId\": %d, \"parameter1\": \"%s\", \"extReferenceNo\": \"%s\", \"amount\": %d, \"parameter2\": \"%s\" }",
+	            10005, 3, "41173676028", extReferenceNo, 310, ""
+	        );
+
+	        Response response = given()
+	            .header("Authorization", "Bearer " + switchBearerToken)
+	            .header("Content-Type", "application/json")
+	            .body(jsonBody)
+	        .when()
+	            .post(switchUrl + meterLookup);
+
+	        System.out.println("Meter Lookup Response: " + response.getBody().asString());
+	        Assert.assertEquals(response.statusCode(), 200, "Meter Lookup request failed");
+	        System.out.println();
+	    }
+
+}
