@@ -24,7 +24,9 @@ public class ExtentReportNG extends Base implements  ITestListener{
 	public String reportName;
 	public ExtentSparkReporter sparkReporter;
 	public ExtentReports extent; 
-	public ExtentTest test;
+//	public ExtentTest test;
+	private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+
 	
 	
 	@Override  
@@ -68,36 +70,94 @@ public class ExtentReportNG extends Base implements  ITestListener{
 	
 	}  
 	 
-	@Override  
-	public void onTestSuccess(ITestResult result) {  
-	 // creating test case entries & update status of the test method
-	// in to the report using ExtentTest class
-		test=extent.createTest(result.getTestClass().getName());
-		test.assignCategory(result.getMethod().getGroups()); //display groups in report
-		test.log(Status.PASS, result.getName()+"_"+"got successfully executed");
-	}  
+//	@Override  
+//	public void onTestSuccess(ITestResult result) {  
+//	 // creating test case entries & update status of the test method
+//	// in to the report using ExtentTest class
+//		test=extent.createTest(result.getTestClass().getName());
+//		test.assignCategory(result.getMethod().getGroups()); //display groups in report
+//		test.log(Status.PASS, result.getName()+"_"+"got successfully executed");
+//	}  
+	@Override
+	public void onTestSuccess(ITestResult result) {
+	    ExtentTest extentTest = extent.createTest(result.getTestClass().getName() + " :: " + result.getMethod().getMethodName());
+	    extentTest.assignCategory(result.getMethod().getGroups());
+	    extentTest.log(Status.PASS, result.getName() + " passed successfully");
+	    test.set(extentTest);
+	}
+
 	  
-	@Override  
-	public void onTestFailure(ITestResult result) {  
-		test=extent.createTest(result.getTestClass().getName());
-		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.FAIL, result.getName()+"_"+"got failed.The error is_"+result.getThrowable());
-				
-		try {
-			String screenShotPath=getScreenshot(result.getName());
-			test.addScreenCaptureFromPath(screenShotPath);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}  
+//	@Override  
+//	public void onTestFailure(ITestResult result) {  
+//		test=extent.createTest(result.getTestClass().getName());
+//		test.assignCategory(result.getMethod().getGroups());
+//		test.log(Status.FAIL, result.getName()+"_"+"got failed.The error is_"+result.getThrowable());
+//				
+//		try {
+//			String screenShotPath=getScreenshot(result.getName());
+//			test.addScreenCaptureFromPath(screenShotPath);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}  
+	
+//	@Override
+//	public void onTestFailure(ITestResult result) {
+//	    String screenshotPath = null;
+//	    try {
+//	        screenshotPath = getScreenshot(result.getName()); 
+//	    } catch (IOException e) {
+//	        System.out.println("Exception while taking screenshot: " + e.getMessage());
+//	    }
+//
+//	    if (screenshotPath != null && !screenshotPath.isEmpty()) {
+//	        test.get().addScreenCaptureFromPath(screenshotPath);
+//	    } else {
+//	        System.out.println("Screenshot path is null or empty, skipping adding screenshot.");
+//	    }
+//
+//	    test.get().fail(result.getThrowable());
+//	}
+	@Override
+	public void onTestFailure(ITestResult result) {
+	    ExtentTest extentTest = extent.createTest(result.getTestClass().getName() + " :: " + result.getMethod().getMethodName());
+	    extentTest.assignCategory(result.getMethod().getGroups());
+	    test.set(extentTest);
+
+	    String screenshotPath = null;
+	    try {
+	        screenshotPath = getScreenshot(result.getMethod().getMethodName());
+	    } catch (IOException e) {
+	        System.out.println("Exception while taking screenshot: " + e.getMessage());
+	    }
+
+	    if (screenshotPath != null && !screenshotPath.isEmpty()) {
+	        extentTest.addScreenCaptureFromPath(screenshotPath);
+	    } else {
+	        System.out.println("Screenshot path is null or empty, skipping adding screenshot.");
+	    }
+
+	    extentTest.fail(result.getThrowable());
+	}
+
+
 	  
-	@Override  
-	public void onTestSkipped(ITestResult result) {  
-		test=extent.createTest(result.getTestClass().getName());
-		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.SKIP, result.getName()+"_"+"got skipped");
-		test.log(Status.INFO, result.getThrowable().getMessage()); 
-	}  
+//	@Override  
+//	public void onTestSkipped(ITestResult result) {  
+//		test=extent.createTest(result.getTestClass().getName());
+//		test.assignCategory(result.getMethod().getGroups());
+//		test.log(Status.SKIP, result.getName()+"_"+"got skipped");
+//		test.log(Status.INFO, result.getThrowable().getMessage()); 
+//	}  
+	@Override
+	public void onTestSkipped(ITestResult result) {
+	    ExtentTest extentTest = extent.createTest(result.getTestClass().getName() + " :: " + result.getMethod().getMethodName());
+	    extentTest.assignCategory(result.getMethod().getGroups());
+	    extentTest.log(Status.SKIP, result.getName() + " was skipped");
+	    extentTest.log(Status.INFO, result.getThrowable().getMessage());
+	    test.set(extentTest);
+	}
+
 	  
 	@Override  
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {  

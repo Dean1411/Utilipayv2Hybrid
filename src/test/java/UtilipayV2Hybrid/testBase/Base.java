@@ -19,6 +19,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
@@ -155,22 +156,44 @@ public class Base {
 		return (stringValue+stringValue+"@");
 	}
 	
+//	public String getScreenshot(String methodName) throws IOException {
+//		
+//	    if (getDriver() == null) {
+//	        System.out.println("Screenshot skipped: WebDriver session is closed.");
+//	        return null;
+//	    }
+//		
+//		String currentTimeStamp=new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+//		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+//		String targetFilePath = System.getProperty("user.dir") + "\\reports\\screenshots\\" + methodName + "_" + currentTimeStamp + ".png";
+//
+////		String targetFilePath = System.getProperty("user.dir")+"\\screenshots"+methodName+"_"+currentTimeStamp+".png";
+//		File targetFile = new File(targetFilePath);
+//		FileUtils.copyFile(srcFile, targetFile);
+//		return targetFilePath;
+//	}
+	
 	public String getScreenshot(String methodName) throws IOException {
-		
 	    if (getDriver() == null) {
+	        System.out.println("Screenshot skipped: WebDriver is null.");
+	        return null;
+	    }
+	    
+	    // Check if WebDriver session is active (works if you use RemoteWebDriver)
+	    if (((RemoteWebDriver) getDriver()).getSessionId() == null) {
 	        System.out.println("Screenshot skipped: WebDriver session is closed.");
 	        return null;
 	    }
-		
-		String currentTimeStamp=new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		String targetFilePath = System.getProperty("user.dir") + "\\reports\\screenshots\\" + methodName + "_" + currentTimeStamp + ".png";
 
-//		String targetFilePath = System.getProperty("user.dir")+"\\screenshots"+methodName+"_"+currentTimeStamp+".png";
-		File targetFile = new File(targetFilePath);
-		FileUtils.copyFile(srcFile, targetFile);
-		return targetFilePath;
+	    String currentTimeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+	    File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+	    String targetFilePath = System.getProperty("user.dir") + "\\reports\\screenshots\\" + methodName + "_" + currentTimeStamp + ".png";
+
+	    File targetFile = new File(targetFilePath);
+	    FileUtils.copyFile(srcFile, targetFile);
+	    return targetFilePath;
 	}
+
 	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
