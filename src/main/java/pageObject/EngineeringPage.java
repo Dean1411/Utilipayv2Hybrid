@@ -104,7 +104,7 @@ public class EngineeringPage extends BaseComponent {
 
     
 
-    // Token Methods
+    // Generate Token Methods
     public String processEncryptCreditToken(String filePath) {
         return processTokenFile(filePath);
     }

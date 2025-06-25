@@ -45,6 +45,9 @@ public class NavigationPage extends BaseComponent {
 	@FindBy(xpath="//div[@data-i18n='Reports']")
 	WebElement reports;
 	
+	@FindBy(xpath="//div[@data-i18n='Reporting']")
+	WebElement reporting;
+	
 	
 	//Cashier Management
 	@FindBy(xpath="//div[@data-i18n='Cashier Management']")
@@ -83,6 +86,16 @@ public class NavigationPage extends BaseComponent {
 	public void click_Engineering() {
 		
 		engineeringTkn.click();
+	}
+	
+	public void click_Reports() {
+		
+		reports.click();
+	}
+	
+	public void click_Reporting() {
+		
+		reporting.click();
 	}
 	
 	//Cashier Management
