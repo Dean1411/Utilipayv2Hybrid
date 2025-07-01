@@ -5,7 +5,7 @@ trigger: none
 resources:
   pipelines:
     - pipeline: dotnetPipeline
-      project: '<Utilipayv2Hybrid>'           
+      project: '<UtiliPayV2>'           
       source: '<UtiliPayV2>'         
       trigger:
         branches:
@@ -46,6 +46,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Extent Report as Artifact'
   inputs:
-    PathtoPublish: 'test-output/ExtentReports'  # or wherever your ExtentReport is output
+    PathtoPublish: 'test-output/ExtentReports' 
     ArtifactName: 'ExtentReport'
     publishLocation: 'Container'
