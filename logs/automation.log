@@ -3,3 +3,13 @@
 2025-06-25 11:34:12.215 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token
 2025-06-25 11:34:38.052 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
 2025-06-25 11:34:53.984 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
+2025-07-02 08:42:49.048 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
+2025-07-02 08:42:49.125 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-02 08:42:57.271 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
+2025-07-02 08:42:57.272 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-02 08:43:51.232 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
+2025-07-02 08:43:51.296 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-02 08:43:51.296 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-02 08:44:04.018 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
+2025-07-02 08:44:04.019 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-02 08:44:04.019 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***

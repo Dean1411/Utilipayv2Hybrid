@@ -41,7 +41,7 @@ public class Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic extends Base {
         transact = new TransactPage(getDriver());
     }
 
-    @Test
+    @Test(retryAnalyzer = UtilipayV2Hybrid.utilities.Retry.class)
     public void verifyUnitsAndFreeBasic() throws InterruptedException, SQLException {
         String meterNumber = prop.getProperty("wtrMtr");
         SoftAssert softAssert = new SoftAssert();

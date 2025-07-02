@@ -15,7 +15,7 @@ import pageObject.LoginPage;
 
 public class ValidLoginTest extends Base {
 		
-	@Test (groups= {"Regression"})
+	@Test (groups= {"Regression"}, retryAnalyzer = UtilipayV2Hybrid.utilities.Retry.class)
 	public void valid_Login() {
 		logger.info("***Starting Valid Login Test***");
 		
@@ -24,7 +24,7 @@ public class ValidLoginTest extends Base {
 		LoginPage lP = new LoginPage(Base.getDriver());
 		
 		logger.info("***Click Developer/Tester Login***");
-		hP.click_Btn();
+		//hP.click_Btn();
 		
 		logger.info("***Enter login credentials/Click Login***");
 		lP.email(prop.getProperty("myEmail"));

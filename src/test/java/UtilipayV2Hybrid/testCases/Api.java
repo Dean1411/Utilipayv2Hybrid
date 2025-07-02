@@ -61,7 +61,7 @@ public class Api {
 
     @Test
     public void emsVendTest() {
-        int vends = 2;
+        int vends = 10;
         int total = 0;
         String filePath = "ems_vend_results.txt";
 
@@ -91,6 +91,8 @@ public class Api {
                 writer.newLine();
 
                 Assert.assertEquals(response.statusCode(), 200, "EMS Vend request failed");
+                
+                confirmTransaction(transactionId);
 
                 total++;
             }
@@ -124,23 +126,23 @@ public class Api {
         Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
     }
     
-  @Test(dependsOnMethods = "confirmTransactionTest")
-  public void cancelTransactionTest() {
-      Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
-      String cancelEndpoint = ConfigReader.get("cancelTransaction");
-      String cancelJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
-
-      Response response = given()
-          .header("Authorization", "Bearer " + bearerToken)
-          .header("Content-Type", "application/json")
-          .body(cancelJsonBody)
-      .when()
-          .post(baseUrl + cancelEndpoint);
-
-      System.out.println("Cancel Transaction Response: " + response.getBody().asString());
-      Assert.assertEquals(response.statusCode(), 200, "Cancel transaction failed");
-      System.out.println();
-  }
+//  @Test(dependsOnMethods = "confirmTransactionTest")
+//  public void cancelTransactionTest() {
+//      Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
+//      String cancelEndpoint = ConfigReader.get("cancelTransaction");
+//      String cancelJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
+//
+//      Response response = given()
+//          .header("Authorization", "Bearer " + bearerToken)
+//          .header("Content-Type", "application/json")
+//          .body(cancelJsonBody)
+//      .when()
+//          .post(baseUrl + cancelEndpoint);
+//
+//      System.out.println("Cancel Transaction Response: " + response.getBody().asString());
+//      Assert.assertEquals(response.statusCode(), 200, "Cancel transaction failed");
+//      System.out.println();
+//  }
 
     @Test
     public void switchMunLookup() {
@@ -187,4 +189,20 @@ public class Api {
         System.out.println("Meter Lookup Response: " + response.getBody().asString());
         Assert.assertEquals(response.statusCode(), 200, "Meter Lookup request failed");
     }
+    
+    public void confirmTransaction(String transactionId) {
+        String confirmEndpoint = ConfigReader.get("confirmTransaction");
+        String confirmJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
+
+        Response response = given()
+                .header("Authorization", "Bearer " + bearerToken)
+                .header("Content-Type", "application/json")
+                .body(confirmJsonBody)
+                .when()
+                .post(baseUrl + confirmEndpoint);
+
+        System.out.println("Confirm Transaction Response: " + response.getBody().asString());
+        Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
+    }
+
 }
