@@ -1,40 +1,40 @@
 Vend #1
-Transaction ID: 71687
-Response: {"creditToken":"7160-3838-7693-3678-9270","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71687,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71707
+Response: {"creditToken":"2287-0680-7894-3161-7190","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71707,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
 Vend #2
-Transaction ID: 71688
-Response: {"creditToken":"3343-0903-8868-3652-8577","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71688,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71708
+Response: {"creditToken":"1291-2594-2581-9494-9538","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71708,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
 Vend #3
-Transaction ID: 71689
-Response: {"creditToken":"5320-8523-2809-6057-3539","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71689,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71709
+Response: {"creditToken":"1832-5153-9941-3395-5095","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71709,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
 Vend #4
-Transaction ID: 71690
-Response: {"creditToken":"1134-3355-9627-4849-2116","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71690,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71710
+Response: {"creditToken":"6070-6760-6869-2842-2283","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71710,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
 Vend #5
-Transaction ID: 71691
-Response: {"creditToken":"3534-0397-7651-2835-2850","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71691,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71711
+Response: {"creditToken":"3218-5518-7864-2676-6257","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71711,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
 Vend #6
-Transaction ID: 71692
-Response: {"creditToken":"2258-9914-0384-2609-8455","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71692,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71712
+Response: {"creditToken":"5500-3603-3660-8038-8400","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71712,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
 Vend #7
-Transaction ID: 71693
-Response: {"creditToken":"1287-2325-4334-9679-6219","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71693,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71713
+Response: {"creditToken":"5322-3805-5976-9048-5364","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71713,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
 Vend #8
-Transaction ID: 71694
-Response: {"creditToken":"5163-8903-4775-5930-2369","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71694,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71714
+Response: {"creditToken":"6026-1969-9922-8039-8272","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71714,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
 Vend #9
-Transaction ID: 71695
-Response: {"creditToken":"0494-1219-2272-9911-2940","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71695,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71715
+Response: {"creditToken":"1314-6685-4704-7370-1700","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71715,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
 Vend #10
-Transaction ID: 71696
-Response: {"creditToken":"0039-5536-2327-0070-8768","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71696,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
+Transaction ID: 71716
+Response: {"creditToken":"6474-5484-9496-6909-1775","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71716,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
 ------------------------------
