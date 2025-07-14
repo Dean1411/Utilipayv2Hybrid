@@ -9,21 +9,35 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">4</td><td class="num">0</td><td class="num attn">1</td><td class="num attn">1</td><td class="num">20 579</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">2</td><td class="num">0</td><td class="num attn">3</td><td class="num attn">3</td><td class="num">21 700</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m0">switchVend</a></td><td rowspan="1">1751538767796</td><td rowspan="1">194</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m1">switchVend</a></td><td rowspan="1">1751538767572</td><td rowspan="1">222</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m2">confirmTransactionTest</a></td><td rowspan="1">1751538767999</td><td rowspan="1">177</td></tr><tr class="passedeven"><td><a href="#m3">emsVendTest</a></td><td rowspan="1">1751538751098</td><td rowspan="1">15009</td></tr><tr class="passedeven"><td><a href="#m4">switchMeterLookup</a></td><td rowspan="1">1751538766126</td><td rowspan="1">1273</td></tr><tr class="passedeven"><td><a href="#m5">switchMunLookup</a></td><td rowspan="1">1751538767401</td><td rowspan="1">169</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m0">switchMeterLookup</a></td><td rowspan="1">1752226647593</td><td rowspan="1">252</td></tr><tr class="failedeven"><td><a href="#m1">switchMunLookup</a></td><td rowspan="1">1752226647982</td><td rowspan="1">137</td></tr><tr class="failedeven"><td><a href="#m2">switchVend</a></td><td rowspan="1">1752226648255</td><td rowspan="1">122</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="3">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m3">switchMeterLookup</a></td><td rowspan="1">1752226647041</td><td rowspan="1">550</td></tr><tr class="retriedeven"><td><a href="#m4">switchMunLookup</a></td><td rowspan="1">1752226647850</td><td rowspan="1">128</td></tr><tr class="retriedeven"><td><a href="#m5">switchVend</a></td><td rowspan="1">1752226648122</td><td rowspan="1">131</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m6">confirmTransactionTest</a></td><td rowspan="1">1752226648382</td><td rowspan="1">129</td></tr><tr class="passedeven"><td><a href="#m7">emsVendTest</a></td><td rowspan="1">1752226633978</td><td rowspan="1">13045</td></tr></tbody>
 </table>
-<h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.Api#switchVend</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Switch vend request failed expected [200] but found [500]
+<h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.Api#switchMeterLookup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Meter Lookup request failed expected [200] but found [404]
+	at UtilipayV2Hybrid.testCases.Api.switchMeterLookup(Api.java:190)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">UtilipayV2Hybrid.testCases.Api#switchMunLookup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Municipality Lookup request failed expected [200] but found [415]
+	at UtilipayV2Hybrid.testCases.Api.switchMunLookup(Api.java:157)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">UtilipayV2Hybrid.testCases.Api#switchVend</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Switch vend request failed expected [200] but found [415]
 	at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:170)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">UtilipayV2Hybrid.testCases.Api#switchVend</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Switch vend request failed expected [200] but found [500]
+<h3 id="m3">UtilipayV2Hybrid.testCases.Api#switchMeterLookup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Meter Lookup request failed expected [200] but found [404]
+	at UtilipayV2Hybrid.testCases.Api.switchMeterLookup(Api.java:190)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">UtilipayV2Hybrid.testCases.Api#switchMunLookup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Municipality Lookup request failed expected [200] but found [415]
+	at UtilipayV2Hybrid.testCases.Api.switchMunLookup(Api.java:157)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">UtilipayV2Hybrid.testCases.Api#switchVend</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Switch vend request failed expected [200] but found [415]
 	at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:170)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">UtilipayV2Hybrid.testCases.Api#confirmTransactionTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">UtilipayV2Hybrid.testCases.Api#emsVendTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">UtilipayV2Hybrid.testCases.Api#switchMeterLookup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">UtilipayV2Hybrid.testCases.Api#switchMunLookup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">UtilipayV2Hybrid.testCases.Api#confirmTransactionTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">UtilipayV2Hybrid.testCases.Api#emsVendTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
