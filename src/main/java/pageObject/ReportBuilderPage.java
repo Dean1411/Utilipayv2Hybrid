@@ -16,7 +16,7 @@ public class ReportBuilderPage extends BaseComponent {
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
-	//Prepaid slaes report elements
+	//Prepaid sales report elements
     @FindBy(xpath = "//span[normalize-space()='Prepaid Sales']")
     WebElement prepaidSales;
     
@@ -58,7 +58,29 @@ public class ReportBuilderPage extends BaseComponent {
     @FindBy(xpath = "//span[normalize-space()='Month End']")
     WebElement manufacturingTokenBtn;
 
-    @FindBy(xpath = "//span[normalize-space()='Free Basic Units Issued']")
-    WebElement manufacturingKeyChangeTokenBtn;
+    @FindBy(xpath = "//select[@id='Municipality']")
+    WebElement municipality;
+    
+    @FindBy(xpath = "//input[@id='flatpickr-date']")
+    WebElement selectDay;
+
+    @FindBy(xpath = "//button[normalize-space()='Generate Preview']")
+    WebElement dayEndGeneratePreview;
+
+    @FindBy(xpath = "//a[@id='backButton']")
+    WebElement backBtn;
+    
+    //Month End Elements
+    @FindBy(xpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/a[1]/div[1]/label[1]/span[1]")
+    WebElement monthEnd;
+
+    @FindBy(xpath = "//input[@id='flatpickr-range']")
+    WebElement selectMonth;
+
+
+    
+    
+    
+    
 
 }
