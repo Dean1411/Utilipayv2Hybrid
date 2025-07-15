@@ -1,2 +1,0 @@
-MeterNumber,SupplyGroupCode,keyRevisionNumber,TariffIndex,TransferAmount,EncryptionAlgorithm,TokenCarrierType,KeyExpiryNumber,TokenTime,Flags,SubClass,AllowKrnUpdate
-00000000075,400178,2,1,100,7,2,255,0,0,E,False
