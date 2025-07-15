@@ -190,7 +190,7 @@ public class Api {
         Assert.assertEquals(response.statusCode(), 200, "Meter Lookup request failed");
     }
     
-    //test
+    
     public void confirmTransaction(String transactionId) {
         String confirmEndpoint = ConfigReader.get("confirmTransaction");
         String confirmJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
