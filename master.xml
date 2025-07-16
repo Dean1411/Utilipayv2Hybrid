@@ -43,7 +43,6 @@
 						<class name="UtilipayV2Hybrid.testCases.Reporting"></class>
 
 			<!--<class name="UtilipayV2Hybrid.testCases.EngineeringTokens"></class>-->
-<!--			<class name="UtilipayV2Hybrid.testCases.Api" />-->
 		</classes>
 	</test> <!--
 	Test -->
