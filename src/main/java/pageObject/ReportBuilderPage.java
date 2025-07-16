@@ -153,7 +153,7 @@ public class ReportBuilderPage extends BaseComponent {
         }
     }
 
-    // Low Purchase Report
+    // Low Purchase 
     public void lowPurchase(double amount) {
         try {
             selectMunicipality("Karoo Hoogland");
