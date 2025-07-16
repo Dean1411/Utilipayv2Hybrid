@@ -35,8 +35,14 @@
 			<!--			<class name="UtilipayV2Hybrid.testCases.EndToEnd" />-->			
 <!--			<class name="UtilipayV2Hybrid.testCases.Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic"/>-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.VerifyLinks" />-->
+<<<<<<< HEAD
+<!--						<class name="UtilipayV2Hybrid.testCases.EngineeringTokens"></class>-->
+			<!--			<class name="UtilipayV2Hybrid.testCases.Api" />-->
+			<class name="UtilipayV2Hybrid.testCases.Reporting"></class>
+=======
 			<!--<class name="UtilipayV2Hybrid.testCases.EngineeringTokens"></class>-->
 						<class name="UtilipayV2Hybrid.testCases.Api" />
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
 		</classes>
 	</test> <!--
 	Test -->

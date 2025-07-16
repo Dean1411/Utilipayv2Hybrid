@@ -26,7 +26,11 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
+<<<<<<< HEAD
+      <span class="top-banner-font-1">1 suite</span>
+=======
       <span class="top-banner-font-1">1 suite, 3 failed tests</span>
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +44,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-failed">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -61,7 +65,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Suite" class="navigator-link ">
-                    <span>0 groups</span>
+                    <span>1 group</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,6 +97,9 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
+<<<<<<< HEAD
+                    <span class="method-stats">1 method,   1 passed</span>
+=======
                     <span class="method-stats">8 methods, 3 failed,  3 skipped,  2 passed</span>
                   </li>
                   <li>
@@ -142,6 +149,7 @@
                       </span>
                       <br/>
                     </div> <!-- method-list-content skipped suite-Suite -->
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -152,12 +160,16 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
+<<<<<<< HEAD
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Reporting" class="method navigator-link" hash-for-method="generateAllReportsAndAssertStatusMessages">generateAllReportsAndAssertStatusMessages</a> <!-- method navigator-link -->
+=======
                         <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="confirmTransactionTest">confirmTransactionTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="emsVendTest">emsVendTest</a> <!-- method navigator-link -->
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -172,6 +184,8 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+<<<<<<< HEAD
+=======
           <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
@@ -260,14 +274,20 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-skipped -->
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">UtilipayV2Hybrid.testCases.Api</span>
+              <span class="class-name">UtilipayV2Hybrid.testCases.Reporting</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+<<<<<<< HEAD
+                  <a name="generateAllReportsAndAssertStatusMessages">
+                  </a> <!-- generateAllReportsAndAssertStatusMessages -->
+                  <span class="method-name">generateAllReportsAndAssertStatusMessages</span>
+=======
                   <a name="confirmTransactionTest">
                   </a> <!-- confirmTransactionTest -->
                   <span class="method-name">confirmTransactionTest</span>
@@ -278,6 +298,7 @@
                   <a name="emsVendTest">
                   </a> <!-- emsVendTest -->
                   <span class="method-name">emsVendTest</span>
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -300,7 +321,7 @@
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Utilipay Version 2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;UtilipayV2Hybrid.testCases.Api&quot;/&gt;
+      &lt;class name=&quot;UtilipayV2Hybrid.testCases.Reporting&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Utilipay Version 2 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -324,6 +345,14 @@
             <span class="header-content">Groups for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">Regression</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">generateAllReportsAndAssertStatusMessages</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Suite" class="panel">
@@ -340,6 +369,13 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
+<<<<<<< HEAD
+data.addRows(1);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'generateAllReportsAndAssertStatusMessages')
+data.setCell(0, 2, 'UtilipayV2Hybrid.testCases.Reporting')
+data.setCell(0, 3, 40837);
+=======
 data.addRows(8);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'emsVendTest')
@@ -373,11 +409,16 @@ data.setCell(7, 0, 7)
 data.setCell(7, 1, 'switchVend')
 data.setCell(7, 2, 'UtilipayV2Hybrid.testCases.Api')
 data.setCell(7, 3, 122);
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
+<<<<<<< HEAD
+              <span class="suite-total-time">Total running time: 40 seconds</span>
+=======
               <span class="suite-total-time">Total running time: 14 seconds</span>
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -403,12 +444,20 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">UtilipayV2Hybrid.testCases.Api</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">UtilipayV2Hybrid.testCases.Reporting</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">authentication</span>
+                <span class="method-name">setUp(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">setupReportingModule</span>
+                <span class="method-start">6989 ms</span>
+              </div> <!-- configuration-class before -->
               <div class="test-method">
+<<<<<<< HEAD
+                <span class="method-name">generateAllReportsAndAssertStatusMessages</span>
+                <span class="method-start">9371 ms</span>
+=======
                 <span class="method-name">emsVendTest</span>
                 <span class="method-start">6673 ms</span>
               </div> <!-- test-method -->
@@ -445,7 +494,12 @@ return data;
               <div class="test-method">
                 <span class="method-name">confirmTransactionTest</span>
                 <span class="method-start">21077 ms</span>
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
               </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">50282 ms</span>
+              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

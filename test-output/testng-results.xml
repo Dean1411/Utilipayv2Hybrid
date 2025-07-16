@@ -1,10 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-16T17:17:18 SAST" name="Suite" finished-at="2025-07-16T17:18:09 SAST" duration-ms="51195">
+=======
 <testng-results retried="3" ignored="0" total="8" passed="2" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
   <suite started-at="2025-07-11T11:37:06 SAST" name="Suite" finished-at="2025-07-11T11:37:28 SAST" duration-ms="21700">
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
     <groups>
+      <group name="Regression">
+        <method signature="Reporting.generateAllReportsAndAssertStatusMessages()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@7c351808]" name="generateAllReportsAndAssertStatusMessages" class="UtilipayV2Hybrid.testCases.Reporting"/>
+      </group> <!-- Regression -->
     </groups>
+<<<<<<< HEAD
+    <test started-at="2025-07-16T17:17:18 SAST" name="Utilipay Version 2" finished-at="2025-07-16T17:18:09 SAST" duration-ms="51195">
+      <class name="UtilipayV2Hybrid.testCases.Reporting">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@7c351808]" started-at="2025-07-16T17:17:18 SAST" name="setUp" finished-at="2025-07-16T17:17:25 SAST" duration-ms="6988" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="setupReportingModule()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@7c351808]" started-at="2025-07-16T17:17:25 SAST" name="setupReportingModule" finished-at="2025-07-16T17:17:28 SAST" duration-ms="2350" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupReportingModule -->
+        <test-method signature="generateAllReportsAndAssertStatusMessages()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@7c351808]" started-at="2025-07-16T17:17:28 SAST" name="generateAllReportsAndAssertStatusMessages" finished-at="2025-07-16T17:18:08 SAST" duration-ms="40837" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateAllReportsAndAssertStatusMessages -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@7c351808]" started-at="2025-07-16T17:18:08 SAST" name="tearDown" finished-at="2025-07-16T17:18:09 SAST" duration-ms="435" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- UtilipayV2Hybrid.testCases.Reporting -->
+=======
     <test started-at="2025-07-11T11:37:06 SAST" name="Utilipay Version 2" finished-at="2025-07-11T11:37:28 SAST" duration-ms="21700">
       <class name="UtilipayV2Hybrid.testCases.Api">
         <test-method is-config="true" signature="authentication()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@7a7471ce]" started-at="2025-07-11T11:37:07 SAST" name="authentication" finished-at="2025-07-11T11:37:13 SAST" duration-ms="6658" status="PASS">
@@ -290,6 +328,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </reporter-output>
         </test-method> <!-- confirmTransactionTest -->
       </class> <!-- UtilipayV2Hybrid.testCases.Api -->
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
     </test> <!-- Utilipay Version 2 -->
   </suite> <!-- Suite -->
 </testng-results>
