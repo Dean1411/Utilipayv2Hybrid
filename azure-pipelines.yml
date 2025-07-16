@@ -1,0 +1,51 @@
+name: $(Build.DefinitionName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger: none  
+
+resources:
+  pipelines:
+    - pipeline: dotnetPipeline
+      project: '<UtiliPayV2>'           
+      source: '<DotNet-CI>'         
+      trigger:
+        branches:
+          include:
+            - development                    
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$(Pipeline.Workspace)/.m2/repository"
+
+steps:
+- task: JavaToolInstaller@0
+  displayName: 'Install Java 17'
+  inputs:
+    versionSpec: '17'
+    jdkArchitecture: 'x64'
+
+- task: Maven@3
+  displayName: 'Run TestNG Selenium Tests'
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'clean test'
+    options: '-Dsurefire.suiteXmlFiles=testng.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/testng-results.xml'
+
+# Publish TestNG Results
+- task: PublishTestResults@2
+  displayName: 'Publish TestNG Results to Azure DevOps'
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/surefire-reports/testng-results.xml'
+    failTaskOnFailedTests: true
+
+# Publish Extent Report (HTML report)
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Extent Report as Artifact'
+  inputs:
+    PathtoPublish: 'test-output/ExtentReports' 
+    ArtifactName: 'ExtentReport'
+    publishLocation: 'Container'

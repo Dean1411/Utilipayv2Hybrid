@@ -26,7 +26,11 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
+<<<<<<< HEAD
       <span class="top-banner-font-1">1 suite</span>
+=======
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -93,7 +97,59 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
+<<<<<<< HEAD
                     <span class="method-stats">1 method,   1 passed</span>
+=======
+                    <span class="method-stats">8 methods, 3 failed,  3 skipped,  2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="switchMeterLookup">switchMeterLookup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="switchMunLookup">switchMunLookup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="switchVend">switchVend</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Retried methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods skipped suite-Suite"> (hide)</a> <!-- hide-methods skipped suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods skipped suite-Suite"> (show)</a> <!-- show-methods skipped suite-Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="switchMeterLookup">switchMeterLookup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="switchMunLookup">switchMunLookup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="switchVend">switchVend</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Suite -->
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,7 +160,16 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
+<<<<<<< HEAD
                         <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Reporting" class="method navigator-link" hash-for-method="generateAllReportsAndAssertStatusMessages">generateAllReportsAndAssertStatusMessages</a> <!-- method navigator-link -->
+=======
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="confirmTransactionTest">confirmTransactionTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Api" class="method navigator-link" hash-for-method="emsVendTest">emsVendTest</a> <!-- method navigator-link -->
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -119,6 +184,97 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+<<<<<<< HEAD
+=======
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">UtilipayV2Hybrid.testCases.Api</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="switchMeterLookup">
+                  </a> <!-- switchMeterLookup -->
+                  <span class="method-name">switchMeterLookup</span>
+                  <div class="stack-trace">java.lang.AssertionError: Meter Lookup request failed expected [200] but found [404]
+	at UtilipayV2Hybrid.testCases.Api.switchMeterLookup(Api.java:190)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="switchMunLookup">
+                  </a> <!-- switchMunLookup -->
+                  <span class="method-name">switchMunLookup</span>
+                  <div class="stack-trace">java.lang.AssertionError: Municipality Lookup request failed expected [200] but found [415]
+	at UtilipayV2Hybrid.testCases.Api.switchMunLookup(Api.java:157)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="switchVend">
+                  </a> <!-- switchVend -->
+                  <span class="method-name">switchVend</span>
+                  <div class="stack-trace">java.lang.AssertionError: Switch vend request failed expected [200] but found [415]
+	at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:170)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">UtilipayV2Hybrid.testCases.Api</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="switchMeterLookup">
+                  </a> <!-- switchMeterLookup -->
+                  <span class="method-name">switchMeterLookup</span>
+                  <div class="stack-trace">java.lang.AssertionError: Meter Lookup request failed expected [200] but found [404]
+	at UtilipayV2Hybrid.testCases.Api.switchMeterLookup(Api.java:190)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="switchMunLookup">
+                  </a> <!-- switchMunLookup -->
+                  <span class="method-name">switchMunLookup</span>
+                  <div class="stack-trace">java.lang.AssertionError: Municipality Lookup request failed expected [200] but found [415]
+	at UtilipayV2Hybrid.testCases.Api.switchMunLookup(Api.java:157)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="switchVend">
+                  </a> <!-- switchVend -->
+                  <span class="method-name">switchVend</span>
+                  <div class="stack-trace">java.lang.AssertionError: Switch vend request failed expected [200] but found [415]
+	at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:170)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-skipped -->
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -127,9 +283,22 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+<<<<<<< HEAD
                   <a name="generateAllReportsAndAssertStatusMessages">
                   </a> <!-- generateAllReportsAndAssertStatusMessages -->
                   <span class="method-name">generateAllReportsAndAssertStatusMessages</span>
+=======
+                  <a name="confirmTransactionTest">
+                  </a> <!-- confirmTransactionTest -->
+                  <span class="method-name">confirmTransactionTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="emsVendTest">
+                  </a> <!-- emsVendTest -->
+                  <span class="method-name">emsVendTest</span>
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -200,16 +369,56 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
+<<<<<<< HEAD
 data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'generateAllReportsAndAssertStatusMessages')
 data.setCell(0, 2, 'UtilipayV2Hybrid.testCases.Reporting')
 data.setCell(0, 3, 40837);
+=======
+data.addRows(8);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'emsVendTest')
+data.setCell(0, 2, 'UtilipayV2Hybrid.testCases.Api')
+data.setCell(0, 3, 13045);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'switchMeterLookup')
+data.setCell(1, 2, 'UtilipayV2Hybrid.testCases.Api')
+data.setCell(1, 3, 550);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'switchMeterLookup')
+data.setCell(2, 2, 'UtilipayV2Hybrid.testCases.Api')
+data.setCell(2, 3, 252);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'switchMunLookup')
+data.setCell(3, 2, 'UtilipayV2Hybrid.testCases.Api')
+data.setCell(3, 3, 137);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'switchVend')
+data.setCell(4, 2, 'UtilipayV2Hybrid.testCases.Api')
+data.setCell(4, 3, 131);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'confirmTransactionTest')
+data.setCell(5, 2, 'UtilipayV2Hybrid.testCases.Api')
+data.setCell(5, 3, 129);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'switchMunLookup')
+data.setCell(6, 2, 'UtilipayV2Hybrid.testCases.Api')
+data.setCell(6, 3, 128);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'switchVend')
+data.setCell(7, 2, 'UtilipayV2Hybrid.testCases.Api')
+data.setCell(7, 3, 122);
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
+<<<<<<< HEAD
               <span class="suite-total-time">Total running time: 40 seconds</span>
+=======
+              <span class="suite-total-time">Total running time: 14 seconds</span>
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -245,8 +454,47 @@ return data;
                 <span class="method-start">6989 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+<<<<<<< HEAD
                 <span class="method-name">generateAllReportsAndAssertStatusMessages</span>
                 <span class="method-start">9371 ms</span>
+=======
+                <span class="method-name">emsVendTest</span>
+                <span class="method-start">6673 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">switchMeterLookup</span>
+                <span class="method-start">19736 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">switchMeterLookup</span>
+                <span class="method-start">20288 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">switchMunLookup</span>
+                <span class="method-start">20545 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">switchMunLookup</span>
+                <span class="method-start">20677 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">switchVend</span>
+                <span class="method-start">20817 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">switchVend</span>
+                <span class="method-start">20950 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">confirmTransactionTest</span>
+                <span class="method-start">21077 ms</span>
+>>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>

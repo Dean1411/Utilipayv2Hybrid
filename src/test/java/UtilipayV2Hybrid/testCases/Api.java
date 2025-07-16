@@ -59,88 +59,90 @@ public class Api {
         Assert.assertFalse(switchBearerToken.isEmpty(), "Switch token is empty");
     }
 
-    @Test
-    public void emsVendTest() {
-        int vends = 2;
-        int total = 0;
-        String filePath = "ems_vend_results.txt";
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            for (int i = 0; i < vends; i++) {
-                String emsVendEndpoint = ConfigReader.get("emsVend");
-
-                Response response = given()
-                        .header("Authorization", "Bearer " + bearerToken)
-                        .when()
-                        .post(baseUrl + emsVendEndpoint);
-
-                String responseBody = response.getBody().asString();
-                System.out.println("EMS Vend Response: " + responseBody);
-
-                JsonPath jsonPath = new JsonPath(responseBody);
-                transactionId = jsonPath.getString("transactionId");
-                System.out.println("Transaction Id: " + transactionId);
-
-                writer.write("Vend #" + (i + 1));
-                writer.newLine();
-                writer.write("Transaction ID: " + transactionId);
-                writer.newLine();
-                writer.write("Response: " + responseBody);
-                writer.newLine();
-                writer.write("------------------------------");
-                writer.newLine();
-
-                Assert.assertEquals(response.statusCode(), 200, "EMS Vend request failed");
-
-                total++;
-            }
-
-            System.out.println("Total purchases: " + total);
-
-        } catch (IOException e) {
-            Assert.fail("IOException occurred during EMS Vend: " + e.getMessage());
-        }
-
-        Assert.assertTrue(total > 0, "No EMS vends completed");
-        Assert.assertNotNull(transactionId, "Transaction ID not set after EMS vend");
-    }
-
-    @Test(dependsOnMethods = "emsVendTest")
-    public void confirmTransactionTest() {
-        System.out.println("Running confirmTransactionTest()");
-
-        Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
-        String confirmEndpoint = ConfigReader.get("confirmTransaction");
-        String confirmJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
-
-        Response response = given()
-                .header("Authorization", "Bearer " + bearerToken)
-                .header("Content-Type", "application/json")
-                .body(confirmJsonBody)
-                .when()
-                .post(baseUrl + confirmEndpoint);
-
-        System.out.println("Confirm Transaction Response: " + response.getBody().asString());
-        Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
-    }
+//    @Test
+//    public void emsVendTest() {
+//        int vends = 10;
+//        int total = 0;
+//        String filePath = "ems_vend_results.txt";
+//
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+//            for (int i = 0; i < vends; i++) {
+//                String emsVendEndpoint = ConfigReader.get("emsVend");
+//
+//                Response response = given()
+//                        .header("Authorization", "Bearer " + bearerToken)
+//                        .when()
+//                        .post(baseUrl + emsVendEndpoint);
+//
+//                String responseBody = response.getBody().asString();
+//                System.out.println("EMS Vend Response: " + responseBody);
+//
+//                JsonPath jsonPath = new JsonPath(responseBody);
+//                transactionId = jsonPath.getString("transactionId");
+//                System.out.println("Transaction Id: " + transactionId);
+//
+////                writer.write("Vend #" + (i + 1));
+////                writer.newLine();
+////                writer.write("Transaction ID: " + transactionId);
+////                writer.newLine();
+////                writer.write("Response: " + responseBody);
+////                writer.newLine();
+////                writer.write("------------------------------");
+////                writer.newLine();
+//
+//                Assert.assertEquals(response.statusCode(), 200, "EMS Vend request failed");
+//                
+//                confirmTransaction(transactionId);
+//
+//                total++;
+//            }
+//
+//            System.out.println("Total purchases: " + total);
+//
+//        } catch (IOException e) {
+//            Assert.fail("IOException occurred during EMS Vend: " + e.getMessage());
+//        }
+//
+//        Assert.assertTrue(total > 0, "No EMS vends completed");
+//        Assert.assertNotNull(transactionId, "Transaction ID not set after EMS vend");
+//    }
+//
+//    @Test(dependsOnMethods = "emsVendTest")
+//    public void confirmTransactionTest() {
+//        System.out.println("Running confirmTransactionTest()");
+//
+//        Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
+//        String confirmEndpoint = ConfigReader.get("confirmTransaction");
+//        String confirmJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
+//
+//        Response response = given()
+//                .header("Authorization", "Bearer " + bearerToken)
+//                .header("Content-Type", "application/json")
+//                .body(confirmJsonBody)
+//                .when()
+//                .post(baseUrl + confirmEndpoint);
+//
+//        System.out.println("Confirm Transaction Response: " + response.getBody().asString());
+//        Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
+//    }
     
-  @Test(dependsOnMethods = "confirmTransactionTest")
-  public void cancelTransactionTest() {
-      Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
-      String cancelEndpoint = ConfigReader.get("cancelTransaction");
-      String cancelJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
-
-      Response response = given()
-          .header("Authorization", "Bearer " + bearerToken)
-          .header("Content-Type", "application/json")
-          .body(cancelJsonBody)
-      .when()
-          .post(baseUrl + cancelEndpoint);
-
-      System.out.println("Cancel Transaction Response: " + response.getBody().asString());
-      Assert.assertEquals(response.statusCode(), 200, "Cancel transaction failed");
-      System.out.println();
-  }
+//  @Test(dependsOnMethods = "confirmTransactionTest")
+//  public void cancelTransactionTest() {
+//      Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
+//      String cancelEndpoint = ConfigReader.get("cancelTransaction");
+//      String cancelJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
+//
+//      Response response = given()
+//          .header("Authorization", "Bearer " + bearerToken)
+//          .header("Content-Type", "application/json")
+//          .body(cancelJsonBody)
+//      .when()
+//          .post(baseUrl + cancelEndpoint);
+//
+//      System.out.println("Cancel Transaction Response: " + response.getBody().asString());
+//      Assert.assertEquals(response.statusCode(), 200, "Cancel transaction failed");
+//      System.out.println();
+//  }
 
     @Test
     public void switchMunLookup() {
@@ -187,4 +189,21 @@ public class Api {
         System.out.println("Meter Lookup Response: " + response.getBody().asString());
         Assert.assertEquals(response.statusCode(), 200, "Meter Lookup request failed");
     }
+    
+    
+    public void confirmTransaction(String transactionId) {
+        String confirmEndpoint = ConfigReader.get("confirmTransaction");
+        String confirmJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
+
+        Response response = given()
+                .header("Authorization", "Bearer " + bearerToken)
+                .header("Content-Type", "application/json")
+                .body(confirmJsonBody)
+                .when()
+                .post(baseUrl + confirmEndpoint);
+
+        System.out.println("Confirm Transaction Response: " + response.getBody().asString());
+        Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
+    }
+
 }

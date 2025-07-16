@@ -1,8 +1,0 @@
-Vend #1
-Transaction ID: 71655
-Response: {"creditToken":"5722-8083-6069-1988-9322","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71655,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
-------------------------------
-Vend #2
-Transaction ID: 71656
-Response: {"creditToken":"6955-8923-7158-5386-0380","units":11.3,"steps":"11.3 kl @ R 5 / kl\r\n","prepaidAmount":64.7,"prepaidVatAmount":0,"recoveryAmount":10,"transactionId":71656,"freeBasicCreditToken":null,"error":"","decodeKeys":[],"freeBasic":{"creditToken":"","units":6,"steps":null,"prepaidAmount":0,"prepaidVatAmount":0},"addtionalInformation":{"vatNo":"1234567","sgc":813,"tariffIndex":1,"krn":2,"meterType":"W"}}
-------------------------------
