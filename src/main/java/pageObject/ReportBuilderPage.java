@@ -352,7 +352,8 @@ public class ReportBuilderPage extends BaseComponent {
         option.selectByVisibleText(format);
         wait.until(ExpectedConditions.elementToBeClickable(submitBtn)).click();
     }
-
+    
+    //status msg
     public String statusMessage() {
         try {
             WebDriverWait toastWait = new WebDriverWait(driver, Duration.ofSeconds(6));
