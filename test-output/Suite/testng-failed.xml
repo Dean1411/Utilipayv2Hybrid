@@ -9,21 +9,13 @@
   </listeners>
   <test thread-count="5" name="Utilipay Version 2(failed)">
     <classes>
-      <class name="UtilipayV2Hybrid.testCases.Reporting">
+      <class name="UtilipayV2Hybrid.testCases.Import_Export">
         <methods>
-<<<<<<< HEAD
           <include name="setUp"/>
-          <include name="setupReportingModule"/>
           <include name="tearDown"/>
-          <include name="generateAllReportsAndAssertStatusMessages"/>
-=======
-          <include name="switchMeterLookup"/>
-          <include name="switchMunLookup"/>
-          <include name="authentication"/>
-          <include name="switchVend"/>
->>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
+          <include name="importTest"/>
         </methods>
-      </class> <!-- UtilipayV2Hybrid.testCases.Reporting -->
+      </class> <!-- UtilipayV2Hybrid.testCases.Import_Export -->
     </classes>
   </test> <!-- Utilipay Version 2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

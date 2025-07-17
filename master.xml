@@ -17,32 +17,30 @@
 			<!--			<class name="UtilipayV2Hybrid.testCases.DbUser" />-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.DbTest" />-->
 			<!--			<class name="UtilipayV2Hybrid.testBase.Base" />-->
-<!--						<class name="UtilipayV2Hybrid.testCases.ValidLoginTest" />-->
+			<!--						<class name="UtilipayV2Hybrid.testCases.ValidLoginTest" />-->
 			<!--			<class
 			name="UtilipayV2Hybrid.testCases.GenerateEngineeringToken" />-->
 			<!--						<class name="UtilipayV2Hybrid.testCases.AddUser" />-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.AddMunicipality" />-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.MtrLookup" />-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.DatabaseTest" />-->
-<!--									<class name="UtilipayV2Hybrid.testCases.Transact" />-->
+			<!--									<class name="UtilipayV2Hybrid.testCases.Transact" />-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.AddTariff" />-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.PerformKeyChange" />-->
 			<!--			<class
 			name="UtilipayV2Hybrid.testCases.ManagementFunctionToken" />-->
 			<!--			<class
 			name="UtilipayV2Hybrid.testCases.UnitsAndStepsValidation" />-->
-			<!--			<class name="UtilipayV2Hybrid.testCases.Import_Export" />-->
-			<!--			<class name="UtilipayV2Hybrid.testCases.EndToEnd" />-->			
-<!--			<class name="UtilipayV2Hybrid.testCases.Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic"/>-->
+						<class name="UtilipayV2Hybrid.testCases.Import_Export" />
+			<!--			<class name="UtilipayV2Hybrid.testCases.EndToEnd" />-->
+			<!--			<class
+			name="UtilipayV2Hybrid.testCases.Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic"/>-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.VerifyLinks" />-->
-<<<<<<< HEAD
-<!--						<class name="UtilipayV2Hybrid.testCases.EngineeringTokens"></class>-->
+
+			<!--						<class
+			name="UtilipayV2Hybrid.testCases.EngineeringTokens"></class>-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.Api" />-->
-			<class name="UtilipayV2Hybrid.testCases.Reporting"></class>
-=======
-			<!--<class name="UtilipayV2Hybrid.testCases.EngineeringTokens"></class>-->
-						<class name="UtilipayV2Hybrid.testCases.Api" />
->>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
+<!--			<class name="UtilipayV2Hybrid.testCases.Reporting"></class>-->
 		</classes>
 	</test> <!--
 	Test -->

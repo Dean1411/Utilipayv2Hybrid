@@ -1,0 +1,44 @@
+2025-07-17 08:31:23.572 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-17 08:31:23.691 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-07-17 08:31:27.518 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-17 08:31:27.624 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: custom report ===
+2025-07-17 08:31:28.821 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [custom report]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-17 08:31:28.929 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
+2025-07-17 10:53:38.706 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 10:53:38.710 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 11:04:30.333 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 11:04:30.346 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 11:21:06.369 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 11:21:06.382 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 11:23:46.135 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 11:23:46.140 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 11:38:38.459 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 11:38:38.463 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 11:40:22.371 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Verifying toaster message***
+2025-07-17 11:40:25.416 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 11:40:25.416 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 11:41:05.274 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 11:41:05.290 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 11:41:08.750 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Verifying toaster message***
+2025-07-17 11:41:11.803 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 11:41:11.804 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 11:57:47.200 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 11:57:47.209 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 12:02:46.941 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 12:02:46.945 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 12:05:52.418 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 12:05:52.422 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 12:11:37.860 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 12:11:37.863 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 12:14:08.981 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 12:14:08.985 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 12:14:52.772 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Verifying toaster message***
+2025-07-17 12:15:25.092 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 12:15:25.093 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 12:16:04.233 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 12:16:04.250 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 12:16:08.312 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Verifying toaster message***
+2025-07-17 12:16:11.366 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-17 12:16:11.367 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-17 12:26:57.297 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-17 12:26:57.942 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
