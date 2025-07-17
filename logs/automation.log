@@ -1,31 +1,6 @@
-<<<<<<< HEAD
-2025-07-16 17:17:33.861 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
-2025-07-16 17:17:46.529 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!
-2025-07-16 17:17:46.646 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
-2025-07-16 17:17:50.995 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [month end]: Your report is being prepared. you will receive an email ones it is ready!
-2025-07-16 17:17:51.097 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
-2025-07-16 17:17:57.374 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
-2025-07-16 17:17:57.485 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
-2025-07-16 17:18:02.177 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
-2025-07-16 17:18:02.281 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
-2025-07-16 17:18:07.459 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
-2025-07-16 17:18:07.565 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: custom report ===
-2025-07-16 17:18:08.791 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [custom report]: Your report is being prepared. you will receive an email ones it is ready!
-2025-07-16 17:18:08.904 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
-=======
-2025-06-25 11:33:36.685 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
-2025-06-25 11:33:45.294 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
-2025-06-25 11:34:12.215 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token
-2025-06-25 11:34:38.052 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
-2025-06-25 11:34:53.984 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
-2025-07-02 08:42:49.048 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
-2025-07-02 08:42:49.125 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
-2025-07-02 08:42:57.271 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
-2025-07-02 08:42:57.272 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
-2025-07-02 08:43:51.232 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
-2025-07-02 08:43:51.296 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
-2025-07-02 08:43:51.296 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
-2025-07-02 08:44:04.018 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Valid Login Test***
-2025-07-02 08:44:04.019 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
-2025-07-02 08:44:04.019 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
->>>>>>> e1049039be4fa2ebd9bbf76e3d9804f40bd8685c
+2025-07-17 12:28:07.755 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
+2025-07-17 12:31:26.721 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-17 12:31:27.488 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
+2025-07-17 12:38:15.614 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-17 12:38:16.211 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
+2025-07-17 12:39:50.703 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***

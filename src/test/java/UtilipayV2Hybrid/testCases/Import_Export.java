@@ -1,10 +1,8 @@
 package UtilipayV2Hybrid.testCases;
 
-import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import UtilipayV2Hybrid.testBase.Base;
 import UtilipayV2Hybrid.utilities.Retry;
 import pageObject.HomePage;
@@ -12,55 +10,53 @@ import pageObject.Import_ExportPage;
 import pageObject.LoginPage;
 import pageObject.NavigationPage;
 
-public class Import_Export extends Base{
-	
-	
-	@Parameters({"Browser"})
-	@Test (groups= {"Regression"}, retryAnalyzer = Retry.class)
-	public void importTest() throws InterruptedException {
-		
-		SoftAssert softAssert = new SoftAssert();
-		HomePage hP = new HomePage(Base.getDriver());
-		LoginPage lP = new LoginPage(Base.getDriver());
-		NavigationPage nav = new NavigationPage(Base.getDriver());
-		Import_ExportPage importExport = new Import_ExportPage(Base.getDriver());
-		
-		logger.info("***Click Developer/Tester Login***");
-		//hP.click_Btn();
-		
-		logger.info("***Enter login credentials/Click Login***");
-		lP.email(prop.getProperty("myEmail"));
-		lP.pssWrd(prop.getProperty("myPassword"));		
-		lP.loginBtn();
-		
-		nav.click_Admin();
-		nav.navigateTo("Prepaid Import");
-		
-		importExport.option("Import");
-		
-		Thread.sleep(100);
-	    String msg = importExport.getMsg(); 
+public class Import_Export extends Base {
 
-	    logger.info("***Verifying toaster message***");
+    @Parameters({"Browser"})
+    @Test(groups = {"Regression"}, retryAnalyzer = Retry.class)
+    public void importExportTest() throws InterruptedException {
 
-	    try {
-		    if (msg == null || msg.isEmpty()) {
-		        softAssert.fail("Toaster message is not visible or is empty.");
-		    } else {
-		        softAssert.assertTrue(
-		            msg.contains("File uploaded successfully"),
-		            "Toaster message does not contain expected text. Actual: " + msg
-		        );
-		        
-		        System.out.println("Toaster Message: " + msg);
-		    }
-	    }catch(Exception ex) {
-	    	
-	    	System.out.println("Exception: " + ex);
-	    }
-	    
-	    Thread.sleep(3000);
-	    softAssert.assertAll();
-	}
+        SoftAssert softAssert = new SoftAssert();
 
+        // Page object initialization
+        //HomePage homePage = new HomePage(Base.getDriver());
+        LoginPage loginPage = new LoginPage(Base.getDriver());
+        NavigationPage navigationPage = new NavigationPage(Base.getDriver());
+        Import_ExportPage importExportPage = new Import_ExportPage(Base.getDriver());
+
+        logger.info("*** Entering login credentials and logging in ***");
+        loginPage.email(prop.getProperty("myEmail"));
+        loginPage.pssWrd(prop.getProperty("myPassword"));
+        loginPage.loginBtn();
+
+        logger.info("*** Navigating to Admin section ***");
+        navigationPage.click_Admin();
+
+        String importType = "Export";
+        String navTarget = "Import".equals(importType) ? "Prepaid Import" 
+        		: "Prepaid Export";
+        navigationPage.navigateTo(navTarget);
+
+
+        importExportPage.option(importType);
+        Thread.sleep(100);
+
+        String actualMsg = importExportPage.getMsg();
+        String expectedMsg = "Import".equals(importType)
+                ? "File uploaded successfully"
+                : "File Exported successfully";
+
+        logger.info("*** Verifying toaster message ***");
+        if (actualMsg == null || actualMsg.isEmpty()) {
+            softAssert.fail("Toaster message is not visible or is empty.");
+        } else {
+            softAssert.assertTrue(
+                    actualMsg.contains(expectedMsg),
+                    "Toaster message does not contain expected text. Actual: " + actualMsg
+            );
+            System.out.println("Toaster Message: " + actualMsg);
+        }
+
+        softAssert.assertAll();
+    }
 }
