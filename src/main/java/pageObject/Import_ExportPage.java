@@ -86,7 +86,7 @@ public class Import_ExportPage extends BaseComponent {
                     importFile("EMS", "Dean Municipality");
                     break;
                 case "export":
-                    exportFile("UtiliPay", "Test Municipality", "Web","EMS");
+                    exportFile("UtiliPay", "Test Municipality", "Web");
                     break;
                 default:
                     System.out.println("Invalid function selection");
@@ -123,7 +123,7 @@ public class Import_ExportPage extends BaseComponent {
         }
     }
 
-    public void exportFile(String finSys, String mun, String option1, String option2) {
+    public void exportFile(String finSys, String mun, String option1) {
         wait.until(ExpectedConditions.elementToBeClickable(exportData));
         exportData.click();
         
@@ -131,7 +131,7 @@ public class Import_ExportPage extends BaseComponent {
         wait.until(ExpectedConditions.elementToBeClickable(exportfinancialSystem));
         finSystem.selectByVisibleText(finSys);
         
-        selectOnlyPlatformOptions(option1, option2);
+        selectOnlyPlatformOptions(option1);
 
         Select exportMun = getSelect(exportMunicipality);
         wait.until(ExpectedConditions.elementToBeClickable(exportMunicipality));

@@ -60,18 +60,18 @@ public class NavigationPage extends BaseComponent {
 	
 	//Admin methods	
 	public void click_Admin() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(admin));
 		admin.click();				
 	}
 	
 	
 	public void click_userMngmnt() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(userMngmnt));
 		userMngmnt.click();
 	}
 	
 	public void click_MunicipalManagement() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(municipalMaintenance));
 		municipalMaintenance.click();
 	}
 	
@@ -79,22 +79,22 @@ public class NavigationPage extends BaseComponent {
 	
 	//Engineering methods
 	public void nav_Engineering() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(engineering));
 		engineering.click();
 	}
 	
 	public void click_Engineering() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(engineeringTkn));
 		engineeringTkn.click();
 	}
 	
 	public void click_Reports() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(reports));
 		reports.click();
 	}
 	
 	public void click_Reporting() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(reporting));
 		reporting.click();
 	}
 	

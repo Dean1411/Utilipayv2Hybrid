@@ -1,8 +1,35 @@
-2025-07-17 12:28:07.755 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
-2025-07-17 12:31:26.721 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
-2025-07-17 12:31:27.488 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
-2025-07-17 12:38:15.614 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
-2025-07-17 12:38:16.211 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
-2025-07-17 12:39:50.703 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
-2025-07-17 14:11:33.603 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
-2025-07-17 14:11:34.455 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
+2025-07-18 11:01:53.448 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [prepaid sales]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-18 11:01:53.454 [TestNG-tests-3] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-07-18 11:01:53.606 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-07-18 11:01:58.168 [TestNG-tests-3] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-18 11:01:58.270 [TestNG-tests-3] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-07-18 11:02:02.817 [TestNG-tests-3] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-18 11:02:02.920 [TestNG-tests-3] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
+2025-07-18 11:02:05.018 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-18 11:02:05.126 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-07-18 11:02:08.351 [TestNG-tests-3] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-18 11:02:09.319 [TestNG-tests-3] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
+2025-07-18 11:02:13.302 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [month end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-18 11:02:13.410 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-07-18 11:02:14.257 [TestNG-tests-3] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
+2025-07-18 11:02:21.668 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-18 11:02:21.770 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-07-18 11:02:26.958 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-18 11:02:27.062 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-07-18 11:02:33.590 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-18 11:02:33.691 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
+2025-07-18 11:02:40.988 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-18 11:02:42.009 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
+2025-07-18 11:03:03.012 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-18 11:05:31.487 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-18 11:05:32.675 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
+2025-07-18 11:05:53.813 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-18 11:14:07.616 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-18 11:14:09.030 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
+2025-07-18 11:14:59.439 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
+2025-07-18 11:21:40.076 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-18 11:21:41.532 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
+2025-07-18 11:21:52.071 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
+2025-07-18 11:22:29.330 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Entering login credentials and logging in ***
+2025-07-18 11:22:30.424 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Admin section ***
+2025-07-18 11:22:41.300 [TestNG-tests-2] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***

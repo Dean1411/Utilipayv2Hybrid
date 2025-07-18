@@ -31,8 +31,7 @@
 			name="UtilipayV2Hybrid.testCases.ManagementFunctionToken" />-->
 			<!--			<class
 			name="UtilipayV2Hybrid.testCases.UnitsAndStepsValidation" />-->
-<!--						<class name="UtilipayV2Hybrid.testCases.Import_Export" />-->
-			<!--			<class name="UtilipayV2Hybrid.testCases.Import_Export" />-->
+						<class name="UtilipayV2Hybrid.testCases.Import_Export" />
 			<!--			<class name="UtilipayV2Hybrid.testCases.EndToEnd" />-->
 			<!--			<class
 			name="UtilipayV2Hybrid.testCases.Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic"/>-->
@@ -40,9 +39,8 @@
 
 			<!--						<class
 			name="UtilipayV2Hybrid.testCases.EngineeringTokens"></class>-->
-						<class name="UtilipayV2Hybrid.testCases.Api" />
-<!--			<class name="UtilipayV2Hybrid.testCases.Reporting"></class>-->
-<!--						<class name="UtilipayV2Hybrid.testCases.Reporting"></class>-->
+<!--						<class name="UtilipayV2Hybrid.testCases.Api" />-->
+			<class name="UtilipayV2Hybrid.testCases.Reporting"></class>
 		</classes>
 	</test> <!--
 	Test -->
