@@ -43,8 +43,8 @@ public class Reporting extends Base {
             "month end",
             "low purchase",
             "free basic",
-            "arrears recovered",
-            "custom report"
+            "arrears recovered"
+//            "custom report"
         };
 
         String expectedMsg = "Your report is being prepared. you will receive an email ones it is ready!";

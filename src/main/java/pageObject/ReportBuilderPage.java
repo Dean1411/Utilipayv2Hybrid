@@ -258,9 +258,10 @@ public class ReportBuilderPage extends BaseComponent {
 
             if (transactionsBody.isDisplayed()) {
                 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", generateReport);
-                Thread.sleep(300);
+                
                 wait.until(ExpectedConditions.elementToBeClickable(generateReport)).click();
                 System.out.println("Transaction list:\n" + transactionsBody.getText());
+                Thread.sleep(100);
                 reportFormat("CSV");
                 System.out.println("Status: " + statusMessage());
             } else {
@@ -348,7 +349,9 @@ public class ReportBuilderPage extends BaseComponent {
     }
 
     public void reportFormat(String format) {
+    	
         Select option = new Select(reportFormat);
+        wait.until(ExpectedConditions.elementToBeClickable(reportFormat));
         option.selectByVisibleText(format);
         wait.until(ExpectedConditions.elementToBeClickable(submitBtn)).click();
     }
