@@ -1,0 +1,44 @@
+2025-07-21 14:50:49.303 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-07-21 14:51:02.054 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-21 14:51:02.173 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-07-21 14:51:10.469 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-21 14:51:10.573 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-07-21 14:51:18.898 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
+2025-07-21 14:51:19.024 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
+2025-07-21 15:09:24.738 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Generate Engineering token Test***
+2025-07-21 15:09:24.889 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-21 15:09:24.889 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-21 15:09:27.617 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
+2025-07-21 15:10:08.727 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
+2025-07-21 15:12:06.439 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Generate Engineering token Test***
+2025-07-21 15:12:06.607 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-21 15:12:06.607 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-21 15:12:08.496 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
+2025-07-21 15:12:09.656 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
+2025-07-21 15:12:28.886 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token
+2025-07-21 15:12:48.850 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
+2025-07-21 15:13:07.224 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
+2025-07-21 15:13:25.688 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing mngt function token
+2025-07-21 15:13:45.332 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: key change token
+2025-07-21 15:14:04.756 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: management function token
+2025-07-21 15:14:25.362 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Generate Engineering token Test***
+2025-07-21 15:14:25.363 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-07-21 15:14:25.363 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-07-21 15:24:45.623 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Generate Engineering token Test***
+2025-07-21 15:24:46.082 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
+2025-07-21 15:24:48.440 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
+2025-07-21 15:25:07.768 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token
+2025-07-21 15:25:27.761 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
+2025-07-21 15:25:46.450 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
+2025-07-21 15:26:06.135 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing mngt function token
+2025-07-21 15:26:25.430 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: key change token
+2025-07-21 15:26:43.947 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: management function token
+2025-07-21 15:27:02.374 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Starting Generate Engineering token Test***
+2025-07-21 15:27:12.394 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
+2025-07-21 15:27:12.919 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
+2025-07-21 15:27:31.339 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token
+2025-07-21 15:27:49.886 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
+2025-07-21 15:28:09.285 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
+2025-07-21 15:28:28.991 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing mngt function token
+2025-07-21 15:28:47.509 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: key change token
+2025-07-21 15:29:06.259 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: management function token

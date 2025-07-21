@@ -2,38 +2,34 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-18T11:22:21 SAST" name="Suite" finished-at="2025-07-18T11:22:42 SAST" duration-ms="20715">
+  <suite started-at="2025-07-21T16:06:11 SAST" name="Suite" finished-at="2025-07-21T16:08:07 SAST" duration-ms="115456">
     <groups>
       <group name="Regression">
-        <method signature="Import_Export.importExportTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Import_Export@2a1edad4]" name="importExportTest" class="UtilipayV2Hybrid.testCases.Import_Export"/>
+        <method signature="BulkEngineeringTokens.generateEngineeringTokens()[pri:0, instance:UtilipayV2Hybrid.testCases.BulkEngineeringTokens@28276e50]" name="generateEngineeringTokens" class="UtilipayV2Hybrid.testCases.BulkEngineeringTokens"/>
       </group> <!-- Regression -->
     </groups>
-    <test started-at="2025-07-18T11:22:21 SAST" name="Chrome" finished-at="2025-07-18T11:22:21 SAST" duration-ms="176">
-    </test> <!-- Chrome -->
-    <test started-at="2025-07-18T11:22:21 SAST" name="Edge" finished-at="2025-07-18T11:22:21 SAST" duration-ms="87">
-    </test> <!-- Edge -->
-    <test started-at="2025-07-18T11:22:21 SAST" name="Firefox" finished-at="2025-07-18T11:22:42 SAST" duration-ms="20715">
-      <class name="UtilipayV2Hybrid.testCases.Import_Export">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.Import_Export@2a1edad4]" started-at="2025-07-18T11:22:21 SAST" name="setUp" finished-at="2025-07-18T11:22:29 SAST" duration-ms="7373" status="PASS">
+    <test started-at="2025-07-21T16:06:11 SAST" name="Utilipay Version 2" finished-at="2025-07-21T16:08:07 SAST" duration-ms="115456">
+      <class name="UtilipayV2Hybrid.testCases.BulkEngineeringTokens">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.BulkEngineeringTokens@28276e50]" started-at="2025-07-21T16:06:11 SAST" name="setUp" finished-at="2025-07-21T16:06:20 SAST" duration-ms="8268" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[firefox]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="importExportTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Import_Export@2a1edad4]" started-at="2025-07-18T11:22:29 SAST" name="importExportTest" finished-at="2025-07-18T11:22:41 SAST" duration-ms="12085" status="PASS">
+        <test-method signature="generateEngineeringTokens()[pri:0, instance:UtilipayV2Hybrid.testCases.BulkEngineeringTokens@28276e50]" started-at="2025-07-21T16:06:20 SAST" name="generateEngineeringTokens" finished-at="2025-07-21T16:08:06 SAST" duration-ms="106590" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- importExportTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.Import_Export@2a1edad4]" started-at="2025-07-18T11:22:41 SAST" name="tearDown" finished-at="2025-07-18T11:22:42 SAST" duration-ms="1115" status="PASS">
+        </test-method> <!-- generateEngineeringTokens -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.BulkEngineeringTokens@28276e50]" started-at="2025-07-21T16:08:06 SAST" name="tearDown" finished-at="2025-07-21T16:08:07 SAST" duration-ms="231" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- UtilipayV2Hybrid.testCases.Import_Export -->
-    </test> <!-- Firefox -->
+      </class> <!-- UtilipayV2Hybrid.testCases.BulkEngineeringTokens -->
+    </test> <!-- Utilipay Version 2 -->
   </suite> <!-- Suite -->
 </testng-results>
