@@ -139,6 +139,25 @@ public class EngineeringPage extends BaseComponent {
         return processTokenFile(filePath);
     }
 
+//    private String processTokenFile(String filePath) {
+//        try {
+//            wait.until(ExpectedConditions.elementToBeClickable(bulkVendBtn)).click();
+//
+//            WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
+//            fileInput.sendKeys(filePath);
+//
+//            wait.until(ExpectedConditions.elementToBeClickable(processFileBtn)).click();
+//
+//            String msg = getValidityMsg();
+//            System.out.println("Message: " + msg);
+//
+//            return msg;
+//
+//        } catch (Exception e) {
+//            return "Exception: " + e.getMessage();
+//        }
+//    }
+    
     private String processTokenFile(String filePath) {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(bulkVendBtn)).click();
@@ -146,18 +165,36 @@ public class EngineeringPage extends BaseComponent {
             WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
             fileInput.sendKeys(filePath);
 
+            // Wait for first toast message (CSV valid)
+            WebElement toastElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[@id='toast-container']/div/div[2]")));
+            String firstMsg = toastElement.getText();
+            System.out.println("First message: " + firstMsg);
+
+            // Wait for first toast to disappear before continuing
+            wait.until(ExpectedConditions.invisibilityOf(toastElement));
+
+            // Click the process file button
             wait.until(ExpectedConditions.elementToBeClickable(processFileBtn)).click();
 
-            String msg = getValidityMsg();
-            System.out.println("Message: " + msg);
+            // Wait for second toast message (upload success)
+            WebElement secondToast = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[@id='toast-container']/div/div[2]")));
 
-            return msg;
+            // Wait until the second toast text is different from the first message
+            wait.until(driver -> !secondToast.getText().equals(firstMsg));
+            String secondMsg = secondToast.getText();
+            System.out.println("Second message: " + secondMsg);
+
+            // Wait for second toast to disappear (optional)
+            wait.until(ExpectedConditions.invisibilityOf(secondToast));
+
+            return firstMsg + " | " + secondMsg;
 
         } catch (Exception e) {
             return "Exception: " + e.getMessage();
         }
     }
-
 
 
     public String getValidityMsg() {

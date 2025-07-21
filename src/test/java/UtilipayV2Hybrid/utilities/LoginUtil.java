@@ -25,7 +25,7 @@ public class LoginUtil extends Base {
                 System.out.println("Failed to load properties in LoginUtil: " + e.getMessage());
             }
         } else {
-            prop = getProp(); // Use the one loaded in Base if available
+            prop = getProp(); 
         }
     }
 
