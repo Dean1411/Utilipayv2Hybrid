@@ -55,14 +55,11 @@ public class BulkEngineeringTokens extends Base {
 
             softAssert.assertNotNull(validityMsg, "Validity message is null for option: " + option);
 
-            // Split the returned message on " | " to get both modals
             String[] messages = validityMsg.split("\\|");
 
-            // Trim spaces just in case
             String firstMsg = messages.length > 0 ? messages[0].trim() : "";
             String secondMsg = messages.length > 1 ? messages[1].trim() : "";
 
-            // Assert both messages
             softAssert.assertTrue(firstMsg.contains(expectedFirstMsg),
                     "First modal message invalid for option: " + option + ". Found: " + firstMsg);
             softAssert.assertTrue(secondMsg.contains(expectedSecondMsg),

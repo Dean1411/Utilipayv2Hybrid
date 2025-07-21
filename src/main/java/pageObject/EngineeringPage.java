@@ -165,28 +165,23 @@ public class EngineeringPage extends BaseComponent {
             WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
             fileInput.sendKeys(filePath);
 
-            // Wait for first toast message (CSV valid)
             WebElement toastElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//*[@id='toast-container']/div/div[2]")));
             String firstMsg = toastElement.getText();
             System.out.println("First message: " + firstMsg);
 
-            // Wait for first toast to disappear before continuing
             wait.until(ExpectedConditions.invisibilityOf(toastElement));
 
-            // Click the process file button
             wait.until(ExpectedConditions.elementToBeClickable(processFileBtn)).click();
 
-            // Wait for second toast message (upload success)
             WebElement secondToast = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//*[@id='toast-container']/div/div[2]")));
 
-            // Wait until the second toast text is different from the first message
             wait.until(driver -> !secondToast.getText().equals(firstMsg));
             String secondMsg = secondToast.getText();
             System.out.println("Second message: " + secondMsg);
 
-            // Wait for second toast to disappear (optional)
+
             wait.until(ExpectedConditions.invisibilityOf(secondToast));
 
             return firstMsg + " | " + secondMsg;
