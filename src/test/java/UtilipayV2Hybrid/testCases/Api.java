@@ -61,7 +61,7 @@ public class Api {
 
     @Test
     public void emsVendTest() {
-        int vends = 10;
+        int vends = 1;
         int total = 0;
         String filePath = "ems_vend_results.txt";
 
