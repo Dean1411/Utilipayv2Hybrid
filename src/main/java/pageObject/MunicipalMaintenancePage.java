@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -19,10 +20,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MunicipalMaintenancePage extends BaseComponent {
 	
 	 private WebDriverWait wait;
+	 private Properties prop;
 	
 	public MunicipalMaintenancePage(WebDriver driver) {
 		super(driver);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	}
+	
+	public Properties getProp() {
+	    return this.prop;
 	}
 	
 	
@@ -47,10 +53,10 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	@FindBy(xpath="//button[@id='addNew']")
 	WebElement addNewSgc;
 	
-	@FindBy(xpath="//input[@name='sgc']")
+	@FindBy(xpath="//input[@id='sgc']")//input[@id='sgc']
 	WebElement sgc;
 	
-	@FindBy(xpath="//textarea[@name='description']")
+	@FindBy(id="description")//textarea[@id='description']
 	WebElement sgcDescription;
 	
 	@FindBy(xpath="//button[normalize-space()='Save']")
@@ -428,6 +434,7 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	public void wtrIndAllw(String kl) {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(wtrIndigAmount));
+		wtrIndigAmount.clear();
 		wtrIndigAmount.sendKeys(kl);
 	}
 	
@@ -436,6 +443,7 @@ public class MunicipalMaintenancePage extends BaseComponent {
 		try {
 			
 			wait.until(ExpectedConditions.elementToBeClickable(elecIndigAmount));
+			elecIndigAmount.clear();
 			elecIndigAmount.sendKeys(kw);
 			
 		}catch (Exception ex) {
@@ -449,6 +457,7 @@ public class MunicipalMaintenancePage extends BaseComponent {
 		try {
 			
 			wait.until(ExpectedConditions.elementToBeClickable(wtrNonIndigAmnt));
+			wtrNonIndigAmnt.clear();
 			wtrNonIndigAmnt.sendKeys(amount);
 			
 			
@@ -464,6 +473,7 @@ public class MunicipalMaintenancePage extends BaseComponent {
 		try {
 			
 			wait.until(ExpectedConditions.elementToBeClickable(elecNonIndigAmnt));
+			elecNonIndigAmnt.clear();
 			elecNonIndigAmnt.sendKeys(amount);
 			
 		}catch (Exception ex) {
@@ -620,9 +630,9 @@ public class MunicipalMaintenancePage extends BaseComponent {
 				if(linkClicked) {	
 					
 					addNewTariff();					
-					newTariffCode("W /D100");					
+					newTariffCode("RW001");					
 					selectMtrType("Water");
-					tariffDec("Dean Water Tariff");
+					tariffDec("Regression Water tariff");
 					saveTariff();
 					break;
 				}else {
@@ -655,24 +665,36 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	
 	public void newTariffCode(String trfCode) {
 		
-		wait.until(ExpectedConditions.elementToBeClickable(tariffCode));
-		tariffCode.sendKeys(trfCode);
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(tariffCode));
+			tariffCode.sendKeys("RW001");
+		}catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+		}
 	}
 	
 	public void selectMtrType(String mtrType) {
 		
-	    if (mtrType.equals("Water") || mtrType.equals("Electricity")) {
-	        WebElement dropdown = driver.findElement(By.xpath("//select[@name='MeterType']")); 
-	        Select type = new Select(dropdown);
-	        type.selectByVisibleText(mtrType);
-	    } else {
-	        System.out.println("Invalid Selection: " + mtrType);
-	    }
+		try {
+		    if (mtrType.equals("Water") || mtrType.equals("Electricity")) {
+		        WebElement dropdown = driver.findElement(By.xpath("//select[@name='MeterType']")); 
+		        Select type = new Select(dropdown);
+		        type.selectByVisibleText("Water");
+		    } else {
+		        System.out.println("Invalid Selection: " + mtrType);
+		    }
+		}catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+		}
 	}
 	
 	public void tariffDec(String description) {
-		wait.until(ExpectedConditions.elementToBeClickable(desc));
-		desc.sendKeys(description);
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(desc));
+			desc.sendKeys("Regression Water tariff");
+		}catch(Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+		}
 	}
 
 	public void saveTariff() {

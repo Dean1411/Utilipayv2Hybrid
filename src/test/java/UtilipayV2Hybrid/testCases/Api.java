@@ -215,7 +215,7 @@ public class Api {
 
         Response response = given()
                 .header("Authorization", "Bearer " + switchBearerToken)
-                .header("Content-Type", "application/json") // Confirmed present
+                .header("Content-Type", "application/json") 
                 .body(jsonBody)
                 .when()
                 .post(switchUrl + meterLookup);

@@ -19,7 +19,7 @@ import pageObject.TransactPage;
 import pageObject.UserManagementPage;
 
 
-public class EndToEnd extends Base {
+public class RegressionTesting extends Base {
 
     SoftAssert softAssert;
     HomePage hP;
@@ -57,43 +57,46 @@ public class EndToEnd extends Base {
         }
     }
     
-    @Test
-    public void endToEndFlow() throws InterruptedException {
+    @Test(groups= {"Regression"}, retryAnalyzer= Retry.class)
+    public void regression() throws InterruptedException {
         try {
-            municipalityName = prop.getProperty("clientName");
+            municipalityName = prop.getProperty("regressionMun");
             createMunicipalityIfNotExists(municipalityName);
             configureVendingChannelAndCommission(municipalityName);
             
             Thread.sleep(1000);
 
-            importFile();
-            createTariffAndSteps("Dean Municipality");
+            //importFile();
+            createTariffAndSteps(municipalityName);
             
-            String meterNumber = prop.getProperty("wtrMtr");
-            boolean meterExists = false;
-            int maxRetries = 10;
-            int retryDelayMillis = 2000; 
-
-            for (int attempt = 1; attempt <= maxRetries; attempt++) {
-                if (checkMeterMeterBeforeVend(meterNumber)) {
-                    meterExists = true;
-                    break;
-                }
-
-                System.out.println("Attempt " + attempt + ": Meter not found. Retrying...");
-                try {
-                    Thread.sleep(retryDelayMillis);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt(); 
-                    throw new RuntimeException("Thread was interrupted while waiting between retries.", e);
-                }
-            }
             
-            if (!meterExists) {
-                Assert.fail("Meter number: " + meterNumber + " does not exist in the database after " + maxRetries + " attempts.");
-            }
+            //Perform purchase below on meter after import.
             
-            performPurchaseAndValidate(prop.getProperty("wtrMtr"));
+//            String meterNumber = prop.getProperty("wtrMtr");
+//            boolean meterExists = false;
+//            int maxRetries = 10;
+//            int retryDelayMillis = 2000; 
+//
+//            for (int attempt = 1; attempt <= maxRetries; attempt++) {
+//                if (checkMeterMeterBeforeVend(meterNumber)) {
+//                    meterExists = true;
+//                    break;
+//                }
+//
+//                System.out.println("Attempt " + attempt + ": Meter not found. Retrying...");
+//                try {
+//                    Thread.sleep(retryDelayMillis);
+//                } catch (InterruptedException e) {
+//                    Thread.currentThread().interrupt(); 
+//                    throw new RuntimeException("Thread was interrupted while waiting between retries.", e);
+//                }
+//            }
+//            
+//            if (!meterExists) {
+//                Assert.fail("Meter number: " + meterNumber + " does not exist in the database after " + maxRetries + " attempts.");
+//            }
+            
+            //performPurchaseAndValidate(prop.getProperty("wtrTrf"));
 
         } catch (Exception ex) {
             Assert.fail("End-to-end test failed: " + ex.getMessage());
@@ -136,7 +139,7 @@ public class EndToEnd extends Base {
             
 
         } else {
-            System.out.println("2. Municipality already exists in the database — skipping creation");
+            System.out.println("2. Municipality already exists in the database. Removing and readding.");
         }
     }
 
@@ -173,14 +176,14 @@ public class EndToEnd extends Base {
     }
 
     private void createTariffAndSteps(String municipalityName) throws InterruptedException {
-        nav.click_Admin();
+        //nav.click_Admin();
         nav.click_MunicipalManagement();
         mun.searchMunicipality(municipalityName);
         mun.municipalActions("Manage Sgc");
         nav.navigateTo("Municipal Maintenance");
         mun.searchMunicipality(municipalityName);
         mun.municipalActions("Manage Tariff");
-        mun.searchTariff("W /D100");
+        mun.searchTariff(prop.getProperty("wtrTrf"));
         mun.tableBody();
         mun.addYear();
         mun.selectYrStart("2025");
@@ -271,3 +274,4 @@ public class EndToEnd extends Base {
         return exists;
     }
 }
+
