@@ -62,7 +62,7 @@ public class UserManagementPage extends BaseComponent {
 	WebElement save;
 	
 	@FindBy(xpath="//*[@id=\"toast-container\"]/div/div[2]")
-	WebElement usrMngmntToaster;//*[@id=\\\"toast-container\\\"]/div/div[2]
+	WebElement usrMngmntToaster;
 	
 	
 	
@@ -92,74 +92,56 @@ public class UserManagementPage extends BaseComponent {
 		wait.until(ExpectedConditions.elementToBeClickable(phnNum));
 		phnNum.sendKeys(pNum);
 	}
-
-//	public void selectMun() throws InterruptedException {
-//		
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].click();", selectMunicipality);
-//		
-//		Thread.sleep(1000l);
-//		
-//	    List<WebElement> municipality = driver.findElements(By.xpath("//*[@id='select2Multiple']/optgroup/option"));
-//
-//	    if (!municipality.isEmpty()) { 
-//	        Random random = new Random();
-//	        int randomIndex = random.nextInt(municipality.size()); // Generate a random index
-//
-//	        // Click on the randomly selected option
-//	        municipality.get(randomIndex).click();
-//
-//	        System.out.println("Selected Option: " + municipality.get(randomIndex).getText());
-//	    } else {
-//	        System.out.println("No options available in the dropdown.");
-//	    }
-//	    
-//	    selectMunicipality.sendKeys(Keys.TAB);
-//	}
 	
 	public void selectMun(String clientName) throws InterruptedException {
-		
-		try {
-		    JavascriptExecutor js = (JavascriptExecutor) driver;
-		    js.executeScript("arguments[0].click();", selectMunicipality);
+	    try {
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		    Thread.sleep(1000L); 
+	        js.executeScript("arguments[0].click();", selectMunicipality);
+	        wait.until(ExpectedConditions.elementToBeClickable(selectMunicipality)).click();
 
-		    List<WebElement> municipality = driver.findElements(By.xpath("//*[@id='select2Multiple']/optgroup/option"));
+	        WebElement input = driver.findElement(By.xpath("//input[@class='select2-search__field']"));
+	        input.sendKeys(clientName);
 
-		    if (!municipality.isEmpty()) {
-		        if (clientName != null && !clientName.isEmpty()) {
-		            for (WebElement option : municipality) {
-		                if (option.getText().equalsIgnoreCase(clientName)) {
-		                    option.click();
-		                    System.out.println("Selected Option: " + option.getText());
-		                    break;
-		                }
-		            }
-		        } else {
-		            Random random = new Random();
-		            int randomIndex = random.nextInt(municipality.size());
-		            municipality.get(randomIndex).click();
-		            System.out.println("Selected Option (Random): " + municipality.get(randomIndex).getText());
-		        }
-		    } else {
-		        System.out.println("No options available in the dropdown.");
-		    }
-		    
-		    wait.until(ExpectedConditions.elementToBeClickable(selectMunicipality));
-		    selectMunicipality.click();
-		    		  
-		    js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", save);
-		    
-		    Thread.sleep(1000L);
-		    
-		    wait.until(ExpectedConditions.elementToBeClickable(save));
-		    save.click();
-		}catch (Exception ex) {
-			
-			System.out.println("Exception: " + ex.getMessage());
-		}
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(
+	            By.xpath("//ul[@id='select2-SelectedMunicipalityIds-results']/li")));
+
+	        List<WebElement> options = driver.findElements(
+	            By.xpath("//ul[@id='select2-SelectedMunicipalityIds-results']/li"));
+
+	        boolean selected = false;
+	        for (WebElement option : options) {
+	            if (option.getText().equalsIgnoreCase(clientName)) {
+	                option.click();
+	                System.out.println("Selected municipality: " + clientName);
+	                selected = true;
+	                break;
+	            }
+	        }
+
+	        if (!selected) {
+	            System.out.println("Municipality not found in dropdown: " + clientName);
+	        }
+
+	        js.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", save);
+
+	        Thread.sleep(500);
+
+	        wait.until(ExpectedConditions.elementToBeClickable(save));
+
+	        if (save.isDisplayed() && save.isEnabled()) {
+	            save.click();
+	        } else {
+	            System.out.println("Save button not clickable or visible on this screen size.");
+	        }
+
+
+	    } catch (Exception ex) {
+	        System.out.println("Exception during municipality selection: " + ex.getMessage());
+	    }
 	}
+
+
 
 	
 	public void selectMultiMunicipalities(int numberToSelect) throws InterruptedException {
@@ -219,7 +201,7 @@ public class UserManagementPage extends BaseComponent {
 	                }
 	            }
 
-	            System.out.println("✔Random Checkbox Selected: " + roleName);
+	            //System.out.println("✔Random Checkbox Selected: " + roleName);
 	        } else {
 	            System.out.println("Checkbox at index " + randomIndex + " was already selected.");
 	        }
@@ -270,7 +252,7 @@ public class UserManagementPage extends BaseComponent {
 	
 	public String getToastMssg() {
 		
-		WebElement toaster = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\\\"toast-container\\\"]/div/div[2]")));		
+		WebElement toaster = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='toast-message']")));		
 		return toaster.getText();
 
 	}

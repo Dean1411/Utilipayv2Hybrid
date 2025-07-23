@@ -54,7 +54,29 @@ public class DatabaseUtilsEnd2End extends Base{
         return null;
     }
     
-    public static boolean municipalityExists(String municipalityName) {
+//    public static boolean municipalityExists(String municipalityName) {
+//        Properties props = getDatabaseProperties();
+//        if (props == null) return false;
+//
+//        String url = props.getProperty("DB_CONNECTION_STRING");
+//        String user = props.getProperty("DB_USERNAME");
+//        String pass = props.getProperty("DB_PASSWORD");
+//
+//        String query = "SELECT 1 FROM dbo.Municipality WHERE Name = ?";
+//        try (Connection conn = DriverManager.getConnection(url, user, pass);
+//             PreparedStatement stmt = conn.prepareStatement(query)) {
+//
+//            stmt.setString(1, municipalityName);
+//            ResultSet rs = stmt.executeQuery();
+//
+//            return rs.next(); 
+//        } catch (SQLException e) {
+//            System.err.println("Error checking municipality existence: " + e.getMessage());
+//        }
+//        return false;
+//    }
+    
+    public static boolean deleteMunicipalityIfExists(String municipalityName) {
         Properties props = getDatabaseProperties();
         if (props == null) return false;
 
@@ -62,19 +84,33 @@ public class DatabaseUtilsEnd2End extends Base{
         String user = props.getProperty("DB_USERNAME");
         String pass = props.getProperty("DB_PASSWORD");
 
-        String query = "SELECT 1 FROM dbo.Municipality WHERE Name = ?";
-        try (Connection conn = DriverManager.getConnection(url, user, pass);
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        String checkQuery = "SELECT 1 FROM dbo.Municipality WHERE Name = ?";
+        String deleteQuery = "DELETE FROM dbo.Municipality WHERE Name = ?";
 
-            stmt.setString(1, municipalityName);
-            ResultSet rs = stmt.executeQuery();
+        try (Connection conn = DriverManager.getConnection(url, user, pass)) {
+            // Check if the municipality exists
+            try (PreparedStatement checkStmt = conn.prepareStatement(checkQuery)) {
+                checkStmt.setString(1, municipalityName);
+                ResultSet rs = checkStmt.executeQuery();
 
-            return rs.next(); 
+                if (rs.next()) {
+                    // It exists, so delete it
+                    try (PreparedStatement deleteStmt = conn.prepareStatement(deleteQuery)) {
+                        deleteStmt.setString(1, municipalityName);
+                        int rowsAffected = deleteStmt.executeUpdate();
+                        System.out.println("Municipality deleted: " + rowsAffected + " row(s) affected.");
+                        return true;
+                    }
+                } else {
+                    System.out.println("Municipality does not exist: " + municipalityName);
+                }
+            }
         } catch (SQLException e) {
-            System.err.println("Error checking municipality existence: " + e.getMessage());
+            System.err.println("Error deleting municipality: " + e.getMessage());
         }
         return false;
     }
+
 
 
 
