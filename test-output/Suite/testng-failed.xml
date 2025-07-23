@@ -9,13 +9,12 @@
   </listeners>
   <test thread-count="5" name="Utilipay Version 2(failed)">
     <classes>
-      <class name="UtilipayV2Hybrid.testCases.BulkEngineeringTokens">
+      <class name="UtilipayV2Hybrid.testCases.Api">
         <methods>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="generateEngineeringTokens"/>
+          <include name="authentication"/>
+          <include name="switchVend"/>
         </methods>
-      </class> <!-- UtilipayV2Hybrid.testCases.BulkEngineeringTokens -->
+      </class> <!-- UtilipayV2Hybrid.testCases.Api -->
     </classes>
   </test> <!-- Utilipay Version 2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

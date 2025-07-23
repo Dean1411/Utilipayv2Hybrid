@@ -36,8 +36,8 @@
 			<!--			<class
 			name="UtilipayV2Hybrid.testCases.Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic"/>-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.VerifyLinks" />-->									
-			<class name="UtilipayV2Hybrid.testCases.BulkEngineeringTokens"></class>
-<!--						<class name="UtilipayV2Hybrid.testCases.Api" />-->
+<!--			<class name="UtilipayV2Hybrid.testCases.BulkEngineeringTokens"></class>-->
+						<class name="UtilipayV2Hybrid.testCases.Api" />
 <!--			<class name="UtilipayV2Hybrid.testCases.Reporting"></class>-->
 		</classes>
 	</test> <!--

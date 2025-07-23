@@ -61,7 +61,7 @@ public class Api {
 
     @Test
     public void emsVendTest() {
-        int vends = 10;
+        int vends = 1;
         int total = 0;
         String filePath = "ems_vend_results.txt";
 
@@ -164,18 +164,45 @@ public class Api {
         Assert.assertEquals(response.statusCode(), 200, "Municipality Lookup request failed");
     }
 
+//    @Test
+//    public void switchVend() {
+//        String switchVend = ConfigReader.get("switchVend");
+//
+//        Response response = given()
+//                .header("Authorization", "Bearer " + bearerToken)
+//                .when()
+//                .post(baseUrl + switchVend);
+//
+//        System.out.println("Switch Vend Response: " + response.getBody().asString());
+//        Assert.assertEquals(response.statusCode(), 200, "Switch vend request failed");
+//    }
+    
     @Test
     public void switchVend() {
         String switchVend = ConfigReader.get("switchVend");
 
+        String jsonBody = String.format(
+            "{ \"distributorId\": 11001, " +
+            "\"productTypeId\": 0, " +
+            "\"extReferenceNo\": \"%s\", " +
+            "\"parameter1\": \"%s\", " +
+            "\"parameter2\": \"%s\", " +
+            "\"paymentMethod\": \"%s\", " +
+            "\"amount\": %.2f }",
+            "PP0003029", "00000000018", "", "Cash", 100.00
+        );
+
         Response response = given()
                 .header("Authorization", "Bearer " + bearerToken)
+                .contentType("application/json")
+                .body(jsonBody)
                 .when()
                 .post(baseUrl + switchVend);
 
         System.out.println("Switch Vend Response: " + response.getBody().asString());
         Assert.assertEquals(response.statusCode(), 200, "Switch vend request failed");
     }
+
 
     @Test
     public void switchMeterLookup() {
