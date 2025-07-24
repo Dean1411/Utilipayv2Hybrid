@@ -147,7 +147,7 @@ public class Base {
 	}
 	
 	public String getRandomNum() { //commons.lang3 library RandomStringUtils
-		return RandomStringUtils.randomNumeric(10);
+		return "0" + RandomStringUtils.randomNumeric(9);
 	}
 	
 	public String getRandomAlphaNumeric() {

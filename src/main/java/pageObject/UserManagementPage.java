@@ -61,7 +61,7 @@ public class UserManagementPage extends BaseComponent {
 	public
 	WebElement save;
 	
-	@FindBy(xpath="//*[@id=\"toast-container\"]/div/div[2]")
+	@FindBy(xpath="//div[@class='toast-message']")
 	WebElement usrMngmntToaster;
 	
 	

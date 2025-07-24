@@ -1,20 +1,29 @@
 package UtilipayV2Hybrid.testCases;
 
 import java.sql.SQLException;
+import java.time.Duration;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.model.Report.ReportBuilder;
+
 import UtilipayV2Hybrid.testBase.Base;
 import UtilipayV2Hybrid.utilities.DatabaseUtilsEnd2End;
 import UtilipayV2Hybrid.utilities.Retry;
+import pageObject.EngineeringPage;
 import pageObject.HomePage;
 import pageObject.Import_ExportPage;
 import pageObject.LoginPage;
 import pageObject.MunicipalMaintenancePage;
 import pageObject.NavigationPage;
+import pageObject.ReportBuilderPage;
 import pageObject.TransactPage;
 import pageObject.UserManagementPage;
 
@@ -32,6 +41,9 @@ public class RegressionTesting extends Base {
     UnitsAndStepsValidation unitsAndSteps;
     boolean fileImported = false;
     String municipalityName;
+    ReportBuilderPage rBuilder;
+    EngineeringPage enPage;
+    Import_ExportPage im_ex;
 
 
     @BeforeClass
@@ -45,6 +57,9 @@ public class RegressionTesting extends Base {
         tranPg = new TransactPage(Base.getDriver());
         usrMng = new UserManagementPage(Base.getDriver());
         unitsAndSteps = new UnitsAndStepsValidation();
+        rBuilder = new ReportBuilderPage(Base.getDriver());
+        enPage = new EngineeringPage(Base.getDriver());
+        im_ex = new Import_ExportPage(Base.getDriver());
 
         try {
         	//login
@@ -68,6 +83,10 @@ public class RegressionTesting extends Base {
 
             //importFile();
             createTariffAndSteps(municipalityName);
+            createUser();
+            generateReports();
+            bulkEngineering();
+            importExport();
             
             
             //Perform purchase below on meter after import.
@@ -199,6 +218,166 @@ public class RegressionTesting extends Base {
         mun.addFinalStep(4);
         mun.saveAllStepsBtn();
         System.out.println("6. Tariff and steps successfully created");
+    }
+    
+    private void createUser() throws InterruptedException {
+    	nav.click_Admin();
+    	nav.click_userMngmnt();
+    	usrMng.click_addNwUsr();
+		usrMng.enter_FullName(getRandomString().toUpperCase() + " " + getRandomString().toUpperCase());
+		usrMng.enter_Email(getRandomString()+"@test.co.za");
+		usrMng.enter_PhnNmbr(getRandomNum());
+//		ump.selectMun();
+		usrMng.selectMultiMunicipalities(3);
+//		ump.selectRole();
+		usrMng.selectMultipleRoles(4);
+		usrMng.click_saveChanges();
+		
+//		WebDriverWait wait = new WebDriverWait(Base.getDriver(), Duration.ofSeconds(10));
+//		WebElement toaster = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container > div > div.toast-message")));
+		
+		
+		String toastMessage = usrMng.getToastMssg();
+		String expectedMsg = "User successfully created!";
+
+		if (toastMessage.equals(expectedMsg) && !toastMessage.isEmpty()) { 
+		    Assert.assertTrue(true);
+		    System.out.println("7. " + toastMessage);
+		} else { 
+		    Assert.fail("User creation unsuccessful. Actual message: " + toastMessage);
+		    System.out.println("User creation unsuccessful.");
+		}
+
+    }
+    
+    private void generateReports() {
+    	
+    	nav.click_Reporting();
+    	
+        String[] reportTypes = {
+                "prepaid sales",
+                "day end",
+                "month end",
+                "low purchase",
+                "free basic",
+                "arrears recovered"
+//                "custom report"
+            };
+
+            String expectedMsg = "Your report is being prepared. you will receive an email ones it is ready!";
+            SoftAssert softAssert = new SoftAssert();
+
+            for (String report : reportTypes) {
+                logger.info("=== Generating report: " + report + " ===");
+
+                try {
+                	rBuilder.selectReport(report);
+
+                    String statusMsg = rBuilder.statusMessage();
+                    logger.info("Status message for [" + report + "]: " + statusMsg);
+
+                    // Assertion with detailed context
+                    softAssert.assertNotNull(
+                        statusMsg,
+                        "Status message is null for report: [" + report + "]"
+                    );
+
+                    softAssert.assertEquals(
+                        statusMsg,
+                        expectedMsg,
+                        "Unexpected status message for report: [" + report + "]"
+                    );
+                } catch (Exception e) {
+                    logger.error("Exception for report [" + report + "]: " + e.getMessage());
+                    softAssert.fail("Exception while processing report [" + report + "]: " + e.getMessage());
+                }
+
+                try {
+                    Thread.sleep(100); // Optional delay between iterations
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+
+            softAssert.assertAll();
+            logger.info("*** Reporting Test Completed ***");
+    }
+    
+    private void bulkEngineering() {
+        nav.nav_Engineering();
+        nav.click_Engineering();
+
+        String[] engineeringOption = {
+                "encrypt credit token",
+                "verify encrypted token",
+                "manufacturing token",
+                "manufacturing key change token",
+                "manufacturing mngt function token",
+                "key change token",
+                "management function token"
+        };
+
+        // Expected modal messages
+        String expectedFirstMsg = "CSV file is valid. Please click 'Process File' to continue.";
+        String expectedSecondMsg = "Your file has been successfully uploaded. You will receive an email notification once the processing is complete.";
+
+        SoftAssert softAssert = new SoftAssert();
+
+        for (String option : engineeringOption) {
+            logger.info("Processing: " + option);
+
+            String validityMsg = enPage.clickOption(option);
+            System.out.println("Validity message for " + option + ": " + validityMsg);
+
+            softAssert.assertNotNull(validityMsg, "Validity message is null for option: " + option);
+
+            String[] messages = validityMsg.split("\\|");
+
+            String firstMsg = messages.length > 0 ? messages[0].trim() : "";
+            String secondMsg = messages.length > 1 ? messages[1].trim() : "";
+
+            softAssert.assertTrue(firstMsg.contains(expectedFirstMsg),
+                    "First modal message invalid for option: " + option + ". Found: " + firstMsg);
+            softAssert.assertTrue(secondMsg.contains(expectedSecondMsg),
+                    "Second modal message invalid for option: " + option + ". Found: " + secondMsg);
+
+            nav.click_Engineering();
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    private void importExport() throws InterruptedException {
+    	nav.click_Admin();
+
+        String importType = "Export";
+        String navTarget = "Import".equals(importType) ? "Prepaid Import" 
+        		: "Prepaid Export";
+        nav.navigateTo(navTarget);
+
+
+        im_ex.option(importType);
+        Thread.sleep(100);
+
+        String actualMsg = im_ex.getMsg();
+        String expectedMsg = "Import".equals(importType)
+                ? "File uploaded successfully"
+                : "File Exported successfully";
+
+        logger.info("*** Verifying toaster message ***");
+        if (actualMsg == null || actualMsg.isEmpty()) {
+            softAssert.fail("Toaster message is not visible or is empty.");
+        } else {
+            softAssert.assertTrue(
+                    actualMsg.contains(expectedMsg),
+                    "Toaster message does not contain expected text. Actual: " + actualMsg
+            );
+            System.out.println("Toaster Message: " + actualMsg);
+        }
     }
 
 
