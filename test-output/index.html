@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.RegressionTesting" class="method navigator-link" hash-for-method="regression">regression</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.RegressionClean" class="method navigator-link" hash-for-method="regression">regression</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -122,7 +122,7 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">UtilipayV2Hybrid.testCases.RegressionTesting</span>
+              <span class="class-name">UtilipayV2Hybrid.testCases.RegressionClean</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -152,7 +152,7 @@
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Utilipay Version 2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;UtilipayV2Hybrid.testCases.RegressionTesting&quot;/&gt;
+      &lt;class name=&quot;UtilipayV2Hybrid.testCases.RegressionClean&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Utilipay Version 2 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -203,13 +203,13 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'regression')
-data.setCell(0, 2, 'UtilipayV2Hybrid.testCases.RegressionTesting')
-data.setCell(0, 3, 51597);
+data.setCell(0, 2, 'UtilipayV2Hybrid.testCases.RegressionClean')
+data.setCell(0, 3, 187417);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 51 seconds</span>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -235,22 +235,22 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">UtilipayV2Hybrid.testCases.RegressionTesting</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">UtilipayV2Hybrid.testCases.RegressionClean</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">loginOnce</span>
-                <span class="method-start">4200 ms</span>
+                <span class="method-start">4131 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">regression</span>
-                <span class="method-start">4744 ms</span>
+                <span class="method-start">5135 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">56372 ms</span>
+                <span class="method-start">192626 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

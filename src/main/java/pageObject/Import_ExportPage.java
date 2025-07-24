@@ -83,7 +83,7 @@ public class Import_ExportPage extends BaseComponent {
         try {
             switch (function.toLowerCase()) {
                 case "import":
-                    importFile("EMS", "Dean Municipality");
+                    importFile("EMS", "Regression Municipality", "Regression");
                     break;
                 case "export":
                     exportFile("UtiliPay", "Test Municipality", "Web");
@@ -97,7 +97,7 @@ public class Import_ExportPage extends BaseComponent {
         }
     }
 
-    public void importFile(String finSys, String mun) {
+    public void importFile(String finSys, String mun,String testType) {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(importData));
             importData.click();
@@ -109,6 +109,14 @@ public class Import_ExportPage extends BaseComponent {
             Select importMun = getSelect(importMunicipality);
             wait.until(ExpectedConditions.elementToBeClickable(importMunicipality));
             importMun.selectByVisibleText(mun);
+            
+            if(testType.equalsIgnoreCase("Regression")) {
+            	
+            	fileinput.sendKeys(getFilePath("Dean Mun/RegressionImportFile.csv"));
+            }else {
+            	
+            	fileinput.sendKeys(getFilePath("Dean Mun/90_EMS_20250226 2_Dean_Fixed.csv"));
+            }
 
             fileinput.sendKeys(getFilePath("Dean Mun/90_EMS_20250226 2_Dean_Fixed.csv"));
 

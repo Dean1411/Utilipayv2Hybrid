@@ -2,15 +2,15 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-23T17:07:03 SAST" name="Suite" finished-at="2025-07-23T17:08:00 SAST" duration-ms="57008">
+  <suite started-at="2025-07-24T15:10:51 SAST" name="Suite" finished-at="2025-07-24T15:14:04 SAST" duration-ms="193256">
     <groups>
       <group name="Regression">
-        <method signature="RegressionTesting.regression()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionTesting@4fad94a7]" name="regression" class="UtilipayV2Hybrid.testCases.RegressionTesting"/>
+        <method signature="RegressionClean.regression()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@1d730606]" name="regression" class="UtilipayV2Hybrid.testCases.RegressionClean"/>
       </group> <!-- Regression -->
     </groups>
-    <test started-at="2025-07-23T17:07:03 SAST" name="Utilipay Version 2" finished-at="2025-07-23T17:08:00 SAST" duration-ms="57008">
-      <class name="UtilipayV2Hybrid.testCases.RegressionTesting">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionTesting@4fad94a7]" started-at="2025-07-23T17:07:03 SAST" name="setUp" finished-at="2025-07-23T17:07:07 SAST" duration-ms="4195" status="PASS">
+    <test started-at="2025-07-24T15:10:51 SAST" name="Utilipay Version 2" finished-at="2025-07-24T15:14:04 SAST" duration-ms="193256">
+      <class name="UtilipayV2Hybrid.testCases.RegressionClean">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@1d730606]" started-at="2025-07-24T15:10:51 SAST" name="setUp" finished-at="2025-07-24T15:10:55 SAST" duration-ms="4130" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -21,19 +21,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="loginOnce()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionTesting@4fad94a7]" started-at="2025-07-23T17:07:07 SAST" name="loginOnce" finished-at="2025-07-23T17:07:08 SAST" duration-ms="534" status="PASS">
+        <test-method is-config="true" signature="loginOnce()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@1d730606]" started-at="2025-07-24T15:10:55 SAST" name="loginOnce" finished-at="2025-07-24T15:10:56 SAST" duration-ms="973" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginOnce -->
-        <test-method signature="regression()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionTesting@4fad94a7]" started-at="2025-07-23T17:07:08 SAST" name="regression" finished-at="2025-07-23T17:08:00 SAST" duration-ms="51597" status="PASS">
+        <test-method signature="regression()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@1d730606]" started-at="2025-07-24T15:10:56 SAST" name="regression" finished-at="2025-07-24T15:14:04 SAST" duration-ms="187417" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- regression -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionTesting@4fad94a7]" started-at="2025-07-23T17:08:00 SAST" name="tearDown" finished-at="2025-07-23T17:08:00 SAST" duration-ms="244" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@1d730606]" started-at="2025-07-24T15:14:04 SAST" name="tearDown" finished-at="2025-07-24T15:14:04 SAST" duration-ms="433" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- UtilipayV2Hybrid.testCases.RegressionTesting -->
+      </class> <!-- UtilipayV2Hybrid.testCases.RegressionClean -->
     </test> <!-- Utilipay Version 2 -->
   </suite> <!-- Suite -->
 </testng-results>
