@@ -78,22 +78,22 @@ public class Api {
                 System.out.println("EMS Vend Response: " + responseBody);
 
                 JsonPath jsonPath = new JsonPath(responseBody);
+                String error = jsonPath.getString("error");
+                String crToken = jsonPath.getString("creditToken");
+                boolean isErrorEmpty = (error == null || error.isEmpty());
+                boolean iscrTokenEmpty = (crToken == null || crToken.isEmpty());
+
                 transactionId = jsonPath.getString("transactionId");
                 System.out.println("Transaction Id: " + transactionId);
+                System.out.println("Credit Token: " + crToken);
+                System.out.println("Response Status: " + response.getStatusCode());
 
-//                writer.write("Vend #" + (i + 1));
-//                writer.newLine();
-//                writer.write("Transaction ID: " + transactionId);
-//                writer.newLine();
-//                writer.write("Response: " + responseBody);
-//                writer.newLine();
-//                writer.write("------------------------------");
-//                writer.newLine();
+                Assert.assertEquals(response.getStatusCode(), 200, "EMS Vend failed (bad status)");
+                Assert.assertTrue(isErrorEmpty, "EMS Vend failed with error: " + error);
+                Assert.assertFalse(iscrTokenEmpty, "Credit Token is empty despite no error: " + error);
 
-                Assert.assertEquals(response.statusCode(), 200, "EMS Vend request failed");
-                
+
                 confirmTransaction(transactionId);
-
                 total++;
             }
 
@@ -106,6 +106,7 @@ public class Api {
         Assert.assertTrue(total > 0, "No EMS vends completed");
         Assert.assertNotNull(transactionId, "Transaction ID not set after EMS vend");
     }
+
 
     @Test(dependsOnMethods = "emsVendTest")
     public void confirmTransactionTest() {
@@ -121,87 +122,96 @@ public class Api {
                 .body(confirmJsonBody)
                 .when()
                 .post(baseUrl + confirmEndpoint);
-
+        
+        System.out.println("COnfirm Transaction Response Status: " + response.getStatusCode());
         System.out.println("Confirm Transaction Response: " + response.getBody().asString());
         Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
     }
    
-  @Test(dependsOnMethods = "confirmTransactionTest")
-  public void cancelTransactionTest() {
-      Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
-      String cancelEndpoint = ConfigReader.get("cancelTransaction");
-      String cancelJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
+    @Test(dependsOnMethods = "confirmTransactionTest")
+    public void cancelTransactionTest() {
+        Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
+
+        String cancelEndpoint = ConfigReader.get("cancelTransaction");
+        String cancelJsonBody = String.format("{ \"transactionId\": \"%s\" }", transactionId);
+
+        Response response = given()
+                .header("Authorization", "Bearer " + bearerToken)
+                .header("Content-Type", "application/json")
+                .body(cancelJsonBody)
+                .when()
+                .post(baseUrl + cancelEndpoint);
+
+        JsonPath jsonPath = response.jsonPath();
+        String error = jsonPath.getString("error");
+        boolean isErrorEmpty = (error == null || error.isEmpty());
+
+        Assert.assertEquals(response.getStatusCode(), 200, "Cancel transaction failed (bad status)");
+        Assert.assertTrue(isErrorEmpty, "Cancel transaction failed with error: " + error);
+
+        System.out.println("Cancel Transaction Response: " + response.getBody().asString());
+    }
+
+  @Test
+  public void switchMunLookup() {
+      String mtrLookup = ConfigReader.get("municipalityLookup");
+
+      String jsonBody = String.format("{ \"meterNo\": \"%s\" }", "41173676028");
 
       Response response = given()
-          .header("Authorization", "Bearer " + bearerToken)
-          .header("Content-Type", "application/json")
-          .body(cancelJsonBody)
-      .when()
-          .post(baseUrl + cancelEndpoint);
+              .header("Authorization", "Bearer " + bearerToken)
+              .header("Content-Type", "application/json")
+              .body(jsonBody)
+              .when()
+              .post(baseUrl + mtrLookup);
 
-      System.out.println("Cancel Transaction Response: " + response.getBody().asString());
-      Assert.assertEquals(response.statusCode(), 200, "Cancel transaction failed");
-      System.out.println();
+      String responseBody = response.getBody().asString();
+      JsonPath jsonPath = new JsonPath(responseBody);
+      String error = jsonPath.getString("error");
+      boolean isErrorEmpty = (error == null || error.isEmpty());
+
+      System.out.println("Switch Meter lookup Response Status: " + response.getStatusCode());
+      System.out.println("Municipality Lookup Response: " + responseBody);
+
+      Assert.assertEquals(response.getStatusCode(), 200, "Municipality Lookup failed (bad status)");
+      Assert.assertTrue(isErrorEmpty, "Municipality Lookup returned error: " + error);
   }
 
-    @Test
-    public void switchMunLookup() {
-        String mtrLookup = ConfigReader.get("municipalityLookup");
 
-        String jsonBody = String.format(
-            "{ \"meterNo\": \"%s\" }",
-            "41173676028"
-        );
+  @Test
+  public void switchVend() {
+      String switchVend = ConfigReader.get("switchVend");
 
-        Response response = given()
-                .header("Authorization", "Bearer " + bearerToken)
-                .header("Content-Type", "application/json") // Added header
-                .body(jsonBody)
-                .when()
-                .post(baseUrl + mtrLookup);
+      String jsonBody = String.format(
+          "{ \"distributorId\": 11001, " +
+          "\"productTypeId\": 0, " +
+          "\"extReferenceNo\": \"%s\", " +
+          "\"parameter1\": \"%s\", " +
+          "\"parameter2\": \"%s\", " +
+          "\"paymentMethod\": \"%s\", " +
+          "\"amount\": %.2f }",
+          "PP0003029", "00000000018", "", "Cash", 100.00
+      );
 
-        System.out.println("Municipality Lookup Response: " + response.getBody().asString());
-        Assert.assertEquals(response.statusCode(), 200, "Municipality Lookup request failed");
-    }
+      Response response = given()
+              .header("Authorization", "Bearer " + bearerToken)
+              .contentType("application/json")
+              .body(jsonBody)
+              .when()
+              .post(baseUrl + switchVend);
 
-//    @Test
-//    public void switchVend() {
-//        String switchVend = ConfigReader.get("switchVend");
-//
-//        Response response = given()
-//                .header("Authorization", "Bearer " + bearerToken)
-//                .when()
-//                .post(baseUrl + switchVend);
-//
-//        System.out.println("Switch Vend Response: " + response.getBody().asString());
-//        Assert.assertEquals(response.statusCode(), 200, "Switch vend request failed");
-//    }
-    
-    @Test
-    public void switchVend() {
-        String switchVend = ConfigReader.get("switchVend");
+      String responseBody = response.getBody().asString();
+      JsonPath jsonPath = new JsonPath(responseBody);
+      String error = jsonPath.getString("error");
+      boolean isErrorEmpty = (error == null || error.isEmpty());
 
-        String jsonBody = String.format(
-            "{ \"distributorId\": 11001, " +
-            "\"productTypeId\": 0, " +
-            "\"extReferenceNo\": \"%s\", " +
-            "\"parameter1\": \"%s\", " +
-            "\"parameter2\": \"%s\", " +
-            "\"paymentMethod\": \"%s\", " +
-            "\"amount\": %.2f }",
-            "PP0003029", "00000000018", "", "Cash", 100.00
-        );
+      System.out.println("Switch Vend Response Status: " + response.getStatusCode());
+      System.out.println("Switch Vend Response: " + responseBody);
 
-        Response response = given()
-                .header("Authorization", "Bearer " + bearerToken)
-                .contentType("application/json")
-                .body(jsonBody)
-                .when()
-                .post(baseUrl + switchVend);
+      Assert.assertEquals(response.getStatusCode(), 200, "Switch Vend failed (bad status)");
+      Assert.assertTrue(isErrorEmpty, "Switch Vend failed with error: " + error);
+  }
 
-        System.out.println("Switch Vend Response: " + response.getBody().asString());
-        Assert.assertEquals(response.statusCode(), 200, "Switch vend request failed");
-    }
 
 
     @Test
@@ -219,16 +229,25 @@ public class Api {
                 .body(jsonBody)
                 .when()
                 .post(switchUrl + meterLookup);
+        
+        int statusCode = response.getStatusCode();
+        JsonPath jsonPath = response.jsonPath();
 
+        String error = jsonPath.getString("error");
+        boolean isErrorEmpty = (error == null || error.isEmpty());
+
+        System.out.println("Meter Lookup Response Status: " + statusCode);
         System.out.println("Meter Lookup Response: " + response.getBody().asString());
-        Assert.assertEquals(response.statusCode(), 200, "Meter Lookup request failed");
+
+        Assert.assertEquals(statusCode, 200, "Expected HTTP 200 OK but got: " + statusCode);
+        Assert.assertTrue(isErrorEmpty, "Expected no error, but got: " + error);     
     }
 
     
     
     public void confirmTransaction(String transactionId) {
         String confirmEndpoint = ConfigReader.get("confirmTransaction");
-        String confirmJsonBody = "{ \"transactionId\": \"" + transactionId + "\" }";
+        String confirmJsonBody = String.format("{ \"transactionId\": \"%s\" }", transactionId);
 
         Response response = given()
                 .header("Authorization", "Bearer " + bearerToken)
@@ -237,8 +256,15 @@ public class Api {
                 .when()
                 .post(baseUrl + confirmEndpoint);
 
+        JsonPath jsonPath = response.jsonPath();
+        String error = jsonPath.getString("error");
+        boolean isErrorEmpty = (error == null || error.isEmpty());
+
+        Assert.assertEquals(response.getStatusCode(), 200, "Confirm transaction failed (bad status)");
+        Assert.assertTrue(isErrorEmpty, "Confirm transaction failed with error: " + error);
+
+        System.out.println("Confirm Transaction Response Status: " + response.getStatusCode());
         System.out.println("Confirm Transaction Response: " + response.getBody().asString());
-        Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
     }
 
 }

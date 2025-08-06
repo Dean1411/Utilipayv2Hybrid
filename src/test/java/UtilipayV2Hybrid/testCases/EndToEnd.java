@@ -176,10 +176,10 @@ public class EndToEnd extends Base {
         nav.click_Admin();
         nav.click_MunicipalManagement();
         mun.searchMunicipality(municipalityName);
-        mun.municipalActions("Manage Sgc");
+        //mun.municipalActions("Manage Sgc");
         nav.navigateTo("Municipal Maintenance");
         mun.searchMunicipality(municipalityName);
-        mun.municipalActions("Manage Tariff");
+        //mun.municipalActions("Manage Tariff");
         mun.searchTariff("W /D100");
         mun.tableBody();
         mun.addYear();

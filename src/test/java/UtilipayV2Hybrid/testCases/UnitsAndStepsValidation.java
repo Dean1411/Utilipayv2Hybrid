@@ -92,11 +92,11 @@ public class UnitsAndStepsValidation extends Base {
         
         if (isSecondPurchase) {
         	
-        	tranPg.enterAmnt2("10");
+        	tranPg.enterAmnt("10");
 	        tranPg.clickBreakDown();
 	        Thread.sleep(2000);
 	        tranPg.paymentMethod("Credit Card");  
-	        tranPg.purchase2();
+	        tranPg.purchase();
         } else {
         	
           tranPg.enterAmnt("100");

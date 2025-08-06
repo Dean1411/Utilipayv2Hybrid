@@ -21,6 +21,8 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	
 	 private WebDriverWait wait;
 	 private Properties prop;
+	 private int numberOfTariffsToCreate = 2;
+
 	
 	public MunicipalMaintenancePage(WebDriver driver) {
 		super(driver);
@@ -112,6 +114,9 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	
 	@FindBy(xpath="//*[@id=\"btnSaveYear\"]")
 	WebElement saveTariffYrBtn;
+	
+	@FindBy(xpath="//button[@id='backButton']")
+	WebElement backBtn;
 	
 	@FindBy(xpath="//button[normalize-space()='Add Sub Category']")
 	WebElement addSubCatogory;
@@ -530,7 +535,26 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	    mngTariffs.click();		
 	}
 	
-	public void municipalActions(String actions) {
+//	public void municipalActions(String actions) {
+//	    if (actions == null) {
+//	        System.out.println("Action cannot be null.");
+//	        return;
+//	    }
+//
+//	    switch (actions.toLowerCase()) {
+//	        case "manage sgc":
+//	            manageSgc();
+//	            break;
+//	        case "manage tariff":
+//	        	manageTariff("water");	            
+//	            break;
+//	        default:
+//	            System.out.println("Invalid action: " + actions);
+//	            break;
+//	    }
+//	}
+	
+	public void municipalActions(String actions, String type, int count) throws InterruptedException {
 	    if (actions == null) {
 	        System.out.println("Action cannot be null.");
 	        return;
@@ -538,16 +562,29 @@ public class MunicipalMaintenancePage extends BaseComponent {
 
 	    switch (actions.toLowerCase()) {
 	        case "manage sgc":
-	            manageSgc();
+	            manageSgc(); // no parameters needed
 	            break;
+
 	        case "manage tariff":
-	        	manageTariff();	            
+	            if (type != null && type.equalsIgnoreCase("all")) {
+	                manageTariffsForAll(); // call method without parameters, creates one Water and one Electricity tariff
+	            } else if (type != null && count > 0) {
+	                manageTariffs(type, count); // single type, multiple tariffs
+	            } else {
+	                System.out.println("Missing type or count for Manage Tariff.");
+	            }
 	            break;
+
 	        default:
 	            System.out.println("Invalid action: " + actions);
 	            break;
 	    }
 	}
+
+
+
+
+
 
 	
 	public void manageSgc() {
@@ -601,50 +638,141 @@ public class MunicipalMaintenancePage extends BaseComponent {
 		}
 	}
 	
-	public void manageTariff() {
-		
-		try {
-			
-			clickActions();
-			
-			List<WebElement> rows = driver.findElements(By.xpath("//*[@id='DataTables_Table_0']/tbody/tr"));
-			String action = "Manage Tariff";
-			boolean linkClicked = false;
-			
-			for(WebElement row: rows) {
-				
-				WebElement desiredAction = row.findElement(By.xpath("td[5]/div/div"));
-				
-				List<WebElement> actionLinks = desiredAction.findElements(By.tagName("a"));
-				
-				for(WebElement link: actionLinks) {
-					
-					if(link.getText().contains(action)) {
-						link.click();
-						linkClicked = true;
-						System.out.println("Manage Tariff link clicked");//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[5]/div/div
-						break;
-					}
-				}
-				
-				if(linkClicked) {	
-					
-					addNewTariff();					
-					newTariffCode("RW001");					
-					selectMtrType("Water");
-					tariffDec("Regression Water tariff");
-					saveTariff();
-					break;
-				}else {
-					System.out.println("Action link not found");
-				}
-			}
-			
-		}catch(Exception ex) {
-			
-			System.out.println("Exception: " + ex);			
-		}
+//	public void manageTariff(String type) {
+//		
+//		try {
+//			
+//			clickActions();
+//			
+//			List<WebElement> rows = driver.findElements(By.xpath("//*[@id='DataTables_Table_0']/tbody/tr"));
+//			String action = "Manage Tariff";
+//			boolean linkClicked = false;
+//			
+//			for(WebElement row: rows) {
+//				
+//				WebElement desiredAction = row.findElement(By.xpath("td[5]/div/div"));
+//				
+//				List<WebElement> actionLinks = desiredAction.findElements(By.tagName("a"));
+//				
+//				for(WebElement link: actionLinks) {
+//					
+//					if(link.getText().contains(action)) {
+//						link.click();
+//						linkClicked = true;
+//						System.out.println("Manage Tariff link clicked");//*[@id="DataTables_Table_0"]/tbody/tr[1]/td[5]/div/div
+//						break;
+//					}
+//				}
+//				
+//				if(linkClicked) {	
+//					
+//					addNewTariff();					
+//					newTariffCode("RW001");					
+//					selectMtrType("Water");
+//					tariffDec("Regression Water tariff");
+//					saveTariff();
+//					break;
+//				}else {
+//					System.out.println("Action link not found");
+//				}
+//			}
+//			
+//		}catch(Exception ex) {
+//			
+//			System.out.println("Exception: " + ex);			
+//		}
+//	}
+	
+	public void manageTariffsForAll() throws InterruptedException {
+	    clickActions();
+
+	    // Click Manage Tariff link
+	    List<WebElement> rows = driver.findElements(By.xpath("//*[@id='DataTables_Table_0']/tbody/tr"));
+	    String action = "Manage Tariff";
+	    boolean linkClicked = false;
+
+	    for (WebElement row : rows) {
+	        WebElement desiredAction = row.findElement(By.xpath("td[5]/div/div"));
+	        List<WebElement> actionLinks = desiredAction.findElements(By.tagName("a"));
+
+	        for (WebElement link : actionLinks) {
+	            if (link.getText().contains(action)) {
+	                link.click();
+	                linkClicked = true;
+	                System.out.println("Manage Tariff link clicked");
+	                break;
+	            }
+	        }
+	        if (linkClicked) break;
+	    }
+
+	    String[] tariffTypes = {"Water", "Electricity"};
+	    String[] tariffCodes = {"RW001", "RE001"};
+	    String[] tariffDescriptions = {"Regression Water tariff", "Regression Elec tariff"};
+
+	    for (int i = 0; i < tariffTypes.length; i++) {
+	        addNewTariff();
+	        newTariffCode(tariffCodes[i]);
+	        selectMtrType(tariffTypes[i]);
+	        tariffDec(tariffDescriptions[i]);
+	        saveTariff();
+	        
+	        Thread.sleep(500);
+
+	        // navBack(); // Removed as per your request
+	    }
+
 	}
+
+
+
+
+
+
+	public void manageTariffs(String type, int numberOfTariffsToCreate) throws InterruptedException {
+	    clickActions();
+	    clickManageTariffLink();
+
+	    for (int t = 1; t <= numberOfTariffsToCreate; t++) {
+	        addNewTariff();
+	        newTariffCode((type.equalsIgnoreCase("Water") ? "RW" : "RE") + String.format("%03d", t));
+	        selectMtrType(type);
+	        tariffDec("Regression " + type + " tariff " + t);
+	        saveTariff();
+	    }
+	}
+	
+	public void clickManageTariffLink() throws InterruptedException {
+	    String action = "Manage Tariff";
+	    boolean linkClicked = false;
+
+	    List<WebElement> rows = driver.findElements(By.xpath("//*[@id='DataTables_Table_0']/tbody/tr"));
+
+	    for (WebElement row : rows) {
+	        WebElement desiredAction = row.findElement(By.xpath("td[5]/div/div"));
+	        List<WebElement> actionLinks = desiredAction.findElements(By.tagName("a"));
+
+	        for (WebElement link : actionLinks) {
+	            if (link.getText().contains(action)) {
+	                link.click();
+	                linkClicked = true;
+	                System.out.println("Manage Tariff link clicked");
+	                break;
+	            }
+	        }
+	        if (linkClicked) break;
+	    }
+	    
+	    if (!linkClicked) {
+	        System.out.println("Manage Tariff link not found");
+	        // optionally throw exception here
+	    }
+	}
+
+
+
+
+	
 	
 	public void searchMunicipality(String municipality) {
 		
@@ -664,38 +792,39 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	}
 	
 	public void newTariffCode(String trfCode) {
-		
-		try {
-			wait.until(ExpectedConditions.elementToBeClickable(tariffCode));
-			tariffCode.sendKeys("RW001");
-		}catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-		}
+	    try {
+	        wait.until(ExpectedConditions.elementToBeClickable(tariffCode));
+	        tariffCode.clear();                  // Clear any existing text before typing
+	        tariffCode.sendKeys(trfCode);        // Use the passed-in trfCode parameter
+	    } catch (Exception ex) {
+	        System.out.println("Error: " + ex.getMessage());
+	    }
 	}
-	
+
 	public void selectMtrType(String mtrType) {
-		
-		try {
-		    if (mtrType.equals("Water") || mtrType.equals("Electricity")) {
-		        WebElement dropdown = driver.findElement(By.xpath("//select[@name='MeterType']")); 
-		        Select type = new Select(dropdown);
-		        type.selectByVisibleText("Water");
-		    } else {
-		        System.out.println("Invalid Selection: " + mtrType);
-		    }
-		}catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-		}
+	    try {
+	        if (mtrType.equals("Water") || mtrType.equals("Electricity")) {
+	            WebElement dropdown = driver.findElement(By.xpath("//select[@name='MeterType']")); 
+	            Select type = new Select(dropdown);
+	            type.selectByVisibleText(mtrType);  // Use the parameter mtrType dynamically
+	        } else {
+	            System.out.println("Invalid Selection: " + mtrType);
+	        }
+	    } catch (Exception ex) {
+	        System.out.println("Error: " + ex.getMessage());
+	    }
 	}
-	
+
 	public void tariffDec(String description) {
-		try {
-			wait.until(ExpectedConditions.elementToBeClickable(desc));
-			desc.sendKeys("Regression Water tariff");
-		}catch(Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-		}
+	    try {
+	        wait.until(ExpectedConditions.elementToBeClickable(desc));
+	        desc.clear();                       // Clear before typing new description
+	        desc.sendKeys(description);        // Use the passed-in description
+	    } catch(Exception ex) {
+	        System.out.println("Error: " + ex.getMessage());
+	    }
 	}
+
 
 	public void saveTariff() {
 		
@@ -918,8 +1047,7 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	public void addFinalStep(int rate){
 	    
 		wait.until(ExpectedConditions.elementToBeClickable(finalRate));
-		finalRate.sendKeys(String.valueOf(rate));
-		
+		finalRate.sendKeys(String.valueOf(rate));		
 	}
 	
 	public void saveAllStepsBtn() {
@@ -936,6 +1064,12 @@ public class MunicipalMaintenancePage extends BaseComponent {
 		
 	    wait.until(ExpectedConditions.elementToBeClickable(saveAllBtn));
 		saveAllBtn.click();		
+	}
+	
+	public void navBack(){
+	    
+		wait.until(ExpectedConditions.elementToBeClickable(backBtn));
+		backBtn.click();	
 	}
 	
 	public String getStepsToaster() throws InterruptedException {
@@ -965,6 +1099,5 @@ public class MunicipalMaintenancePage extends BaseComponent {
 			setting.click();
 		}
 	}
-	
 
 }

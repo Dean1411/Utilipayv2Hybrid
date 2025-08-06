@@ -9,10 +9,54 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">193 256</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">3</td><td class="num">0</td><td class="num attn">2</td><td class="num attn">2</td><td class="num">13 286</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.RegressionClean</td><td><a href="#m0">regression</a></td><td rowspan="1">1753362656628</td><td rowspan="1">187417</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m0">switchMeterLookup</a></td><td rowspan="1">1754296476614</td><td rowspan="1">573</td></tr><tr class="failedeven"><td><a href="#m1">switchVend</a></td><td rowspan="1">1754296477545</td><td rowspan="1">130</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="2">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m2">switchMeterLookup</a></td><td rowspan="1">1754296474955</td><td rowspan="1">1656</td></tr><tr class="retriedeven"><td><a href="#m3">switchVend</a></td><td rowspan="1">1754296477375</td><td rowspan="1">167</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m4">confirmTransactionTest</a></td><td rowspan="1">1754296477680</td><td rowspan="1">144</td></tr><tr class="passedeven"><td><a href="#m5">emsVendTest</a></td><td rowspan="1">1754296472029</td><td rowspan="1">2913</td></tr><tr class="passedeven"><td><a href="#m6">switchMunLookup</a></td><td rowspan="1">1754296477192</td><td rowspan="1">181</td></tr></tbody>
 </table>
-<h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.RegressionClean#regression</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.Api#switchMeterLookup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Expected no error, but got: UP -  expected [true] but found [false]
+	at UtilipayV2Hybrid.testCases.Api.switchMeterLookup(Api.java:243)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">UtilipayV2Hybrid.testCases.Api#switchVend</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">io.restassured.path.json.exception.JsonPathException: Failed to parse the JSON document
+	at io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1002)
+	at io.restassured.path.json.JsonPath$4.doParseWith(JsonPath.java:967)
+	at io.restassured.path.json.JsonPath$JsonParser.parseWith(JsonPath.java:1047)
+	at io.restassured.path.json.JsonPath.get(JsonPath.java:202)
+	at io.restassured.path.json.JsonPath.getString(JsonPath.java:352)
+	at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:205)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.path.json.ConfigurableJsonSlurper.parseText(ConfigurableJsonSlurper.groovy:80)
+	at io.restassured.path.json.JsonPath$4$1.method(JsonPath.java:965)
+	at io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1000)
+	... 31 more
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">UtilipayV2Hybrid.testCases.Api#switchMeterLookup</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Expected no error, but got: UP -  expected [true] but found [false]
+	at UtilipayV2Hybrid.testCases.Api.switchMeterLookup(Api.java:243)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">UtilipayV2Hybrid.testCases.Api#switchVend</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">io.restassured.path.json.exception.JsonPathException: Failed to parse the JSON document
+	at io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1002)
+	at io.restassured.path.json.JsonPath$4.doParseWith(JsonPath.java:967)
+	at io.restassured.path.json.JsonPath$JsonParser.parseWith(JsonPath.java:1047)
+	at io.restassured.path.json.JsonPath.get(JsonPath.java:202)
+	at io.restassured.path.json.JsonPath.getString(JsonPath.java:352)
+	at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:205)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.path.json.ConfigurableJsonSlurper.parseText(ConfigurableJsonSlurper.groovy:80)
+	at io.restassured.path.json.JsonPath$4$1.method(JsonPath.java:965)
+	at io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1000)
+	... 31 more
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">UtilipayV2Hybrid.testCases.Api#confirmTransactionTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">UtilipayV2Hybrid.testCases.Api#emsVendTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">UtilipayV2Hybrid.testCases.Api#switchMunLookup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
