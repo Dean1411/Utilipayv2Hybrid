@@ -86,7 +86,8 @@ public class RegressionTesting extends Base {
             createUser();
             generateReports();
             bulkEngineering();
-            importExport();
+            importExport("Import");
+            performPurchaseAndValidate("");
             
             
             //Perform purchase below on meter after import.
@@ -198,10 +199,10 @@ public class RegressionTesting extends Base {
         //nav.click_Admin();
         nav.click_MunicipalManagement();
         mun.searchMunicipality(municipalityName);
-        mun.municipalActions("Manage Sgc");
+        //mun.municipalActions("Manage Sgc");
         nav.navigateTo("Municipal Maintenance");
         mun.searchMunicipality(municipalityName);
-        mun.municipalActions("Manage Tariff");
+        //mun.municipalActions("Manage Tariff");
         mun.searchTariff(prop.getProperty("wtrTrf"));
         mun.tableBody();
         mun.addYear();
@@ -351,10 +352,10 @@ public class RegressionTesting extends Base {
         }
     }
     
-    private void importExport() throws InterruptedException {
+    private void importExport(String type) throws InterruptedException {
     	nav.click_Admin();
 
-        String importType = "Export";
+        String importType = type;
         String navTarget = "Import".equals(importType) ? "Prepaid Import" 
         		: "Prepaid Export";
         nav.navigateTo(navTarget);

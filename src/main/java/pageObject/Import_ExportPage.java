@@ -118,8 +118,6 @@ public class Import_ExportPage extends BaseComponent {
             	fileinput.sendKeys(getFilePath("Dean Mun/90_EMS_20250226 2_Dean_Fixed.csv"));
             }
 
-            fileinput.sendKeys(getFilePath("Dean Mun/90_EMS_20250226 2_Dean_Fixed.csv"));
-
             wait.until(ExpectedConditions.elementToBeClickable(importBtn));
             importBtn.click();
 
