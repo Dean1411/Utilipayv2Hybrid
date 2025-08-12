@@ -9,10 +9,43 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
+<<<<<<< HEAD
+<tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num attn">1</td><td class="num">300 648</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.RegressionClean</td><td><a href="#m0">regression</a></td><td rowspan="1">1754981678527</td><td rowspan="1">1638</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.RegressionClean</td><td><a href="#m1">regression</a></td><td rowspan="1">1754981453254</td><td rowspan="1">224987</td></tr></tbody>
+</table>
+<h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.RegressionClean#regression</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Regression test failed: element click intercepted: Element &lt;div data-i18n=&quot;...&quot;&gt;Admin&lt;/div&gt; is not clickable at point (76, 137). Other element would receive the click: &lt;div class=&quot;modal fade show&quot; id=&quot;vendResult&quot; tabindex=&quot;-1&quot; aria-modal=&quot;true&quot; role=&quot;dialog&quot; style=&quot;display: block;&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=138.0.7204.185)
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d2e186027cdfbd6bbbc9605b562262ab, clickElement {id=f.6892223E6F37FA6FFB84230B469317C4.d.A405F04519C311AEC39A815F055F4ADA.e.4821}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.185, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52315}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52315/devtoo..., se:cdpVersion: 138.0.7204.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (d2e186027cdfbd6bbbc9605b562262ab)] -&gt; xpath: //div[@data-i18n=&apos;Admin&apos;]]
+Session ID: d2e186027cdfbd6bbbc9605b562262ab
+	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:110)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 26 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">UtilipayV2Hybrid.testCases.RegressionClean#regression</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Exception during purchase: stale element reference: stale element not found
+  (Session info: chrome=138.0.7204.185)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d2e186027cdfbd6bbbc9605b562262ab, isElementDisplayed {id=f.6892223E6F37FA6FFB84230B469317C4.d.9556BC5ADAEBBBA53530259930A1F09F.e.4760}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.185, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52315}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52315/devtoo..., se:cdpVersion: 138.0.7204.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (d2e186027cdfbd6bbbc9605b562262ab)] -&gt; xpath: //a[normalize-space()=&apos;Cancel&apos;]]
+Session ID: d2e186027cdfbd6bbbc9605b562262ab
+	at UtilipayV2Hybrid.testCases.RegressionClean.purchase(RegressionClean.java:603)
+	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:105)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 26 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+=======
 <tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">59 565</td><td></td><td></td></tr>
 </table>
 <table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.OnlinePurchase</td><td><a href="#m0">doOnlinePurchase</a></td><td rowspan="1">1755007492305</td><td rowspan="1">55585</td></tr></tbody>
 </table>
 <h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.OnlinePurchase#doOnlinePurchase</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+>>>>>>> main
 </body>
 </html>
