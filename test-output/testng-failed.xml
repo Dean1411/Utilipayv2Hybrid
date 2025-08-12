@@ -9,6 +9,7 @@
   </listeners>
   <test thread-count="5" name="Utilipay Version 2(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="UtilipayV2Hybrid.testCases.RegressionClean">
         <methods>
           <include name="setUp"/>
@@ -17,6 +18,16 @@
           <include name="regression"/>
         </methods>
       </class> <!-- UtilipayV2Hybrid.testCases.RegressionClean -->
+=======
+      <class name="UtilipayV2Hybrid.testCases.OnlinePurchase">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="doOnlinePurchase"/>
+        </methods>
+      </class> <!-- UtilipayV2Hybrid.testCases.OnlinePurchase -->
+>>>>>>> main
     </classes>
   </test> <!-- Utilipay Version 2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

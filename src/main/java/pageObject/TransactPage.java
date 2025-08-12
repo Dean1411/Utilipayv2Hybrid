@@ -13,10 +13,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class TransactPage extends BaseComponent {
 	
 	private WebDriverWait wait;
+	private String originalWindow;
 	
 	public TransactPage(WebDriver driver) {
 		super(driver);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		this.originalWindow = driver.getWindowHandle();
 	}
 	
 	@FindBy(xpath="//input[@id='meterNumber']")
