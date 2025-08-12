@@ -28,10 +28,17 @@ public class OnlinePurchase extends Base {
         String nameOnCard = prop.getProperty("crdHolder");
         String cardNumber = prop.getProperty("ccNo");
         String cvv = "1234";
+        
+        //CapPay
+        String cellNo = prop.getProperty("VeronicaFoxCellNo");
 
         performLookup(meterNumber, email, amount);
         choosePaymentOption(paymentOption, nameOnCard, cardNumber, cvv);
         verifyAndPrintReceipt();
+        
+        onlinePurchasePage.closeNotification();
+        performLookup(meterNumber, email, amount);
+        capitecPayPurchase("Capitec Pay",cellNo,"APPROVED");
 
         softAssert.assertAll();
     }
@@ -55,7 +62,16 @@ public class OnlinePurchase extends Base {
             softAssert.fail("Unexpected notification: " + notification);
         }
 
-        onlinePurchasePage.printReceipt();
+        //onlinePurchasePage.printReceipt();
+        onlinePurchasePage.closeNotification();
         System.out.println("Notification Message: " + notification);
     }
+    
+    public void capitecPayPurchase(String paymentOption, String mobiNum,String statusOpt) {
+    	
+    	onlinePurchasePage.selectPaymentOption(paymentOption);
+    	onlinePurchasePage.enterCapitecPayDetails(paymentOption, paymentOption);    	
+    }
+    
+    
 }
