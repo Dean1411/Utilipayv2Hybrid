@@ -74,7 +74,7 @@ public class DatabaseCleanupHelper {
         try (Statement stmt = conn.createStatement()) {
             for (String sql : deleteStatements) {
                 int affected = stmt.executeUpdate(sql);
-                System.out.println("✅ Executed: [" + sql + "] → Rows affected: " + affected);
+                System.out.println("Executed: [" + sql + "] → Rows affected: " + affected);
             }
         }
     }
