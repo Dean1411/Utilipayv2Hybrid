@@ -81,7 +81,15 @@ public class OnlinePurchasePage extends BaseComponent {
 	@FindBy(xpath="//a[normalize-space()='Print/Download']")
 	WebElement printBtn;
 	
+	//CapitecPay Elements
+	@FindBy(xpath="//input[@id='txtMN']")
+	WebElement mobileNum;
 	
+	@FindBy(xpath="//div[@class='d-flex flex-wrap gap-2']")
+	WebElement statusOptions;
+	
+	@FindBy(xpath="//button[@id='btnPWC']")
+	WebElement cappayBtn;
 	
 	//Pay account tab
 	@FindBy(xpath="//a[@id='accounts-tab']")
@@ -108,6 +116,9 @@ public class OnlinePurchasePage extends BaseComponent {
 	
 	@FindBy(xpath="//div[@class='card-body']")
 	WebElement prepaidBreakDown;
+	
+	@FindBy(xpath="//button[@id='closeModalBtn']")
+	WebElement closeModal;
 	
 	
 	public void clickBuyPrepaid() {		
@@ -146,6 +157,12 @@ public class OnlinePurchasePage extends BaseComponent {
 	}
 	
 	public void selectPaymentOption(String option) {
+		
+	    if (option.equalsIgnoreCase("Capitec Pay")) {
+	        WebElement capitecPayBtn = driver.findElement(By.xpath("//img[@src='/Images/PaymentPortal/CapitecPay.png']/parent::button"));
+	        capitecPayBtn.click();
+	        return; 
+	    }
 			
 		List<WebElement> paymentOptions = driver.findElements(By.cssSelector("ul.list-unstyled button"));
 
@@ -155,7 +172,7 @@ public class OnlinePurchasePage extends BaseComponent {
 		    if (optionText.equalsIgnoreCase(option)) {
 		    	opt.click();
 		        break;
-		    }
+		    }		 		    
 		}
 	}
 	
@@ -213,10 +230,58 @@ public class OnlinePurchasePage extends BaseComponent {
 	        }
 	    }
 	}
+	
+	public void closeNotification() {		
+		wait.until(ExpectedConditions.
+				elementToBeClickable(closeModal));
+		closeModal.click();
+	}
+	
+	public void enterCapitecPayDetails(String mobile, String statusOp) {
+	    // Enter mobile number
+	    wait.until(ExpectedConditions.elementToBeClickable(mobileNum)).sendKeys(mobile);
+
+	    // Click Capitec Pay button
+	    wait.until(ExpectedConditions.elementToBeClickable(cappayBtn)).click();
+
+	    List<WebElement> statusOptions = wait.until(
+	        ExpectedConditions.visibilityOfAllElementsLocatedBy(
+	            By.xpath("//div[@class='d-flex flex-wrap gap-2']//button")
+	        )
+	    );
+
+	    for (WebElement opt : statusOptions) {
+	        if (opt.getText().equalsIgnoreCase(statusOp)) {
+	            wait.until(ExpectedConditions.elementToBeClickable(opt)).click();
+	            break;
+	        }
+	    }
+	}
+
+
+
 
 	
-	
-	
+//	public void enterCapitecPayDetails(String mobile, String statusOp) {
+//		
+//		wait.until(ExpectedConditions.
+//				elementToBeClickable(mobileNum));
+//		mobileNum.sendKeys(mobile);
+//		
+//		wait.until(ExpectedConditions.
+//				elementToBeClickable(cappayBtn));
+//		cappayBtn.click();
+//		
+//		List<WebElement> statusOptions = driver.findElements(By.xpath("//div[@class='d-flex flex-wrap gap-2']"));
+//		
+//		for(WebElement opt: statusOptions) {
+//			if(opt.getText().equalsIgnoreCase("APPROVED")) {
+//				opt.click();
+//			}
+//		}
+//		
+//				
+//	}
 
 
 }

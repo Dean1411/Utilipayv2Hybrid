@@ -19,8 +19,9 @@ public class OnlinePurchase extends Base {
     }
 
     @Test(retryAnalyzer=UtilipayV2Hybrid.utilities.Retry.class)
-    public void doOnlinePurchase() {
+    public void doOnlinePurchase() throws InterruptedException {
     	
+    	//Credit Card 
         String meterNumber = prop.getProperty("mtrNum");
         String email = prop.getProperty("myEmail");
         String amount = "50";
@@ -28,11 +29,18 @@ public class OnlinePurchase extends Base {
         String nameOnCard = prop.getProperty("crdHolder");
         String cardNumber = prop.getProperty("ccNo");
         String cvv = "1234";
+        
+        //CapPay
+        String cellNo = prop.getProperty("VeronicaFoxCellNo");
 
         performLookup(meterNumber, email, amount);
         choosePaymentOption(paymentOption, nameOnCard, cardNumber, cvv);
         verifyAndPrintReceipt();
-
+        
+        Thread.sleep(500);
+        performLookup(meterNumber, email, amount);
+        capitecPayPurchase("Capitec Pay",cellNo,"APPROVED");
+        verifyAndPrintReceipt();
         softAssert.assertAll();
     }
 
@@ -46,8 +54,10 @@ public class OnlinePurchase extends Base {
         onlinePurchasePage.fillCardDetailsForm(name, cardNumber, cvv);
     }
 
-    public void verifyAndPrintReceipt() {
+    public void verifyAndPrintReceipt() throws InterruptedException {
+    	Thread.sleep(3000);
         String notification = onlinePurchasePage.getNotiMsg();
+        onlinePurchasePage.closeNotification();
 
         if (notification.contains("Payment Successful")) {
             softAssert.assertTrue(true, "Payment was successful.");
@@ -55,7 +65,16 @@ public class OnlinePurchase extends Base {
             softAssert.fail("Unexpected notification: " + notification);
         }
 
-        onlinePurchasePage.printReceipt();
+        //onlinePurchasePage.printReceipt();
+        
         System.out.println("Notification Message: " + notification);
     }
+    
+    public void capitecPayPurchase(String paymentOption, String mobiNum,String statusOpt) {
+    	
+    	onlinePurchasePage.selectPaymentOption(paymentOption);
+    	onlinePurchasePage.enterCapitecPayDetails(mobiNum, statusOpt);    	
+    }
+    
+    
 }

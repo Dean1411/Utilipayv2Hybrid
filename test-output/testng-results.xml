@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-06T15:46:36 SAST" name="Suite" finished-at="2025-08-06T15:47:11 SAST" duration-ms="35475">
+  <suite started-at="2025-08-12T16:04:48 SAST" name="Suite" finished-at="2025-08-12T16:05:48 SAST" duration-ms="59565">
     <groups>
     </groups>
-    <test started-at="2025-08-06T15:46:36 SAST" name="Utilipay Version 2" finished-at="2025-08-06T15:47:11 SAST" duration-ms="35475">
+    <test started-at="2025-08-12T16:04:48 SAST" name="Utilipay Version 2" finished-at="2025-08-12T16:05:48 SAST" duration-ms="59565">
       <class name="UtilipayV2Hybrid.testCases.OnlinePurchase">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.OnlinePurchase@3016fd5e]" started-at="2025-08-06T15:46:36 SAST" name="setUp" finished-at="2025-08-06T15:46:39 SAST" duration-ms="2962" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.OnlinePurchase@35d08e6c]" started-at="2025-08-12T16:04:48 SAST" name="setUp" finished-at="2025-08-12T16:04:52 SAST" duration-ms="3381" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,15 +18,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:UtilipayV2Hybrid.testCases.OnlinePurchase@3016fd5e]" started-at="2025-08-06T15:46:39 SAST" name="setup" finished-at="2025-08-06T15:46:39 SAST" duration-ms="64" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:UtilipayV2Hybrid.testCases.OnlinePurchase@35d08e6c]" started-at="2025-08-12T16:04:52 SAST" name="setup" finished-at="2025-08-12T16:04:52 SAST" duration-ms="81" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="doOnlinePurchase()[pri:0, instance:UtilipayV2Hybrid.testCases.OnlinePurchase@3016fd5e]" started-at="2025-08-06T15:46:39 SAST" name="doOnlinePurchase" finished-at="2025-08-06T15:47:11 SAST" duration-ms="32025" status="PASS">
+        <test-method signature="doOnlinePurchase()[pri:0, instance:UtilipayV2Hybrid.testCases.OnlinePurchase@35d08e6c]" started-at="2025-08-12T16:04:52 SAST" name="doOnlinePurchase" finished-at="2025-08-12T16:05:47 SAST" duration-ms="55585" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doOnlinePurchase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.OnlinePurchase@3016fd5e]" started-at="2025-08-06T15:47:11 SAST" name="tearDown" finished-at="2025-08-06T15:47:11 SAST" duration-ms="216" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.OnlinePurchase@35d08e6c]" started-at="2025-08-12T16:05:47 SAST" name="tearDown" finished-at="2025-08-12T16:05:48 SAST" duration-ms="275" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
