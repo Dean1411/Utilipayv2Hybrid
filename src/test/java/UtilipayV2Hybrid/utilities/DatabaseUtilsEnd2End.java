@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -84,33 +85,48 @@ public class DatabaseUtilsEnd2End extends Base{
         String user = props.getProperty("DB_USERNAME");
         String pass = props.getProperty("DB_PASSWORD");
 
-        String checkQuery = "SELECT 1 FROM dbo.Municipality WHERE Name = ?";
-        String deleteQuery = "DELETE FROM dbo.Municipality WHERE Name = ?";
+        String checkQuery = "SELECT Id FROM dbo.Municipality WHERE Name = ?";
+        String deleteSystemLogEntries = "DELETE FROM dbo.SystemLogEntries WHERE MunicipalityId = ?";
+        String deleteMunicipality = "DELETE FROM dbo.Municipality WHERE Name = ?";
 
         try (Connection conn = DriverManager.getConnection(url, user, pass)) {
-            // Check if the municipality exists
+            // Check if the municipality exists and get its Id
+            Integer municipalityId = null;
             try (PreparedStatement checkStmt = conn.prepareStatement(checkQuery)) {
                 checkStmt.setString(1, municipalityName);
                 ResultSet rs = checkStmt.executeQuery();
 
                 if (rs.next()) {
-                    // It exists, so delete it
-                    try (PreparedStatement deleteStmt = conn.prepareStatement(deleteQuery)) {
-                        deleteStmt.setString(1, municipalityName);
-                        int rowsAffected = deleteStmt.executeUpdate();
-                        System.out.println("Municipality deleted: " + rowsAffected + " row(s) affected.");
-                        return true;
-                    }
+                    municipalityId = rs.getInt("Id");
                 } else {
                     System.out.println("Municipality does not exist: " + municipalityName);
+                    return false;
                 }
             }
+
+            if (municipalityId != null) {
+                // Delete related SystemLogEntries first
+                try (PreparedStatement deleteLogStmt = conn.prepareStatement(deleteSystemLogEntries)) {
+                    deleteLogStmt.setInt(1, municipalityId);
+                    int deletedLogs = deleteLogStmt.executeUpdate();
+                    System.out.println("Deleted " + deletedLogs + " SystemLogEntries for MunicipalityId: " + municipalityId);
+                }
+
+                // Then delete the municipality itself
+                try (PreparedStatement deleteMunStmt = conn.prepareStatement(deleteMunicipality)) {
+                    deleteMunStmt.setString(1, municipalityName);
+                    int rowsAffected = deleteMunStmt.executeUpdate();
+                    System.out.println("Municipality deleted: " + rowsAffected + " row(s) affected.");
+                    return rowsAffected > 0;
+                }
+            }
+
         } catch (SQLException e) {
             System.err.println("Error deleting municipality: " + e.getMessage());
+            e.printStackTrace();
         }
         return false;
     }
-
 
 
 
@@ -298,6 +314,40 @@ public class DatabaseUtilsEnd2End extends Base{
         } catch (SQLException e) {
             System.err.println("Error updating transaction status: " + e.getMessage());
         }
+    }
+    
+    public static List<MeterTransactionInfo> getLastNTransactionDetails(String meterId, int n) {
+        List<MeterTransactionInfo> transactions = new ArrayList<>();
+        Properties props = getDatabaseProperties();
+        if (props == null) return transactions;
+
+        String url = props.getProperty("DB_CONNECTION_STRING");
+        String user = props.getProperty("DB_USERNAME");
+        String pass = props.getProperty("DB_PASSWORD");
+
+        String query = "SELECT TOP (?) Units, Steps FROM TransactionDetails "
+                     + "WHERE TransactionId IN (SELECT TOP (?) Id FROM Transactions WHERE MeterId = ? ORDER BY TransactionDate DESC) "
+                     + "ORDER BY Id DESC";
+
+        try (Connection conn = DriverManager.getConnection(url, user, pass);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, n);
+            stmt.setInt(2, n);
+            stmt.setString(3, meterId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                double units = rs.getDouble("Units");
+                String steps = rs.getString("Steps");
+                transactions.add(new MeterTransactionInfo(steps, units));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error fetching last " + n + " transaction details: " + e.getMessage());
+        }
+
+        return transactions;
     }
 
 }

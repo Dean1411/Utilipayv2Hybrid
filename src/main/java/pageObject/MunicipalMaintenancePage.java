@@ -115,7 +115,7 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	@FindBy(xpath="//*[@id=\"btnSaveYear\"]")
 	WebElement saveTariffYrBtn;
 	
-	@FindBy(xpath="//button[@id='backButton']")
+	@FindBy(xpath="//a[normalize-space()='Back']")
 	WebElement backBtn;
 	
 	@FindBy(xpath="//button[normalize-space()='Add Sub Category']")
@@ -562,7 +562,7 @@ public class MunicipalMaintenancePage extends BaseComponent {
 
 	    switch (actions.toLowerCase()) {
 	        case "manage sgc":
-	            manageSgc(); // no parameters needed
+	            manageSgc(); 
 	            break;
 
 	        case "manage tariff":
@@ -580,12 +580,6 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	            break;
 	    }
 	}
-
-
-
-
-
-
 	
 	public void manageSgc() {
 		
@@ -719,14 +713,10 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	        
 	        Thread.sleep(500);
 
-	        // navBack(); // Removed as per your request
+	        // navBack(); 
 	    }
 
 	}
-
-
-
-
 
 
 	public void manageTariffs(String type, int numberOfTariffsToCreate) throws InterruptedException {
@@ -765,14 +755,9 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	    
 	    if (!linkClicked) {
 	        System.out.println("Manage Tariff link not found");
-	        // optionally throw exception here
 	    }
 	}
 
-
-
-
-	
 	
 	public void searchMunicipality(String municipality) {
 		
@@ -794,8 +779,8 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	public void newTariffCode(String trfCode) {
 	    try {
 	        wait.until(ExpectedConditions.elementToBeClickable(tariffCode));
-	        tariffCode.clear();                  // Clear any existing text before typing
-	        tariffCode.sendKeys(trfCode);        // Use the passed-in trfCode parameter
+	        tariffCode.clear();                  
+	        tariffCode.sendKeys(trfCode);       
 	    } catch (Exception ex) {
 	        System.out.println("Error: " + ex.getMessage());
 	    }
@@ -806,7 +791,7 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	        if (mtrType.equals("Water") || mtrType.equals("Electricity")) {
 	            WebElement dropdown = driver.findElement(By.xpath("//select[@name='MeterType']")); 
 	            Select type = new Select(dropdown);
-	            type.selectByVisibleText(mtrType);  // Use the parameter mtrType dynamically
+	            type.selectByVisibleText(mtrType);  
 	        } else {
 	            System.out.println("Invalid Selection: " + mtrType);
 	        }
@@ -818,8 +803,8 @@ public class MunicipalMaintenancePage extends BaseComponent {
 	public void tariffDec(String description) {
 	    try {
 	        wait.until(ExpectedConditions.elementToBeClickable(desc));
-	        desc.clear();                       // Clear before typing new description
-	        desc.sendKeys(description);        // Use the passed-in description
+	        desc.clear();                    
+	        desc.sendKeys(description);      
 	    } catch(Exception ex) {
 	        System.out.println("Error: " + ex.getMessage());
 	    }
@@ -1032,7 +1017,6 @@ public class MunicipalMaintenancePage extends BaseComponent {
 		endUnitTwo.clear();
 	    endUnitTwo.sendKeys(String.valueOf(endUnit));
 	    
-//	    Thread.sleep(1000);
 	    wait.until(ExpectedConditions.elementToBeClickable(rateTwo));
 	    rateTwo.sendKeys(String.valueOf(rate));
 	}
@@ -1066,15 +1050,25 @@ public class MunicipalMaintenancePage extends BaseComponent {
 		saveAllBtn.click();		
 	}
 	
-	public void navBack(){
-	    
-		wait.until(ExpectedConditions.elementToBeClickable(backBtn));
-		backBtn.click();	
+	public void navBack() throws InterruptedException {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    ((JavascriptExecutor) driver).executeScript(
+	        "arguments[0].scrollIntoView({block: 'center'});", backBtn
+	    );
+
+	    Thread.sleep(500);
+
+	    wait.until(ExpectedConditions.elementToBeClickable(backBtn));
+
+	    ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, -100);");
+
+	    backBtn.click();
 	}
+
 	
 	public String getStepsToaster() throws InterruptedException {
 		
-//		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(tarrifStepToaster));
 		return tarrifStepToaster.getText();
 		

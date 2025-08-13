@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 public class DatabaseCleanupHelper {
 
@@ -21,7 +22,7 @@ public class DatabaseCleanupHelper {
         }
         return properties;
     }
-
+    
     public static void collectAndRunCleanupForMeter(String meterNumber) {
         Properties props = getDatabaseProperties();
         if (props == null) return;
@@ -31,14 +32,16 @@ public class DatabaseCleanupHelper {
         String pass = props.getProperty("DB_PASSWORD");
 
         List<Integer> standIds = new ArrayList<>();
+        List<Integer> meterIds = new ArrayList<>();
+        List<Integer> municipalityIds = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(url, user, pass)) {
 
-            // Get stand IDs for the meter number
-            String sql = "SELECT DISTINCT s.Id FROM Meters m " +
-                         "JOIN Stands s ON m.StandId = s.Id " +
-                         "WHERE m.MeterNumber = ?";
-            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            // 1. Get stand IDs for the meter number
+            String sqlStand = "SELECT DISTINCT s.Id FROM Meters m " +
+                              "JOIN Stands s ON m.StandId = s.Id " +
+                              "WHERE m.MeterNumber = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sqlStand)) {
                 stmt.setString(1, meterNumber);
                 ResultSet rs = stmt.executeQuery();
                 while (rs.next()) {
@@ -47,11 +50,58 @@ public class DatabaseCleanupHelper {
             }
 
             if (standIds.isEmpty()) {
-                System.out.println("⚠️ No stand IDs found for meter: " + meterNumber);
+                System.out.println("No stand IDs found for meter: " + meterNumber);
                 return;
             }
 
+
             runCleanupWithStands(conn, standIds);
+
+            // 2. Get meter IDs belonging to those stands
+            String sqlMeters = "SELECT Id FROM Meters WHERE StandId IN (" + toSqlList(standIds) + ")";
+            try (Statement stmt = conn.createStatement()) {
+                ResultSet rs = stmt.executeQuery(sqlMeters);
+                while (rs.next()) {
+                    meterIds.add(rs.getInt("Id"));
+                }
+            }
+
+            // 3. Get municipality IDs linked to those stands
+            String sqlMunicipality = "SELECT DISTINCT MunicipalityId FROM Stands WHERE Id IN (" + toSqlList(standIds) + ")";
+            try (Statement stmt = conn.createStatement()) {
+                ResultSet rs = stmt.executeQuery(sqlMunicipality);
+                while (rs.next()) {
+                    municipalityIds.add(rs.getInt("MunicipalityId"));
+                }
+            }
+
+            System.out.println("Perform Cleanup");
+
+            // DELETE from Transactions
+            if (!meterIds.isEmpty()) {
+                executeDelete(conn, "Transactions", "MeterId", meterIds);
+            }
+            
+            // DELETE from MeterInstallationHistory
+            executeDelete(conn, "MeterInstallationHistory", "StandId", standIds);
+
+            // DELETE from Meters
+            executeDelete(conn, "Meters", "StandId", standIds);
+
+            // DELETE from Accounts
+            executeDelete(conn, "Accounts", "StandId", standIds);
+
+            // DELETE from SystemLogEntries
+            if (!municipalityIds.isEmpty()) {
+                executeDelete(conn, "SystemLogEntries", "MunicipalityId", municipalityIds);
+            }
+
+            // DELETE from Municipality
+            if (!municipalityIds.isEmpty()) {
+                executeDelete(conn, "Municipality", "Id", municipalityIds);
+            }
+
+            System.out.println("Cleanup completed for meter number: " + meterNumber);
 
         } catch (SQLException e) {
             System.err.println("Error during cleanup: " + e.getMessage());
@@ -59,22 +109,26 @@ public class DatabaseCleanupHelper {
         }
     }
 
-    private static void runCleanupWithStands(Connection conn, List<Integer> standIds) throws SQLException {
-        String idsCsv = standIds.toString().replace("[", "").replace("]", "");
+    // Helper methods
+    private static String toSqlList(List<Integer> ids) {
+        return ids.stream()
+                  .map(String::valueOf)
+                  .collect(Collectors.joining(","));
+    }
 
-        String[] deleteStatements = {
-            "DELETE FROM [dbo].[Municipality] WHERE Name = 'Regression Municipality'",
-            "DELETE FROM [dbo].[Accounts] WHERE StandId IN (" + idsCsv + ")",
-            "DELETE FROM [dbo].[MeterInstallationHistory] WHERE StandId IN (" + idsCsv + ")",
-            "DELETE FROM [dbo].[Stands] WHERE Id IN (" + idsCsv + ")",
-            "DELETE FROM [dbo].[Meters] WHERE StandId IN (" + idsCsv + ")"
-        };
+    private static void executeDelete(Connection conn, String table, String column, List<Integer> ids) throws SQLException {
+        if (ids.isEmpty()) return;
 
+        String sql = "DELETE FROM " + table + " WHERE " + column + " IN (" + toSqlList(ids) + ")";
         try (Statement stmt = conn.createStatement()) {
+
             for (String sql : deleteStatements) {
                 int affected = stmt.executeUpdate(sql);
                 System.out.println("Executed: [" + sql + "] → Rows affected: " + affected);
             }
+
+            int deletedRows = stmt.executeUpdate(sql);
+            System.out.println("Deleted " + deletedRows + " rows from " + table);
         }
     }
 }
