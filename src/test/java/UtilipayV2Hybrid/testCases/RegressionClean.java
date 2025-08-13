@@ -487,7 +487,7 @@ public class RegressionClean extends Base {
                     System.out.println("API Steps: " + steps);
                 }
 
-                // Use pre-retrieved meterId to check database after each purchase
+                // Use meterId to check database after each purchase
                 DatabaseUtilsEnd2End.MeterTransactionInfo info = DatabaseUtilsEnd2End.getLastStepAndUnits(meterId);
                 softAssert.assertNotNull(info, "No ledger entry found for meter " + meterNumber + " after purchase " + purchaseNumber);
 
