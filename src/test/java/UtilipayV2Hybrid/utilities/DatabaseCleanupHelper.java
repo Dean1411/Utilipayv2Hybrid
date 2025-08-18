@@ -54,7 +54,6 @@ public class DatabaseCleanupHelper {
                 return;
             }
 
-
             runCleanupWithStands(conn, standIds);
 
             // 2. Get meter IDs belonging to those stands
@@ -66,7 +65,6 @@ public class DatabaseCleanupHelper {
                 }
             }
 
-            // 3. Get municipality IDs linked to those stands
             String sqlMunicipality = "SELECT DISTINCT MunicipalityId FROM Stands WHERE Id IN (" + toSqlList(standIds) + ")";
             try (Statement stmt = conn.createStatement()) {
                 ResultSet rs = stmt.executeQuery(sqlMunicipality);
@@ -77,26 +75,20 @@ public class DatabaseCleanupHelper {
 
             System.out.println("Perform Cleanup");
 
-            // DELETE from Transactions
             if (!meterIds.isEmpty()) {
                 executeDelete(conn, "Transactions", "MeterId", meterIds);
             }
             
-            // DELETE from MeterInstallationHistory
             executeDelete(conn, "MeterInstallationHistory", "StandId", standIds);
 
-            // DELETE from Meters
             executeDelete(conn, "Meters", "StandId", standIds);
 
-            // DELETE from Accounts
             executeDelete(conn, "Accounts", "StandId", standIds);
 
-            // DELETE from SystemLogEntries
             if (!municipalityIds.isEmpty()) {
                 executeDelete(conn, "SystemLogEntries", "MunicipalityId", municipalityIds);
             }
 
-            // DELETE from Municipality
             if (!municipalityIds.isEmpty()) {
                 executeDelete(conn, "Municipality", "Id", municipalityIds);
             }
@@ -109,7 +101,6 @@ public class DatabaseCleanupHelper {
         }
     }
 
-    // Helper methods
     private static String toSqlList(List<Integer> ids) {
         return ids.stream()
                   .map(String::valueOf)
