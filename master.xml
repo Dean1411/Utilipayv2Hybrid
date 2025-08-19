@@ -8,7 +8,7 @@
 		/>-->
 		<listener class-name="UtilipayV2Hybrid.utilities.TestTransformer"></listener>
 	</listeners>
-	<parameter name="Browser" value="edge"></parameter>
+	<parameter name="Browser" value="firefox"></parameter>
 	<parameter name="OS" value="windows"></parameter>
 	<!--<parameter name="OS" value="windows"></parameter>-->
 	<!-- Test -->
@@ -26,7 +26,7 @@
 			<!--			<class name="UtilipayV2Hybrid.testCases.DatabaseTest" />-->
 			<!--									<class name="UtilipayV2Hybrid.testCases.Transact" />-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.AddTariff" />-->
-			<!--			<class name="UtilipayV2Hybrid.testCases.PerformKeyChange" />-->
+<!--						<class name="UtilipayV2Hybrid.testCases.PerformKeyChange" />-->
 			<!--			<classZg
 			name="UtilipayV2Hybrid.testCases.ManagementFunctionToken" />-->
 			<!--			<class

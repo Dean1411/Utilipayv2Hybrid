@@ -1,6 +1,10 @@
 package UtilipayV2Hybrid.testCases;
 
+import java.io.IOException;
+
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -12,9 +16,14 @@ public class OnlinePurchase extends Base {
     private SoftAssert softAssert;
     private OnlinePurchasePage onlinePurchasePage;
 
-    @BeforeClass
-    public void setup() {
+    @BeforeClass(alwaysRun = true)
+    @Parameters({"Browser", "baseType"})
+    public void setup(String browser, @Optional("online") String baseType) throws IOException {
         softAssert = new SoftAssert();
+
+        // Initialize driver and open correct base URL
+        setUp(browser, baseType);
+
         onlinePurchasePage = new OnlinePurchasePage(Base.getDriver());
     }
 

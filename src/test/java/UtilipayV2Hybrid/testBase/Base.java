@@ -25,6 +25,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
@@ -48,8 +49,8 @@ public class Base {
 
 	
 	@BeforeClass(alwaysRun = true)
-	@Parameters({"Browser"})
-	public void setUp(String browserName) throws IOException {
+	@Parameters({"Browser", "baseType"})
+	public void setUp(String browserName, @Optional("prepaid") String baseType) throws IOException {
 	    prop = new Properties();
 	    fs = new FileInputStream("./src/test/resources/data.properties");
 	    prop.load(fs);
@@ -94,12 +95,24 @@ public class Base {
 
 	    getDriver().manage().deleteAllCookies();
 	    getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	    getDriver().get(prop.getProperty("baseUrl"));
+
+	    String url = null;
+	    switch(baseType.toLowerCase()) {
+	        case "online":
+	            url = prop.getProperty("onlineUrl");
+	            break;
+	        case "prepaid":
+	            url = prop.getProperty("baseUrl");
+	            break;
+	        default:
+	            url = prop.getProperty("baseUrl");
+	    }
+
+	    // Navigate to the correct URL
+	    getDriver().get(url);
 	    getDriver().manage().window().maximize();
+
 	}
-
-
-
 	
 //	@BeforeClass (alwaysRun=true)
 //	@Parameters({"Browser"})
