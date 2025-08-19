@@ -1,0 +1,40 @@
+2025-08-12 18:02:02.774 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-08-12 18:02:07.344 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-12 18:02:07.345 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-08-12 18:02:11.112 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-12 18:02:11.112 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-08-12 18:02:14.998 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-12 18:02:14.998 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
+2025-08-12 18:02:16.068 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
+2025-08-12 18:02:30.338 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token
+2025-08-12 18:02:44.365 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
+2025-08-12 18:02:58.546 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
+2025-08-12 18:03:12.401 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing mngt function token
+2025-08-12 18:03:26.769 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: key change token
+2025-08-12 18:03:40.874 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: management function token
+2025-08-19 10:52:46.728 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
+2025-08-19 10:53:01.600 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-08-19 10:53:07.957 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [prepaid sales]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-19 10:53:07.976 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-08-19 10:53:16.665 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-19 10:53:16.666 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-08-19 10:53:20.863 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [month end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-19 10:53:20.863 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-08-19 10:53:26.922 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-19 10:53:26.923 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-08-19 10:53:31.774 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-19 10:53:31.775 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-08-19 10:53:37.252 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-19 10:53:37.252 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
+2025-08-19 10:53:38.856 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
+2025-08-19 10:53:54.360 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token
+2025-08-19 10:54:09.013 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
+2025-08-19 10:54:23.923 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
+2025-08-19 10:54:39.326 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing mngt function token
+2025-08-19 10:54:54.352 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: key change token
+2025-08-19 10:55:10.260 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: management function token
+2025-08-19 11:18:27.825 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
+2025-08-19 11:18:35.559 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-08-19 11:18:41.222 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [prepaid sales]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-19 11:18:41.228 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-08-19 11:18:47.844 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!

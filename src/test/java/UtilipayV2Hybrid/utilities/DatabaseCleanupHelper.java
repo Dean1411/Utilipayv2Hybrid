@@ -56,7 +56,7 @@ public class DatabaseCleanupHelper {
 
 
            // runCleanupWithStands(conn, standIds);
-            runCleanupWithStands(conn, standIds);
+            //runCleanupWithStands(conn, standIds);
 
             // 2. Get meter IDs belonging to those stands
             String sqlMeters = "SELECT Id FROM Meters WHERE StandId IN (" + toSqlList(standIds) + ")";

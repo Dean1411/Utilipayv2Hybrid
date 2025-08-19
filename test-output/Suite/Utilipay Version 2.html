@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Utilipay Version 2</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/1</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Aug 19 10:21:25 SAST 2025</td>
+<td>Started on:</td><td>Tue Aug 19 11:13:28 SAST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>14 seconds (14081 ms)</td>
+<tr><td>Total time:</td><td>477 seconds (477383 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,43 +67,109 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='UtilipayV2Hybrid.testCases.Api.switchMeterLookup()'><b>switchMeterLookup</b><br>Test class: UtilipayV2Hybrid.testCases.Api</td>
-<td></td>
-<td>5</td>
-<td>UtilipayV2Hybrid.testCases.Api@767e20cf</td></tr>
+<td title='UtilipayV2Hybrid.testCases.RegressionClean.regression()'><b>regression</b><br>Test class: UtilipayV2Hybrid.testCases.RegressionClean</td>
+<td><div><pre>java.lang.AssertionError: Regression test failed: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.partialLinkText: Municipal Maintenance&apos; (tried for 10 second(s) with 500 milliseconds interval)
+	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:110)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1894818723", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1894818723'><pre>java.lang.AssertionError: Regression test failed: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.partialLinkText: Municipal Maintenance&apos; (tried for 10 second(s) with 500 milliseconds interval)
+	at org.testng.Assert.fail(Assert.java:99)
+	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:110)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.retryFailed(TestInvoker.java:213)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:58)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>20</td>
+<td>UtilipayV2Hybrid.testCases.RegressionClean@60fa3495</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
-<td title='UtilipayV2Hybrid.testCases.Api.emsVendTest()'><b>emsVendTest</b><br>Test class: UtilipayV2Hybrid.testCases.Api</td>
-<td></td>
-<td>1</td>
-<td>UtilipayV2Hybrid.testCases.Api@767e20cf</td></tr>
-<tr>
-<td title='UtilipayV2Hybrid.testCases.Api.confirmTransactionTest()'><b>confirmTransactionTest</b><br>Test class: UtilipayV2Hybrid.testCases.Api</td>
-<td></td>
-<td>0</td>
-<td>UtilipayV2Hybrid.testCases.Api@767e20cf</td></tr>
-<tr>
-<td title='UtilipayV2Hybrid.testCases.Api.switchMunLookup()'><b>switchMunLookup</b><br>Test class: UtilipayV2Hybrid.testCases.Api</td>
-<td></td>
-<td>0</td>
-<td>UtilipayV2Hybrid.testCases.Api@767e20cf</td></tr>
-<tr>
-<td title='UtilipayV2Hybrid.testCases.Api.cancelTransactionTest()'><b>cancelTransactionTest</b><br>Test class: UtilipayV2Hybrid.testCases.Api</td>
-<td></td>
-<td>0</td>
-<td>UtilipayV2Hybrid.testCases.Api@767e20cf</td></tr>
-<tr>
-<td title='UtilipayV2Hybrid.testCases.Api.switchVend()'><b>switchVend</b><br>Test class: UtilipayV2Hybrid.testCases.Api</td>
-<td></td>
-<td>1</td>
-<td>UtilipayV2Hybrid.testCases.Api@767e20cf</td></tr>
+<td title='UtilipayV2Hybrid.testCases.RegressionClean.regression()'><b>regression</b><br>Test class: UtilipayV2Hybrid.testCases.RegressionClean</td>
+<td><div><pre>java.lang.AssertionError: Exception during purchase: Expected condition failed: waiting for element to be clickable: [[EdgeDriver: MicrosoftEdge on windows (902690af1bd5d7ab07194715b7f9f73d)] -&gt; xpath: //button[normalize-space()=&apos;Continue&apos;]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 139.0.3405.102, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:63938}, msedge: {msedgedriverVersion: 139.0.3405.102 (7dccc8fa00f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63938/devtoo..., se:cdpVersion: 139.0.3405.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 902690af1bd5d7ab07194715b7f9f73d
+	at UtilipayV2Hybrid.testCases.RegressionClean.purchase(RegressionClean.java:608)
+	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:105)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1928777006", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1928777006'><pre>java.lang.AssertionError: Exception during purchase: Expected condition failed: waiting for element to be clickable: [[EdgeDriver: MicrosoftEdge on windows (902690af1bd5d7ab07194715b7f9f73d)] -&gt; xpath: //button[normalize-space()=&apos;Continue&apos;]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 139.0.3405.102, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:63938}, msedge: {msedgedriverVersion: 139.0.3405.102 (7dccc8fa00f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63938/devtoo..., se:cdpVersion: 139.0.3405.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 902690af1bd5d7ab07194715b7f9f73d
+	at org.testng.Assert.fail(Assert.java:99)
+	at UtilipayV2Hybrid.testCases.RegressionClean.purchase(RegressionClean.java:608)
+	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:105)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>376</td>
+<td>UtilipayV2Hybrid.testCases.RegressionClean@60fa3495</td></tr>
 </table><p>
 </body>
 </html>

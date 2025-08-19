@@ -2,19 +2,21 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <parameter name="OS" value="windows"/>
-  <parameter name="Browser" value="chrome"/>
+  <parameter name="Browser" value="edge"/>
   <listeners>
     <listener class-name="UtilipayV2Hybrid.utilities.ExtentReportNG"/>
     <listener class-name="UtilipayV2Hybrid.utilities.TestTransformer"/>
   </listeners>
   <test thread-count="5" name="Utilipay Version 2(failed)">
     <classes>
-      <class name="UtilipayV2Hybrid.testCases.Api">
+      <class name="UtilipayV2Hybrid.testCases.RegressionClean">
         <methods>
-          <include name="authentication"/>
-          <include name="switchVend"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="loginOnce"/>
+          <include name="regression"/>
         </methods>
-      </class> <!-- UtilipayV2Hybrid.testCases.Api -->
+      </class> <!-- UtilipayV2Hybrid.testCases.RegressionClean -->
     </classes>
   </test> <!-- Utilipay Version 2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

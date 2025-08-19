@@ -9,15 +9,23 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">6</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">14 081</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num attn">1</td><td class="num">477 383</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="6">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m0">cancelTransactionTest</a></td><td rowspan="1">1755591699794</td><td rowspan="1">175</td></tr><tr class="passedeven"><td><a href="#m1">confirmTransactionTest</a></td><td rowspan="1">1755591699598</td><td rowspan="1">193</td></tr><tr class="passedeven"><td><a href="#m2">emsVendTest</a></td><td rowspan="1">1755591690979</td><td rowspan="1">1735</td></tr><tr class="passedeven"><td><a href="#m3">switchMeterLookup</a></td><td rowspan="1">1755591692727</td><td rowspan="1">5235</td></tr><tr class="passedeven"><td><a href="#m4">switchMunLookup</a></td><td rowspan="1">1755591697965</td><td rowspan="1">256</td></tr><tr class="passedeven"><td><a href="#m5">switchVend</a></td><td rowspan="1">1755591698223</td><td rowspan="1">1369</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.RegressionClean</td><td><a href="#m0">regression</a></td><td rowspan="1">1755595262541</td><td rowspan="1">20539</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.RegressionClean</td><td><a href="#m1">regression</a></td><td rowspan="1">1755594885620</td><td rowspan="1">376827</td></tr></tbody>
 </table>
-<h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.Api#cancelTransactionTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">UtilipayV2Hybrid.testCases.Api#confirmTransactionTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">UtilipayV2Hybrid.testCases.Api#emsVendTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">UtilipayV2Hybrid.testCases.Api#switchMeterLookup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">UtilipayV2Hybrid.testCases.Api#switchMunLookup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">UtilipayV2Hybrid.testCases.Api#switchVend</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.RegressionClean#regression</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Regression test failed: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.partialLinkText: Municipal Maintenance&apos; (tried for 10 second(s) with 500 milliseconds interval)
+	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:110)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 26 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">UtilipayV2Hybrid.testCases.RegressionClean#regression</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Exception during purchase: Expected condition failed: waiting for element to be clickable: [[EdgeDriver: MicrosoftEdge on windows (902690af1bd5d7ab07194715b7f9f73d)] -&gt; xpath: //button[normalize-space()=&apos;Continue&apos;]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 139.0.3405.102, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:63938}, msedge: {msedgedriverVersion: 139.0.3405.102 (7dccc8fa00f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63938/devtoo..., se:cdpVersion: 139.0.3405.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 902690af1bd5d7ab07194715b7f9f73d
+	at UtilipayV2Hybrid.testCases.RegressionClean.purchase(RegressionClean.java:608)
+	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:105)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 26 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
