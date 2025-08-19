@@ -3,6 +3,7 @@ package UtilipayV2Hybrid.testCases;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.IllegalFormatPrecisionException;
 
 import UtilipayV2Hybrid.utilities.ReferenceGenerator;
 import UtilipayV2Hybrid.utilities.ConfigReader;
@@ -123,7 +124,7 @@ public class Api {
                 .when()
                 .post(baseUrl + confirmEndpoint);
         
-        System.out.println("COnfirm Transaction Response Status: " + response.getStatusCode());
+        System.out.println("Confirm Transaction Response Status: " + response.getStatusCode());
         System.out.println("Confirm Transaction Response: " + response.getBody().asString());
         Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
     }
@@ -177,42 +178,59 @@ public class Api {
       Assert.assertTrue(isErrorEmpty, "Municipality Lookup returned error: " + error);
   }
 
+    
+    @Test
+    public void switchVend() {
+    	try {
+            String switchVend = ConfigReader.get("switchVend");
+            String extReferenceNo = ReferenceGenerator.generateNextReference();
 
-  @Test
-  public void switchVend() {
-      String switchVend = ConfigReader.get("switchVend");
+            String jsonBody = String.format(
+            		java.util.Locale.US,
+                "{ \"distributorId\": 10003, " +
+                "\"productTypeId\": 3, " +
+                "\"extReferenceNo\":\"%s\", " +
+                "\"parameter1\": \"%s\", " +
+                "\"parameter2\":\"%s\", " +
+                "\"paymentMethod\": \"%s\", " +
+                "\"amount\": %.2f }",
+                extReferenceNo, "00000000018", "18", "Cash", 100.00
+            );
 
-      String jsonBody = String.format(
-          "{ \"distributorId\": 11001, " +
-          "\"productTypeId\": 0, " +
-          "\"extReferenceNo\": \"%s\", " +
-          "\"parameter1\": \"%s\", " +
-          "\"parameter2\": \"%s\", " +
-          "\"paymentMethod\": \"%s\", " +
-          "\"amount\": %.2f }",
-          "PP0003029", "00000000018", "", "Cash", 100.00
-      );
+            Response response = given()
+                    .header("Authorization", "Bearer " + switchBearerToken)
+                    .contentType("application/json")
+                    .body(jsonBody)
+                    .when()
+                    .post(switchUrl + switchVend);
 
-      Response response = given()
-              .header("Authorization", "Bearer " + bearerToken)
-              .contentType("application/json")
-              .body(jsonBody)
-              .when()
-              .post(baseUrl + switchVend);
+            try {
+                String responseBody = response.getBody().asString();
+                String contentType = response.getHeader("Content-Type");
 
-      String responseBody = response.getBody().asString();
-      JsonPath jsonPath = new JsonPath(responseBody);
-      String error = jsonPath.getString("error");
-      boolean isErrorEmpty = (error == null || error.isEmpty());
+                System.out.println("Switch Vend Response Status: " + response.getStatusCode());
+                System.out.println("Switch Vend Raw Response: " + responseBody);
+                System.out.println("Switch Vend Content-Type: " + contentType);
 
-      System.out.println("Switch Vend Response Status: " + response.getStatusCode());
-      System.out.println("Switch Vend Response: " + responseBody);
+                Assert.assertEquals(response.getStatusCode(), 200, "Switch Vend failed (bad status)");
 
-      Assert.assertEquals(response.getStatusCode(), 200, "Switch Vend failed (bad status)");
-      Assert.assertTrue(isErrorEmpty, "Switch Vend failed with error: " + error);
-  }
+                if (contentType != null && contentType.contains("application/json")) {
+                    JsonPath jsonPath = new JsonPath(responseBody);
+                    String error = jsonPath.getString("error");
+                    boolean isErrorEmpty = (error == null || error.isEmpty());
 
+                    Assert.assertTrue(isErrorEmpty, "Switch Vend failed with error: " + error);
+                } else {
+                    Assert.fail("Expected JSON response but got: " + contentType + " | Body: " + responseBody);
+                }
 
+            } catch (Exception ex) {
+                System.out.println("Exception while handling response: " + ex);
+            }
+    	}catch (IllegalFormatPrecisionException ex) {
+    		throw ex;
+    	}
+    }
 
     @Test
     public void switchMeterLookup() {

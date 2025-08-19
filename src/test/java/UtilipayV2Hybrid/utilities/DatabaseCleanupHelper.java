@@ -55,7 +55,7 @@ public class DatabaseCleanupHelper {
             }
 
 
-            runCleanupWithStands(conn, standIds);
+           // runCleanupWithStands(conn, standIds);
 
             // 2. Get meter IDs belonging to those stands
             String sqlMeters = "SELECT Id FROM Meters WHERE StandId IN (" + toSqlList(standIds) + ")";
@@ -121,14 +121,9 @@ public class DatabaseCleanupHelper {
 
         String sql = "DELETE FROM " + table + " WHERE " + column + " IN (" + toSqlList(ids) + ")";
         try (Statement stmt = conn.createStatement()) {
-
-            for (String sql : deleteStatements) {
-                int affected = stmt.executeUpdate(sql);
-                System.out.println("Executed: [" + sql + "] → Rows affected: " + affected);
-            }
-
             int deletedRows = stmt.executeUpdate(sql);
-            System.out.println("Deleted " + deletedRows + " rows from " + table);
+            System.out.println("Executed: [" + sql + "] → Rows affected: " + deletedRows);
         }
     }
+
 }
