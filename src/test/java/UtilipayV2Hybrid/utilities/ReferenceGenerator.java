@@ -9,7 +9,7 @@ import java.util.List;
 public class ReferenceGenerator {
 
     private static final String FILE_PATH = "src/test/resources/refCounter.txt";
-    private static final String PREFIX = "10003lookup";
+    private static final String PREFIX = "SWITCH0000";
 
     public static String generateNextReference() {
         int nextNumber = 1;

@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="UtilipayV2Hybrid.testCases.Reporting">
+      <class name="UtilipayV2Hybrid.testCases.Api">
         <methods>
-          <include name="setUp"/>
-          <include name="generateEngineeringTokens"/>
-          <include name="tearDown"/>
+          <include name="confirmTransactionTest"/>
+          <include name="authentication"/>
+          <include name="cancelTransactionTest"/>
+          <include name="switchVend"/>
+          <include name="emsVendTest"/>
         </methods>
-      </class> <!-- UtilipayV2Hybrid.testCases.Reporting -->
+      </class> <!-- UtilipayV2Hybrid.testCases.Api -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
