@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Online Suite">
+
+    <listeners>
+        <listener class-name="UtilipayV2Hybrid.utilities.ExtentReportNG" />
+        <listener class-name="UtilipayV2Hybrid.utilities.TestTransformer" />
+    </listeners>
+
+    <parameter name="Browser" value="chrome"/>
+    <parameter name="OS" value="windows"/>
+    <parameter name="baseType" value="online"/> 
+    <test name="Online Regression" thread-count="5">
+        <classes>
+            <class name="UtilipayV2Hybrid.testCases.OnlinePurchase" />
+        </classes>
+    </test>
+
+</suite>

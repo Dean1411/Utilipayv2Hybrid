@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -29,8 +30,8 @@ public class VerifyLinks extends Base{
     DatabaseUtilsEnd2End checkLinks;
 
     @BeforeClass(alwaysRun = true)
-    @Parameters({"Browser"})
-    public void login(String browser) throws IOException {
+    @Parameters({"Browser", "baseType"})
+    public void login(String browser, @Optional("prepaid") String baseType) throws IOException {
     	
         hP = new HomePage(Base.getDriver());
         lP = new LoginPage(Base.getDriver());
@@ -43,7 +44,7 @@ public class VerifyLinks extends Base{
             prop.load(fs);
         }
 
-        setUp(browser);
+        setUp(browser, baseType);
 
         logIn = new LoginUtil();
         logIn.adminLogIn();

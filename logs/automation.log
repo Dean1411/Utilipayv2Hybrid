@@ -14,3 +14,13 @@
 2025-08-19 11:20:04.829 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing mngt function token
 2025-08-19 11:20:19.226 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: key change token
 2025-08-19 11:20:33.951 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: management function token
+2025-08-19 14:19:18.204 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-08-19 14:19:18.229 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-08-19 14:19:19.126 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
+2025-08-19 14:20:01.001 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-08-19 14:20:01.004 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-08-19 14:25:15.091 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-08-19 14:25:15.107 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-08-19 14:25:16.174 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
+2025-08-19 14:25:41.529 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
+2025-08-19 14:25:41.529 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***

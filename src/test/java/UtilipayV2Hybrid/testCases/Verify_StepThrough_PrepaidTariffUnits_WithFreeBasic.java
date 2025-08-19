@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -24,15 +25,15 @@ public class Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic extends Base {
     NavigationPage nav;
 
     @BeforeClass(alwaysRun = true)
-    @Parameters({"Browser"})
-    public void login(String browser) throws IOException {
+    @Parameters({"Browser", "baseType"})
+    public void login(String browser, @Optional("prepaid") String baseType) throws IOException {
         if (getProp() == null) {
             prop = new Properties();
             FileInputStream fs = new FileInputStream("./src/test/resources/data.properties");
             prop.load(fs);
         }
 
-        setUp(browser);
+        setUp(browser, baseType);
 
         logIn = new LoginUtil();
         logIn.adminLogIn();
