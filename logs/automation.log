@@ -24,3 +24,7 @@
 2025-08-19 14:25:16.174 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Navigate to Engineering Page***
 2025-08-19 14:25:41.529 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
 2025-08-19 14:25:41.529 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-08-26 08:17:35.635 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-08-26 08:17:35.683 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-08-26 08:17:36.012 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-08-26 08:17:40.084 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
