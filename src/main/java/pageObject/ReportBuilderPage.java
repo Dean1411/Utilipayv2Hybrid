@@ -275,6 +275,7 @@ public class ReportBuilderPage extends BaseComponent {
     // Support Methods
     public void monthPicker(String month) {
         Select monthSelection = new Select(mnthSelection);
+        wait.until(ExpectedConditions.elementToBeClickable(datePicker)).click();
         for (WebElement mnth : monthSelection.getOptions()) {
             if (mnth.getText().contains(month)) {
                 mnth.click();
@@ -301,6 +302,28 @@ public class ReportBuilderPage extends BaseComponent {
             Thread.sleep(300);
         }
     }
+    
+    public void toAndFromDateSelector2(String fromDay, String toDay) throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(datePicker)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("flatpickr-calendar")));
+
+        String dayXPath = "//span[contains(@class,'flatpickr-day') and " +
+                          "not(contains(@class,'prevMonthDay')) and " +
+                          "not(contains(@class,'nextMonthDay')) and " +
+                          "not(contains(@class,'disabled'))]";
+
+        for (String targetDay : new String[]{fromDay, toDay}) {
+            List<WebElement> days = driver.findElements(By.xpath(dayXPath));
+            for (WebElement day : days) {
+                if (day.getText().trim().equals(targetDay)) {
+                    day.click();
+                    break;
+                }
+            }
+            Thread.sleep(300);
+        }
+    }
+
 
     public void selectMonth(String targetMonth) {
         WebElement monthContainer = wait.until(

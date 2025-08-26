@@ -27,6 +27,9 @@ public class NavigationPage extends BaseComponent {
 	@FindBy(partialLinkText="Municipal Maintenance")
 	WebElement municipalMaintenance;
 	
+	@FindBy(partialLinkText="Transaction History")
+	WebElement transactHistory;
+	
 	@FindBy(partialLinkText="Prepaid Import")
 	WebElement prepaidImport;
 	
@@ -75,7 +78,10 @@ public class NavigationPage extends BaseComponent {
 		municipalMaintenance.click();
 	}
 	
-	
+	public void click_TransactHistory() {
+		wait.until(ExpectedConditions.elementToBeClickable(transactHistory));
+		transactHistory.click();
+	}
 	
 	//Engineering methods
 	public void nav_Engineering() {
