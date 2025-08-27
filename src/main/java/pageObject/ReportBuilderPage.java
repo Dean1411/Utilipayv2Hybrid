@@ -1,20 +1,28 @@
 package pageObject;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.*;
+
+
 
 public class ReportBuilderPage extends BaseComponent {
 
     private WebDriverWait wait;
+    private boolean customeDone = false;
+    //private ScrollUtils scroll;
 
     public ReportBuilderPage(WebDriver driver) {
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //this.scroll = new ScrollUtils(driver);
     }
+
 
     // Elements
     @FindBy(xpath = "//select[@id='dpdReportFormat']")
@@ -79,55 +87,110 @@ public class ReportBuilderPage extends BaseComponent {
 
     @FindBy(xpath = "//div[contains(@class, 'toast-message')]")
     WebElement statusMsg;
+    
+    //Custome Report
+    @FindBy(xpath = "//select[@id='OrderBy']")
+    WebElement orderBy;
 
-    // Report Dispatcher
+    @FindBy(xpath = "//select[@id='GroupBy']")
+    WebElement groupBy;
+
+    @FindBy(xpath = "//select[@id='dpdFilterBy']")
+    WebElement filterBy;
+
+    @FindBy(xpath = "//button[normalize-space()='Column Configuration']")
+    WebElement columnConfigBtn;
+
+    @FindBy(xpath = "//button[normalize-space()='Generate Preview']")
+    WebElement generatePreviewBtn;
+    
+    @FindBy(xpath = "//div[@id='ReportColumns']")
+    WebElement rightColumns;
+    
+    @FindBy(xpath = "//div[@id='columnBank']")
+    WebElement leftColumns;
+    
+    @FindBy(xpath = "//button[normalize-space()='Save As Preset']")
+    WebElement saveCustomeReportBtn;
+    
+    @FindBy(xpath = "//input[@id='presetName']")
+    WebElement customeReportName;
+    
+    @FindBy(xpath = "//button[normalize-space()='Submit']")
+    WebElement submitCustomReport;//tbody
+    
+
     public void selectReport(String report) {
-        try {
-        	
+        boolean isCustomReport = false;
+        String actualMsg = "";
+
+        switch (report.toLowerCase()) {
+            case "prepaid sales":
+                wait.until(ExpectedConditions.elementToBeClickable(prepaidSales)).click();
+                prepaidSales();
+                break;
+            case "day end":
+                wait.until(ExpectedConditions.elementToBeClickable(dayEnd)).click();
+                dayEnd();
+                break;
+            case "month end":
+                wait.until(ExpectedConditions.elementToBeClickable(monthEnd)).click();
+                monthEnd("Jan");
+                break;
+            case "low purchase":
+                wait.until(ExpectedConditions.elementToBeClickable(lowPurchase)).click();
+                lowPurchase(100);
+                break;
+            case "free basic":
+                wait.until(ExpectedConditions.elementToBeClickable(freeBasic)).click();
+                freeBasicIssued("Jan");
+                break;
+            case "arrears recovered":
+                wait.until(ExpectedConditions.elementToBeClickable(arrearsRecovered)).click();
+                arrearsRecovered();
+                break;
+            case "custom report":
+                scrollToElement(customReport);
+                wait.until(ExpectedConditions.elementToBeClickable(customReport)).click();
+
+                List<String> selectedColumns = Arrays.asList(
+                    "Customer Name",
+                    "Account Number",
+                    "Credit Token",
+                    "Transaction Date"
+                );
+
+                try {
+                    organizeCustomeReportColumns(selectedColumns);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                isCustomReport = true;
+
+                // ✅ Assert the correct message for custom report
+                actualMsg = statusMessage();
+                String expectedCustomMsg = "Preset successfully saved!";
+                System.out.println("Status for custom report: " + actualMsg);
+                org.testng.Assert.assertEquals(actualMsg, expectedCustomMsg,
+                    "Status message mismatch for custom report");
+                break;
+
+            default:
+                System.out.println("Invalid report selection: " + report);
+        }
+
+        // Assert the non-custom message only for non-custom reports
+        if (!isCustomReport) {
             String expectedMsg = "Your report is being prepared. you will receive an email ones it is ready!";
-            String actualMsg = "";
-            
-            switch (report.toLowerCase()) {
-                case "prepaid sales":
-                    wait.until(ExpectedConditions.elementToBeClickable(prepaidSales)).click();
-                    prepaidSales();
-                    break;
-                case "day end":
-                    wait.until(ExpectedConditions.elementToBeClickable(dayEnd)).click();
-                    dayEnd();
-                    break;
-                case "month end":
-                    wait.until(ExpectedConditions.elementToBeClickable(monthEnd)).click();
-                    monthEnd("Jan");
-                    break;
-                case "low purchase":
-                    wait.until(ExpectedConditions.elementToBeClickable(lowPurchase)).click();
-                    lowPurchase(100);
-                    break;
-                case "free basic":
-                    wait.until(ExpectedConditions.elementToBeClickable(freeBasic)).click();
-                    freeBasicIssued("Jan");
-                    break;
-                case "arrears recovered":
-                    wait.until(ExpectedConditions.elementToBeClickable(arrearsRecovered)).click();
-                    arrearsRecovered();
-                    break;
-                case "custom report":
-                    wait.until(ExpectedConditions.elementToBeClickable(customReport)).click();
-                    prepaidSales();
-                    break;
-                default:
-                    System.out.println("Invalid report selection: " + report);
-            }
-            
             actualMsg = statusMessage();
             System.out.println("Status for " + report + ": " + actualMsg);
-            org.testng.Assert.assertEquals(actualMsg, expectedMsg, "Status message mismatch for: " + report);
-            
-        } catch (Exception e) {
-            System.out.println("Error selecting report: " + e.getMessage());
+            org.testng.Assert.assertEquals(actualMsg, expectedMsg,
+                "Status message mismatch for: " + report);
         }
     }
+
+
 
     // Prepaid Sales Report
     public void prepaidSales() {
@@ -144,7 +207,7 @@ public class ReportBuilderPage extends BaseComponent {
                 wait.until(ExpectedConditions.elementToBeClickable(generateReport)).click();
                 System.out.println("Transaction list:\n" + transactionsBody.getText());
                 reportFormat("CSV");
-                System.out.println("Status: " + statusMessage());
+                System.out.println("Status: " + statusMessage() + "\n");
             } else {
                 System.out.println("No Transactions for current range");
             }
@@ -173,7 +236,7 @@ public class ReportBuilderPage extends BaseComponent {
                 wait.until(ExpectedConditions.elementToBeClickable(generateReport)).click();
                 System.out.println("Transaction list:\n" + transactionsBody.getText());
                 reportFormat("CSV");
-                System.out.println("Status: " + statusMessage());
+                System.out.println("Status: " + statusMessage()+ "\n");
             } else {
                 System.out.println("No Transactions for current range");
             }
@@ -194,7 +257,7 @@ public class ReportBuilderPage extends BaseComponent {
                 wait.until(ExpectedConditions.elementToBeClickable(generateReport)).click();
                 System.out.println("Transaction list:\n" + transactionsBody.getText());
                 reportFormat("CSV");
-                System.out.println("Status: " + statusMessage());
+                System.out.println("Status: " + statusMessage()+ "\n");
             } else {
                 System.out.println("No Transactions for current range");
             }
@@ -215,7 +278,7 @@ public class ReportBuilderPage extends BaseComponent {
                 wait.until(ExpectedConditions.elementToBeClickable(generateReport)).click();
                 System.out.println("Transaction list:\n" + transactionsBody.getText());
                 reportFormat("CSV");
-                System.out.println("Status: " + statusMessage());
+                System.out.println("Status: " + statusMessage()+ "\n");
             } else {
                 System.out.println("No Transactions for current range");
             }
@@ -238,7 +301,7 @@ public class ReportBuilderPage extends BaseComponent {
                 wait.until(ExpectedConditions.elementToBeClickable(generateReport)).click();
                 System.out.println("Transaction list:\n" + transactionsBody.getText());
                 reportFormat("CSV");
-                System.out.println("Status: " + statusMessage());
+                System.out.println("Status: " + statusMessage()+ "\n");
             } else {
                 System.out.println("No Transactions for current range");
             }
@@ -263,7 +326,7 @@ public class ReportBuilderPage extends BaseComponent {
                 System.out.println("Transaction list:\n" + transactionsBody.getText());
                 Thread.sleep(100);
                 reportFormat("CSV");
-                System.out.println("Status: " + statusMessage());
+                System.out.println("Status: " + statusMessage()+ "\n");
             } else {
                 System.out.println("No Transactions for current range");
             }
@@ -397,6 +460,157 @@ public class ReportBuilderPage extends BaseComponent {
             return "No status message displayed.";
         }
     }
+    
+    public void customReportParams() throws InterruptedException {
+    	selectMunicipality("Karoo Hoogland");
+        monthPicker("January");
+        toAndFromDateSelector();
+    }
+    
+    public void organizeCustomeReportColumns(List<String> selectedFields) throws InterruptedException {
+    	customReportParams();
+        wait.until(ExpectedConditions.elementToBeClickable(columnConfigBtn)).click();
+
+        List<WebElement> allLeftFields = leftColumns.findElements(By.xpath(".//li"));
+        WebElement rightList = rightColumns.findElement(By.xpath(".//ul")); 
+        
+        reversedActions();
+
+        Actions actions = new Actions(driver);
+
+        for (String fieldName : selectedFields) {
+            boolean moved = false;
+
+            for (WebElement field : allLeftFields) {
+                String name = field.findElement(By.tagName("span")).getText().trim();
+
+                if (name.equalsIgnoreCase(fieldName)) {
+                    WebElement handle = field.findElement(By.cssSelector("i.drag-handle"));
+
+                    actions.clickAndHold(handle)
+                           .pause(Duration.ofMillis(200)) 
+                           .moveToElement(rightList, 10, 10)
+                           .pause(Duration.ofMillis(200))
+                           .release()
+                           .build()
+                           .perform();
+
+                    System.out.println("Moved field: " + name);
+                    Thread.sleep(800);
+                    moved = true;
+                    break;
+                }
+            }
+
+            if (!moved) {
+                System.out.println("Field not found in left column: " + fieldName);
+            }
+        }
+        
+        Thread.sleep(500);
+        scrollToBottom();
+        
+        generateAndSaveReport("Automation Report");
+    }
+    
+    public void generateAndSaveReport(String reportName) {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(generatePreviewBtn)).click();
+
+            if (transactionsBody.isDisplayed()) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", saveCustomeReportBtn);
+                Thread.sleep(300);
+                System.out.println("Transaction list:\n" + transactionsBody.getText());
+
+                wait.until(ExpectedConditions.elementToBeClickable(saveCustomeReportBtn)).click();
+
+                WebElement name = wait.until(ExpectedConditions.visibilityOf(customeReportName));
+                name.sendKeys(reportName);
+
+                wait.until(ExpectedConditions.elementToBeClickable(submitCustomReport)).click();
+                System.out.println("Status: " + statusMessage());
+                System.out.println();
+            } else {
+                System.out.println("No Transactions for current range");
+            }
+        } catch (Exception e) {
+            System.out.println("Error in generateAndSaveReport: " + e.getMessage());
+        }
+    }
+
+    
+    public void scrollToElement(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(element));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+    }
+
+    
+    public void scrollToBottom() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        long lastHeight = (long) js.executeScript("return document.body.scrollHeight");
+
+        while (true) {
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+
+            try {
+                Thread.sleep(800); 
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+
+            long newHeight = (long) js.executeScript("return document.body.scrollHeight");
+            if (newHeight == lastHeight) {
+                break; // reached bottom
+            }
+            lastHeight = newHeight;
+        }
+    }
+
+    
+    public void scrollBy(int pixels) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
+        try { Thread.sleep(500); } catch (InterruptedException e) {}
+    }
+
+    
+    public void reversedActions() throws InterruptedException {
+    	Actions actions = new Actions(driver);
+    	
+    	
+
+    	List<WebElement> allRightFields = rightColumns.findElements(By.xpath(".//li"));
+    	WebElement leftList = leftColumns.findElement(By.xpath(".//ul"));
+
+    	for (WebElement field : allRightFields) {
+    	    String name = field.findElement(By.tagName("span")).getText().trim();
+    	    
+            if (name.equalsIgnoreCase("Meter Number")) {
+                System.out.println("Skipping field: " + name);
+                continue;
+            }
+            
+    	    WebElement handle = field.findElement(By.cssSelector("i.drag-handle"));
+
+    	    actions.clickAndHold(handle)
+    	           .pause(Duration.ofMillis(200))
+    	           .moveToElement(leftList, 10, 10)
+    	           .pause(Duration.ofMillis(200))
+    	           .release()
+    	           .build()
+    	           .perform();
+
+    	    System.out.println("Moved field: " + name);
+    	    Thread.sleep(800);
+    	}
+
+    }
+
+
+
 
 
 

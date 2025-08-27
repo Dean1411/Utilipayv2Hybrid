@@ -1,0 +1,38 @@
+2025-08-27 11:37:48.994 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-08-27 11:37:54.272 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [prepaid sales]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:39:39.138 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-08-27 11:39:39.189 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-08-27 11:39:39.933 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-08-27 11:39:41.139 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: custom report ===
+2025-08-27 11:40:00.055 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [custom report]: Preset successfully saved!
+2025-08-27 11:40:00.169 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-08-27 11:40:08.060 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:40:08.173 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-08-27 11:40:11.042 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [month end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:40:11.145 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-08-27 11:40:15.974 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:40:16.087 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-08-27 11:40:19.214 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:40:19.321 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-08-27 11:40:23.275 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:40:23.377 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-08-27 11:40:27.502 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [prepaid sales]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:40:27.646 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: custom report ===
+2025-08-27 11:40:45.942 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [custom report]: Preset successfully saved!
+2025-08-27 11:40:46.049 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-08-27 11:40:52.514 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:40:52.618 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-08-27 11:40:55.752 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [month end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:40:55.863 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-08-27 11:40:59.895 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:41:00.009 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-08-27 11:41:03.222 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:41:03.329 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-08-27 11:41:07.327 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:41:07.431 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-08-27 11:41:11.821 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [prepaid sales]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-27 11:44:34.033 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-08-27 11:44:34.099 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-08-27 11:44:34.847 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-08-27 11:44:36.745 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: custom report ===
+2025-08-27 11:44:55.745 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [custom report]: Preset successfully saved!
