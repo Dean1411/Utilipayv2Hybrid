@@ -31,23 +31,21 @@ public class Reporting extends Base {
         logger.info("*** Navigating to Reporting Section ***");
         nav.click_Reporting();
 
-        // Initialize the ReportBuilderPage
         rB = new ReportBuilderPage(Base.getDriver());
     }
 
     @Test(groups = { "Regression" })
     public void generateAllReportsAndAssertStatusMessages() {
         String[] reportTypes = {
-            "prepaid sales",
+            "custom report",
             "day end",
             "month end",
             "low purchase",
             "free basic",
-            "arrears recovered"
-//            "custom report"
+            "arrears recovered",
+            "prepaid sales"
         };
 
-        String expectedMsg = "Your report is being prepared. you will receive an email ones it is ready!";
         SoftAssert softAssert = new SoftAssert();
 
         for (String report : reportTypes) {
@@ -59,7 +57,13 @@ public class Reporting extends Base {
                 String statusMsg = rB.statusMessage();
                 logger.info("Status message for [" + report + "]: " + statusMsg);
 
-                // Assertion with detailed context
+                String expectedMsg;
+                if (report.equalsIgnoreCase("custom report")) {
+                    expectedMsg = "Preset successfully saved!";
+                } else {
+                    expectedMsg = "Your report is being prepared. you will receive an email ones it is ready!";
+                }
+
                 softAssert.assertNotNull(
                     statusMsg,
                     "Status message is null for report: [" + report + "]"
@@ -70,13 +74,14 @@ public class Reporting extends Base {
                     expectedMsg,
                     "Unexpected status message for report: [" + report + "]"
                 );
+
             } catch (Exception e) {
                 logger.error("Exception for report [" + report + "]: " + e.getMessage());
                 softAssert.fail("Exception while processing report [" + report + "]: " + e.getMessage());
             }
 
             try {
-                Thread.sleep(100); // Optional delay between iterations
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -85,5 +90,6 @@ public class Reporting extends Base {
         softAssert.assertAll();
         logger.info("*** Reporting Test Completed ***");
     }
+
 
 }

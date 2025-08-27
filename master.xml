@@ -36,13 +36,13 @@
 			<!--			<classg
 			name="UtilipayV2Hybrid.testCases.Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic"/>-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.VerifyLinks" />-->
-			<!--			<class
+			<!--			<classg
 			name="UtilipayV2Hybrid.testCases.BulkEngineeringTokens"></class>-->
-			<!--						<class name="UtilipayV2Hybrid.testCases.Api" />-->
-<!--						<class name="UtilipayV2Hybrid.testCases.Reporting"></class>-->
+<!--									<class name="UtilipayV2Hybrid.testCases.Api" />-->
+						<class name="UtilipayV2Hybrid.testCases.Reporting"></class>
 			<!--				<class name="UtilipayV2Hybrid.testCases.RegressionClean" />-->
 			<!--				<class name="UtilipayV2Hybrid.testCases.OnlinePurchase" />-->
-			<class name="UtilipayV2Hybrid.testCases.GenerateTransactionHistory" />
+<!--			<class name="UtilipayV2Hybrid.testCases.GenerateTransactionHistory" />-->
 		</classes>
 	</test> <!--
 	Test -->

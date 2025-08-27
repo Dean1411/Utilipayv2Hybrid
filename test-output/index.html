@@ -61,7 +61,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Suite" class="navigator-link ">
-                    <span>0 groups</span>
+                    <span>1 group</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.GenerateTransactionHistory" class="method navigator-link" hash-for-method="generateTranHistory">generateTranHistory</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="UtilipayV2Hybrid.testCases.Reporting" class="method navigator-link" hash-for-method="generateAllReportsAndAssertStatusMessages">generateAllReportsAndAssertStatusMessages</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -122,14 +122,14 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">UtilipayV2Hybrid.testCases.GenerateTransactionHistory</span>
+              <span class="class-name">UtilipayV2Hybrid.testCases.Reporting</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="generateTranHistory">
-                  </a> <!-- generateTranHistory -->
-                  <span class="method-name">generateTranHistory</span>
+                  <a name="generateAllReportsAndAssertStatusMessages">
+                  </a> <!-- generateAllReportsAndAssertStatusMessages -->
+                  <span class="method-name">generateAllReportsAndAssertStatusMessages</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -152,7 +152,7 @@
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Utilipay Version 2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;UtilipayV2Hybrid.testCases.GenerateTransactionHistory&quot;/&gt;
+      &lt;class name=&quot;UtilipayV2Hybrid.testCases.Reporting&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Utilipay Version 2 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -176,6 +176,14 @@
             <span class="header-content">Groups for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">Regression</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">generateAllReportsAndAssertStatusMessages</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Suite" class="panel">
@@ -194,14 +202,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'generateTranHistory')
-data.setCell(0, 2, 'UtilipayV2Hybrid.testCases.GenerateTransactionHistory')
-data.setCell(0, 3, 58672);
+data.setCell(0, 1, 'generateAllReportsAndAssertStatusMessages')
+data.setCell(0, 2, 'UtilipayV2Hybrid.testCases.Reporting')
+data.setCell(0, 3, 46163);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 58 seconds</span>
+              <span class="suite-total-time">Total running time: 46 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -227,22 +235,22 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">UtilipayV2Hybrid.testCases.GenerateTransactionHistory</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">UtilipayV2Hybrid.testCases.Reporting</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp(chrome, prepaid)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
-                <span class="method-name">loginOnce</span>
-                <span class="method-start">2898 ms</span>
+                <span class="method-name">setupReportingModule</span>
+                <span class="method-start">3143 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">generateTranHistory</span>
-                <span class="method-start">3529 ms</span>
+                <span class="method-name">generateAllReportsAndAssertStatusMessages</span>
+                <span class="method-start">5852 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">62226 ms</span>
+                <span class="method-start">52049 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

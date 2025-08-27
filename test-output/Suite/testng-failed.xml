@@ -9,14 +9,14 @@
   </listeners>
   <test thread-count="5" name="Utilipay Version 2(failed)">
     <classes>
-      <class name="UtilipayV2Hybrid.testCases.GenerateTransactionHistory">
+      <class name="UtilipayV2Hybrid.testCases.Reporting">
         <methods>
           <include name="setUp"/>
-          <include name="generateTranHistory"/>
+          <include name="setupReportingModule"/>
           <include name="tearDown"/>
-          <include name="loginOnce"/>
+          <include name="generateAllReportsAndAssertStatusMessages"/>
         </methods>
-      </class> <!-- UtilipayV2Hybrid.testCases.GenerateTransactionHistory -->
+      </class> <!-- UtilipayV2Hybrid.testCases.Reporting -->
     </classes>
   </test> <!-- Utilipay Version 2(failed) -->
 </suite> <!-- Failed suite [Suite] -->
