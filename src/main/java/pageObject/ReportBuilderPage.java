@@ -157,7 +157,11 @@ public class ReportBuilderPage extends BaseComponent {
                     "Customer Name",
                     "Account Number",
                     "Credit Token",
-                    "Transaction Date"
+                    "Transaction Date",
+                    "Platform Channel",
+                    "Address Line 1",
+                    "Units (kl/kwh)",
+                    "Tendered Amount (R)"
                 );
 
                 try {
