@@ -122,6 +122,10 @@ public class ReportBuilderPage extends BaseComponent {
     @FindBy(xpath = "//button[normalize-space()='Submit']")
     WebElement submitCustomReport;
     
+    
+    @FindBy(xpath = "//input[@placeholder='Select value']")
+    WebElement channels;
+    
 
 //    public void selectReport(String report, String reportName) {
 //        try {
@@ -258,8 +262,9 @@ public class ReportBuilderPage extends BaseComponent {
                     arrearsRecovered();
                     break;
 
-                case "Automation Report":
+                case "automation report":
                 	try {
+                		scrollToBottom();
                     	wait.until(ExpectedConditions.elementToBeClickable(customReportName)).click();
                         generateCustomReport("Automation Report");
                 	}catch(Exception ex) {
@@ -539,6 +544,27 @@ public class ReportBuilderPage extends BaseComponent {
             }
         }
     }
+    
+    public void selectVendingChannel(String channelName) {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(channels)).click();
+
+            WebElement allChannels = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//ul[@id='select2-SelectedVendingChannelIds-results']")));
+
+            WebElement option = allChannels.findElement(By.xpath(".//li[normalize-space()='" + channelName + "']"));
+
+            wait.until(ExpectedConditions.elementToBeClickable(option)).click();
+
+            System.out.println("Selected channel: " + channelName);
+
+        } catch (NoSuchElementException ex) {
+            System.out.println("Channel not found: " + ex.getMessage());
+        } catch (Exception e) {
+            System.out.println("Unexpected exception: " + e.getMessage());
+        }
+    }
+
 
     public void reportFormat(String format) {
     	
@@ -589,6 +615,7 @@ public class ReportBuilderPage extends BaseComponent {
     	selectMunicipality("Karoo Hoogland");
         monthPicker("January");
         toAndFromDateSelector();
+        selectVendingChannel("Cigicell Channel");
     }
     
     public void generateCustomReport(String reportName) {
