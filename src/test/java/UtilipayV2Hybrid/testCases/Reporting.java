@@ -30,6 +30,7 @@ public class Reporting extends Base {
 
         logger.info("*** Navigating to Reporting Section ***");
         nav.click_Reporting();
+        nav.click_GenerateReport();
 
         rB = new ReportBuilderPage(Base.getDriver());
     }
@@ -38,7 +39,7 @@ public class Reporting extends Base {
     public void generateAllReportsAndAssertStatusMessages() {
         String[] reportTypes = {
             "create custom report",
-            "Automation Report",
+            "automation report",
             "day end",
             "month end",
             "low purchase",
@@ -58,7 +59,7 @@ public class Reporting extends Base {
                 String actualMsg;
                 String expectedMsg;
 
-                if (report.equalsIgnoreCase("create custom report") || report.equalsIgnoreCase("Automation Report")) {
+                if (report.equalsIgnoreCase("create custom report")) {
                     actualMsg = rB.customMessage();
                     expectedMsg = "Preset successfully saved!";
 

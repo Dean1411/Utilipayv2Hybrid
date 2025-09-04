@@ -51,6 +51,9 @@ public class NavigationPage extends BaseComponent {
 	@FindBy(xpath="//div[@data-i18n='Reporting']")
 	WebElement reporting;
 	
+	@FindBy(partialLinkText="Generate Report")
+	WebElement generateReport;
+	
 	
 	//Cashier Management
 	@FindBy(xpath="//div[@data-i18n='Cashier Management']")
@@ -102,6 +105,11 @@ public class NavigationPage extends BaseComponent {
 	public void click_Reporting() {
 		wait.until(ExpectedConditions.elementToBeClickable(reporting));
 		reporting.click();
+	}
+	
+	public void click_GenerateReport() {
+		wait.until(ExpectedConditions.elementToBeClickable(generateReport));
+		generateReport.click();
 	}
 	
 	//Cashier Management
