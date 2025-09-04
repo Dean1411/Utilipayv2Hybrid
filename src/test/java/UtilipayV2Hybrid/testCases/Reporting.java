@@ -18,7 +18,7 @@ public class Reporting extends Base {
     public void setupReportingModule() {
         logger.info("*** Setting up Reporting Test ***");
 
-        HomePage hP = new HomePage(Base.getDriver());
+        //HomePage hP = new HomePage(Base.getDriver());
         LoginPage lP = new LoginPage(Base.getDriver());
         NavigationPage nav = new NavigationPage(Base.getDriver());
 
@@ -37,13 +37,14 @@ public class Reporting extends Base {
     @Test(groups = { "Regression" })
     public void generateAllReportsAndAssertStatusMessages() {
         String[] reportTypes = {
-            "custom report",
+            "create custom report",
+            "Automation Report",
             "day end",
             "month end",
             "low purchase",
             "free basic",
             "arrears recovered",
-            "prepaid sales"
+            "prepaid sales"            
         };
 
         SoftAssert softAssert = new SoftAssert();
@@ -52,27 +53,35 @@ public class Reporting extends Base {
             logger.info("=== Generating report: " + report + " ===");
 
             try {
-                rB.selectReport(report);
+                rB.selectReport(report, null);
 
-                String statusMsg = rB.statusMessage();
-                logger.info("Status message for [" + report + "]: " + statusMsg);
-
+                String actualMsg;
                 String expectedMsg;
-                if (report.equalsIgnoreCase("custom report")) {
+
+                if (report.equalsIgnoreCase("create custom report") || report.equalsIgnoreCase("Automation Report")) {
+                    actualMsg = rB.customMessage();
                     expectedMsg = "Preset successfully saved!";
-                } else {
+
+                    softAssert.assertEquals(
+                        actualMsg,
+                        expectedMsg,
+                        "Unexpected status message for create custom report"
+                    );
+
+                }else {
+                    actualMsg = rB.statusMessage();
                     expectedMsg = "Your report is being prepared. you will receive an email ones it is ready!";
+
+                    softAssert.assertEquals(
+                        actualMsg,
+                        expectedMsg,
+                        "Unexpected status message for report: " + report
+                    );
                 }
 
                 softAssert.assertNotNull(
-                    statusMsg,
+                    actualMsg,
                     "Status message is null for report: [" + report + "]"
-                );
-
-                softAssert.assertEquals(
-                    statusMsg,
-                    expectedMsg,
-                    "Unexpected status message for report: [" + report + "]"
                 );
 
             } catch (Exception e) {

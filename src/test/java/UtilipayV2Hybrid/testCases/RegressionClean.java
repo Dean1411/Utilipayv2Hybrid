@@ -278,7 +278,7 @@ public class RegressionClean extends Base {
         for (String report : reportTypes) {
             logger.info("=== Generating report: " + report + " ===");
             try {
-                rBuilder.selectReport(report);
+                rBuilder.selectReport(report, null);
                 String statusMsg = rBuilder.statusMessage();
                 logger.info("Status message for [" + report + "]: " + statusMsg);
                 softAssert.assertNotNull(statusMsg, "Status message is null for report: [" + report + "]");

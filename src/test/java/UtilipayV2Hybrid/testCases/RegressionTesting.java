@@ -272,7 +272,7 @@ public class RegressionTesting extends Base {
                 logger.info("=== Generating report: " + report + " ===");
 
                 try {
-                	rBuilder.selectReport(report);
+                	rBuilder.selectReport(report,null);
 
                     String statusMsg = rBuilder.statusMessage();
                     logger.info("Status message for [" + report + "]: " + statusMsg);

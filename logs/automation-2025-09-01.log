@@ -1,0 +1,40 @@
+2025-09-01 09:56:34.035 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-01 09:58:43.947 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-01 09:58:44.013 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-09-01 09:58:44.626 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-09-01 09:58:46.377 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-01 09:59:12.574 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [create custom report]: Preset successfully saved!
+2025-09-01 09:59:12.706 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: generate custom report ===
+2025-09-01 09:59:13.884 [main] ERROR UtilipayV2Hybrid.testBase.Base - Exception for report [generate custom report]: element click intercepted: Element is not clickable at point (890, 737)
+  (Session info: chrome=139.0.7258.129)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7f182c20f7132368df1c32e0e22a6bdf, clickElement {id=f.99ADE832C6865AAB6AA7A283ADCFAEDB.d.C1636F14F007FEE646D7F57373C07D03.e.458}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.129, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50789}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50789/devtoo..., se:cdpVersion: 139.0.7258.129, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (7f182c20f7132368df1c32e0e22a6bdf)] -> xpath: //span[contains(text(),'Automation Report')]]
+Session ID: 7f182c20f7132368df1c32e0e22a6bdf
+2025-09-01 09:59:14.001 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-09-01 09:59:52.014 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-01 09:59:52.056 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-09-01 09:59:52.866 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-09-01 09:59:54.312 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-01 10:00:27.198 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [create custom report]: Preset successfully saved!
+2025-09-01 10:00:27.324 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: generate custom report ===
+2025-09-01 10:02:14.600 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-01 10:15:00.519 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-01 10:15:00.614 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-09-01 10:15:00.905 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-09-01 10:15:02.242 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-01 10:15:42.297 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [create custom report]: Preset successfully saved!
+2025-09-01 10:15:42.412 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: generate custom report ===
+2025-09-01 10:16:49.741 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-01 10:16:49.823 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-09-01 10:16:50.401 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-09-01 10:16:51.616 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-01 10:17:17.443 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [create custom report]: Preset successfully saved!
+2025-09-01 10:17:17.554 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: generate custom report ===
+2025-09-01 10:17:18.841 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [generate custom report]: Preset successfully saved!
+2025-09-01 10:17:18.951 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-09-01 10:18:38.550 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-01 10:18:38.606 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***

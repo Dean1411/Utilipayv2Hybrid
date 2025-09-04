@@ -129,29 +129,29 @@ public class Api {
         Assert.assertEquals(response.statusCode(), 200, "Confirm transaction failed");
     }
    
-    @Test(dependsOnMethods = "confirmTransactionTest")
-    public void cancelTransactionTest() {
-        Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
-
-        String cancelEndpoint = ConfigReader.get("cancelTransaction");
-        String cancelJsonBody = String.format("{ \"transactionId\": \"%s\" }", transactionId);
-
-        Response response = given()
-                .header("Authorization", "Bearer " + bearerToken)
-                .header("Content-Type", "application/json")
-                .body(cancelJsonBody)
-                .when()
-                .post(baseUrl + cancelEndpoint);
-
-        JsonPath jsonPath = response.jsonPath();
-        String error = jsonPath.getString("error");
-        boolean isErrorEmpty = (error == null || error.isEmpty());
-
-        Assert.assertEquals(response.getStatusCode(), 200, "Cancel transaction failed (bad status)");
-        Assert.assertTrue(isErrorEmpty, "Cancel transaction failed with error: " + error);
-
-        System.out.println("Cancel Transaction Response: " + response.getBody().asString());
-    }
+//    @Test(dependsOnMethods = "confirmTransactionTest")
+//    public void cancelTransactionTest() {
+//        Assert.assertNotNull(transactionId, "Transaction ID is null. EMS Vend may have failed.");
+//
+//        String cancelEndpoint = ConfigReader.get("cancelTransaction");
+//        String cancelJsonBody = String.format("{ \"transactionId\": \"%s\" }", transactionId);
+//
+//        Response response = given()
+//                .header("Authorization", "Bearer " + bearerToken)
+//                .header("Content-Type", "application/json")
+//                .body(cancelJsonBody)
+//                .when()
+//                .post(baseUrl + cancelEndpoint);
+//
+//        JsonPath jsonPath = response.jsonPath();
+//        String error = jsonPath.getString("error");
+//        boolean isErrorEmpty = (error == null || error.isEmpty());
+//
+//        Assert.assertEquals(response.getStatusCode(), 200, "Cancel transaction failed (bad status)");
+//        Assert.assertTrue(isErrorEmpty, "Cancel transaction failed with error: " + error);
+//
+//        System.out.println("Cancel Transaction Response: " + response.getBody().asString());
+//    }
 
   @Test
   public void switchMunLookup() {

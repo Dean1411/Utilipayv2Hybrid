@@ -1,38 +1,37 @@
-2025-08-27 11:44:55.847 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
-2025-08-27 11:45:04.081 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:45:04.194 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
-2025-08-27 11:45:07.286 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [month end]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:45:07.397 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
-2025-08-27 11:45:11.797 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:45:11.911 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
-2025-08-27 11:45:14.833 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:45:14.937 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
-2025-08-27 11:45:18.688 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:45:18.799 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
-2025-08-27 11:45:22.785 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [prepaid sales]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:45:22.896 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
-2025-08-27 11:52:33.164 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
-2025-08-27 11:52:33.368 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
-2025-08-27 11:52:35.475 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
-2025-08-27 11:52:36.247 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: custom report ===
-2025-08-27 11:53:03.988 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [custom report]: Preset successfully saved!
-2025-08-27 11:53:04.116 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
-2025-08-27 11:53:11.878 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:53:11.992 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
-2025-08-27 11:53:16.127 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [month end]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:53:16.242 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
-2025-08-27 11:53:21.760 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:53:21.879 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
-2025-08-27 11:53:25.716 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:53:25.819 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
-2025-08-27 11:53:31.762 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:53:31.869 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
-2025-08-27 11:53:37.136 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [prepaid sales]: Your report is being prepared. you will receive an email ones it is ready!
-2025-08-27 11:53:37.240 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
-2025-08-29 08:26:00.470 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
-2025-08-29 08:26:00.587 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
-2025-08-29 08:26:01.624 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
-2025-08-29 08:26:05.499 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: custom report ===
-2025-08-29 08:26:29.589 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [custom report]: Preset successfully saved!
-2025-08-29 08:26:29.702 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
-2025-08-29 08:26:35.863 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-29 12:08:04.455 [main] ERROR UtilipayV2Hybrid.testBase.Base - Exception for report [generate custom report]: element click intercepted: Element is not clickable at point (890, 735)
+  (Session info: chrome=139.0.7258.129)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0962e85bcd949782fc0f491390a20539, clickElement {id=f.B7BFABA623BB71DEB697B06AB8A0E0A3.d.8E655D6984F315DBC5DF56E21E03A00F.e.1670}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.129, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59066}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59066/devtoo..., se:cdpVersion: 139.0.7258.129, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (0962e85bcd949782fc0f491390a20539)] -> xpath: //span[contains(text(),'Automation Report')]]
+Session ID: 0962e85bcd949782fc0f491390a20539
+2025-08-29 12:08:04.622 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-08-29 12:08:53.646 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-08-29 12:08:53.722 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-08-29 12:08:54.557 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-08-29 12:08:56.021 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-08-29 12:09:21.266 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [create custom report]: Preset successfully saved!
+2025-08-29 12:09:21.386 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-08-29 12:09:32.118 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [day end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-29 12:09:32.224 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-08-29 12:09:35.702 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [month end]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-29 12:09:35.808 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-08-29 12:09:42.050 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [low purchase]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-29 12:09:42.159 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-08-29 12:09:45.762 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [free basic]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-29 12:09:45.872 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-08-29 12:09:51.107 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [arrears recovered]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-29 12:09:51.213 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-08-29 12:09:56.883 [main] INFO  UtilipayV2Hybrid.testBase.Base - Status message for [prepaid sales]: Your report is being prepared. you will receive an email ones it is ready!
+2025-08-29 12:09:56.991 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: generate custom report ===
+2025-08-29 12:09:58.263 [main] ERROR UtilipayV2Hybrid.testBase.Base - Exception for report [generate custom report]: element click intercepted: Element is not clickable at point (890, 737)
+  (Session info: chrome=139.0.7258.129)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [bb8d9eba3707ebb3856f008024cfb142, clickElement {id=f.6C0183A840C42A88349A00D9E0864082.d.4C99BFB48E3F1506A099F8CC779CC147.e.1670}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.129, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55471}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55471/devtoo..., se:cdpVersion: 139.0.7258.129, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (bb8d9eba3707ebb3856f008024cfb142)] -> xpath: //span[contains(text(),'Automation Report')]]
+Session ID: bb8d9eba3707ebb3856f008024cfb142
