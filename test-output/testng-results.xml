@@ -1,44 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-04T17:27:32 SAST" name="Suite" finished-at="2025-09-04T17:28:41 SAST" duration-ms="68608">
+  <suite started-at="2025-09-05T11:54:48 SAST" name="Suite" finished-at="2025-09-05T11:55:02 SAST" duration-ms="13211">
     <groups>
-      <group name="Regression">
-        <method signature="Reporting.generateAllReportsAndAssertStatusMessages()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@3016fd5e]" name="generateAllReportsAndAssertStatusMessages" class="UtilipayV2Hybrid.testCases.Reporting"/>
-      </group> <!-- Regression -->
     </groups>
-    <test started-at="2025-09-04T17:27:32 SAST" name="Utilipay Version 2" finished-at="2025-09-04T17:28:41 SAST" duration-ms="68608">
-      <class name="UtilipayV2Hybrid.testCases.Reporting">
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@3016fd5e]" started-at="2025-09-04T17:27:32 SAST" name="setUp" finished-at="2025-09-04T17:27:39 SAST" duration-ms="7069" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[prepaid]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2025-09-05T11:54:48 SAST" name="Utilipay Version 2" finished-at="2025-09-05T11:55:02 SAST" duration-ms="13211">
+      <class name="UtilipayV2Hybrid.testCases.Api">
+        <test-method is-config="true" signature="authentication()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-05T11:54:49 SAST" name="authentication" finished-at="2025-09-05T11:54:52 SAST" duration-ms="3766" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="setupReportingModule()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@3016fd5e]" started-at="2025-09-04T17:27:39 SAST" name="setupReportingModule" finished-at="2025-09-04T17:27:42 SAST" duration-ms="2725" status="PASS">
+        </test-method> <!-- authentication -->
+        <test-method signature="emsVendTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-05T11:54:52 SAST" name="emsVendTest" finished-at="2025-09-05T11:54:54 SAST" duration-ms="1803" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setupReportingModule -->
-        <test-method signature="generateAllReportsAndAssertStatusMessages()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@3016fd5e]" started-at="2025-09-04T17:27:42 SAST" name="generateAllReportsAndAssertStatusMessages" finished-at="2025-09-04T17:28:40 SAST" duration-ms="58313" status="PASS">
+        </test-method> <!-- emsVendTest -->
+        <test-method signature="switchMeterLookup()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-05T11:54:54 SAST" name="switchMeterLookup" finished-at="2025-09-05T11:54:59 SAST" duration-ms="5134" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- generateAllReportsAndAssertStatusMessages -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@3016fd5e]" started-at="2025-09-04T17:28:40 SAST" name="tearDown" finished-at="2025-09-04T17:28:41 SAST" duration-ms="252" status="PASS">
+        </test-method> <!-- switchMeterLookup -->
+        <test-method signature="switchMunLookup()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-05T11:54:59 SAST" name="switchMunLookup" finished-at="2025-09-05T11:55:00 SAST" duration-ms="257" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- UtilipayV2Hybrid.testCases.Reporting -->
+        </test-method> <!-- switchMunLookup -->
+        <test-method signature="switchVend()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-05T11:55:00 SAST" name="switchVend" finished-at="2025-09-05T11:55:01 SAST" duration-ms="1772" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- switchVend -->
+        <test-method signature="confirmTransactionTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-05T11:55:01 SAST" name="confirmTransactionTest" finished-at="2025-09-05T11:55:02 SAST" depends-on-methods="UtilipayV2Hybrid.testCases.Api.emsVendTest" duration-ms="163" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- confirmTransactionTest -->
+      </class> <!-- UtilipayV2Hybrid.testCases.Api -->
     </test> <!-- Utilipay Version 2 -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -615,7 +615,7 @@ public class ReportBuilderPage extends BaseComponent {
     	selectMunicipality("Karoo Hoogland");
         monthPicker("January");
         toAndFromDateSelector();
-        selectVendingChannel("Cigicell Channel");
+        selectVendingChannel("EMS Channel");
     }
     
     public void generateCustomReport(String reportName) {
