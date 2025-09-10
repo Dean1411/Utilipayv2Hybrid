@@ -1,54 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results retried="1" ignored="0" total="2" passed="0" failed="1" skipped="0">
+<testng-results retried="2" ignored="0" total="7" passed="2" failed="2" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-09T17:09:32 SAST" name="Suite" finished-at="2025-09-09T17:12:56 SAST" duration-ms="204112">
+  <suite started-at="2025-09-10T18:51:06 SAST" name="Suite" finished-at="2025-09-10T18:51:15 SAST" duration-ms="9119">
     <groups>
-      <group name="Regression">
-        <method signature="RegressionClean.regression()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@3e2822]" name="regression" class="UtilipayV2Hybrid.testCases.RegressionClean"/>
-      </group> <!-- Regression -->
     </groups>
-    <test started-at="2025-09-09T17:09:32 SAST" name="Utilipay Version 2" finished-at="2025-09-09T17:12:56 SAST" duration-ms="204112">
-      <class name="UtilipayV2Hybrid.testCases.RegressionClean">
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@3e2822]" started-at="2025-09-09T17:09:32 SAST" name="setUp" finished-at="2025-09-09T17:09:38 SAST" duration-ms="5898" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[prepaid]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2025-09-10T18:51:06 SAST" name="Utilipay Version 2" finished-at="2025-09-10T18:51:15 SAST" duration-ms="9119">
+      <class name="UtilipayV2Hybrid.testCases.Api">
+        <test-method is-config="true" signature="authentication()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-10T18:51:06 SAST" name="authentication" finished-at="2025-09-10T18:51:10 SAST" duration-ms="3983" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="loginOnce()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@3e2822]" started-at="2025-09-09T17:09:38 SAST" name="loginOnce" finished-at="2025-09-09T17:09:44 SAST" duration-ms="6751" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginOnce -->
-        <test-method retried="true" signature="regression()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@3e2822]" started-at="2025-09-09T17:09:44 SAST" name="regression" finished-at="2025-09-09T17:12:52 SAST" duration-ms="187232" status="SKIP">
+        </test-method> <!-- authentication -->
+        <test-method retried="true" signature="emsVendTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-10T18:51:10 SAST" name="emsVendTest" finished-at="2025-09-10T18:51:11 SAST" duration-ms="408" status="SKIP">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Regression test failed: Expected condition failed: waiting for visibility of element located by By.xpath: //div[@class='toast-message'] (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60998}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60998/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 6a7bbc00994c0ba7033b244e3a42ba8d]]>
+              <![CDATA[EMS Vend failed (bad status) expected [200] but found [400]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Regression test failed: Expected condition failed: waiting for visibility of element located by By.xpath: //div[@class='toast-message'] (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60998}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60998/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 6a7bbc00994c0ba7033b244e3a42ba8d
+              <![CDATA[java.lang.AssertionError: EMS Vend failed (bad status) expected [200] but found [400]
 at org.testng.Assert.fail(Assert.java:99)
-at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:114)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:907)
+at UtilipayV2Hybrid.testCases.Api.emsVendTest(Api.java:92)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -80,32 +55,20 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- regression -->
-        <test-method signature="regression()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@3e2822]" started-at="2025-09-09T17:12:52 SAST" name="regression" finished-at="2025-09-09T17:12:54 SAST" duration-ms="2447" status="FAIL">
+        </test-method> <!-- emsVendTest -->
+        <test-method signature="emsVendTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-10T18:51:11 SAST" name="emsVendTest" finished-at="2025-09-10T18:51:11 SAST" duration-ms="317" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Regression test failed: element click intercepted: Element <div data-i18n="...">Admin</div> is not clickable at point (76, 137). Other element would receive the click: <div class="modal fade show" id="addNewUser" tabindex="-1" aria-modal="true" role="dialog" style="display: block;">...</div>
-  (Session info: chrome=139.0.7258.155)
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [6a7bbc00994c0ba7033b244e3a42ba8d, clickElement {id=f.4059D2F78212EAA6976DBF11103921A7.d.B0D08495E61936F2135D570BB7149B55.e.2729}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60998}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60998/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (6a7bbc00994c0ba7033b244e3a42ba8d)] -> xpath: //div[@data-i18n='Admin']]
-Session ID: 6a7bbc00994c0ba7033b244e3a42ba8d]]>
+              <![CDATA[EMS Vend failed (bad status) expected [200] but found [400]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Regression test failed: element click intercepted: Element <div data-i18n="...">Admin</div> is not clickable at point (76, 137). Other element would receive the click: <div class="modal fade show" id="addNewUser" tabindex="-1" aria-modal="true" role="dialog" style="display: block;">...</div>
-  (Session info: chrome=139.0.7258.155)
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [6a7bbc00994c0ba7033b244e3a42ba8d, clickElement {id=f.4059D2F78212EAA6976DBF11103921A7.d.B0D08495E61936F2135D570BB7149B55.e.2729}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60998}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60998/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (6a7bbc00994c0ba7033b244e3a42ba8d)] -> xpath: //div[@data-i18n='Admin']]
-Session ID: 6a7bbc00994c0ba7033b244e3a42ba8d
+              <![CDATA[java.lang.AssertionError: EMS Vend failed (bad status) expected [200] but found [400]
 at org.testng.Assert.fail(Assert.java:99)
-at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:114)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:907)
+at UtilipayV2Hybrid.testCases.Api.emsVendTest(Api.java:92)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -137,12 +100,194 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- regression -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.RegressionClean@3e2822]" started-at="2025-09-09T17:12:55 SAST" name="tearDown" finished-at="2025-09-09T17:12:56 SAST" duration-ms="1029" status="PASS">
+        </test-method> <!-- emsVendTest -->
+        <test-method signature="switchMeterLookup()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-10T18:51:11 SAST" name="switchMeterLookup" finished-at="2025-09-10T18:51:14 SAST" duration-ms="2422" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- UtilipayV2Hybrid.testCases.RegressionClean -->
+        </test-method> <!-- switchMeterLookup -->
+        <test-method signature="switchMunLookup()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-10T18:51:14 SAST" name="switchMunLookup" finished-at="2025-09-10T18:51:14 SAST" duration-ms="207" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- switchMunLookup -->
+        <test-method retried="true" signature="switchVend()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-10T18:51:14 SAST" name="switchVend" finished-at="2025-09-10T18:51:15 SAST" duration-ms="634" status="SKIP">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Switch Vend failed with error: Newtonsoft.Json.JsonSerializationException: Error converting value {null} to type 'System.Int32'. Path 'municipalID', line 1, position 17. ---> System.InvalidCastException: Null object cannot be converted to a value type.
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at DataInterface.Logic.Integration_Utilipay.UP2LookupMunicipalID(String MeterNo, String BearerToken) in D:\a\1\s\DataInterface\Logic\Integration_Utilipay.cs:line 266
+   at DataInterface.Logic.APIFunctions.Product.Purchase(Query Info, User user, DataInterfaceModel db, RequestSource source, String UnallocatedFundsAccount) in D:\a\1\s\DataInterface\Logic\APIFunctions.cs:line 511 expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Switch Vend failed with error: Newtonsoft.Json.JsonSerializationException: Error converting value {null} to type 'System.Int32'. Path 'municipalID', line 1, position 17. ---> System.InvalidCastException: Null object cannot be converted to a value type.
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at DataInterface.Logic.Integration_Utilipay.UP2LookupMunicipalID(String MeterNo, String BearerToken) in D:\a\1\s\DataInterface\Logic\Integration_Utilipay.cs:line 266
+   at DataInterface.Logic.APIFunctions.Product.Purchase(Query Info, User user, DataInterfaceModel db, RequestSource source, String UnallocatedFundsAccount) in D:\a\1\s\DataInterface\Logic\APIFunctions.cs:line 511 expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:222)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- switchVend -->
+        <test-method signature="switchVend()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-10T18:51:15 SAST" name="switchVend" finished-at="2025-09-10T18:51:15 SAST" duration-ms="808" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Switch Vend failed with error: Newtonsoft.Json.JsonSerializationException: Error converting value {null} to type 'System.Int32'. Path 'municipalID', line 1, position 17. ---> System.InvalidCastException: Null object cannot be converted to a value type.
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at DataInterface.Logic.Integration_Utilipay.UP2LookupMunicipalID(String MeterNo, String BearerToken) in D:\a\1\s\DataInterface\Logic\Integration_Utilipay.cs:line 266
+   at DataInterface.Logic.APIFunctions.Product.Purchase(Query Info, User user, DataInterfaceModel db, RequestSource source, String UnallocatedFundsAccount) in D:\a\1\s\DataInterface\Logic\APIFunctions.cs:line 511 expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Switch Vend failed with error: Newtonsoft.Json.JsonSerializationException: Error converting value {null} to type 'System.Int32'. Path 'municipalID', line 1, position 17. ---> System.InvalidCastException: Null object cannot be converted to a value type.
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at DataInterface.Logic.Integration_Utilipay.UP2LookupMunicipalID(String MeterNo, String BearerToken) in D:\a\1\s\DataInterface\Logic\Integration_Utilipay.cs:line 266
+   at DataInterface.Logic.APIFunctions.Product.Purchase(Query Info, User user, DataInterfaceModel db, RequestSource source, String UnallocatedFundsAccount) in D:\a\1\s\DataInterface\Logic\APIFunctions.cs:line 511 expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:222)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.retryFailed(TestInvoker.java:213)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:58)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- switchVend -->
+        <test-method signature="confirmTransactionTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b]" started-at="2025-09-10T18:51:15 SAST" name="confirmTransactionTest" finished-at="2025-09-10T18:51:15 SAST" depends-on-methods="UtilipayV2Hybrid.testCases.Api.emsVendTest" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Api.confirmTransactionTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Api.confirmTransactionTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- confirmTransactionTest -->
+      </class> <!-- UtilipayV2Hybrid.testCases.Api -->
     </test> <!-- Utilipay Version 2 -->
   </suite> <!-- Suite -->
 </testng-results>

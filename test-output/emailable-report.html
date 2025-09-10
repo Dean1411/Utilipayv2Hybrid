@@ -9,30 +9,60 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num attn">1</td><td class="num">204 112</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Utilipay Version 2</a></td><td class="num">2</td><td class="num attn">1</td><td class="num attn">2</td><td class="num attn">2</td><td class="num">9 119</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.RegressionClean</td><td><a href="#m0">regression</a></td><td rowspan="1">1757430772393</td><td rowspan="1">2447</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.RegressionClean</td><td><a href="#m1">regression</a></td><td rowspan="1">1757430584871</td><td rowspan="1">187232</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Utilipay Version 2 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m0">emsVendTest</a></td><td rowspan="1">1757523071409</td><td rowspan="1">317</td></tr><tr class="failedeven"><td><a href="#m1">switchVend</a></td><td rowspan="1">1757523075002</td><td rowspan="1">808</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m2">confirmTransactionTest</a></td><td rowspan="1">1757523075815</td><td rowspan="1">0</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="2">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m3">emsVendTest</a></td><td rowspan="1">1757523070988</td><td rowspan="1">408</td></tr><tr class="retriedeven"><td><a href="#m4">switchVend</a></td><td rowspan="1">1757523074366</td><td rowspan="1">634</td></tr><tr><th colspan="4">Utilipay Version 2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">UtilipayV2Hybrid.testCases.Api</td><td><a href="#m5">switchMeterLookup</a></td><td rowspan="1">1757523071733</td><td rowspan="1">2422</td></tr><tr class="passedeven"><td><a href="#m6">switchMunLookup</a></td><td rowspan="1">1757523074158</td><td rowspan="1">207</td></tr></tbody>
 </table>
-<h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.RegressionClean#regression</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Regression test failed: element click intercepted: Element &lt;div data-i18n=&quot;...&quot;&gt;Admin&lt;/div&gt; is not clickable at point (76, 137). Other element would receive the click: &lt;div class=&quot;modal fade show&quot; id=&quot;addNewUser&quot; tabindex=&quot;-1&quot; aria-modal=&quot;true&quot; role=&quot;dialog&quot; style=&quot;display: block;&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=139.0.7258.155)
-Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [6a7bbc00994c0ba7033b244e3a42ba8d, clickElement {id=f.4059D2F78212EAA6976DBF11103921A7.d.B0D08495E61936F2135D570BB7149B55.e.2729}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60998}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60998/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (6a7bbc00994c0ba7033b244e3a42ba8d)] -&gt; xpath: //div[@data-i18n=&apos;Admin&apos;]]
-Session ID: 6a7bbc00994c0ba7033b244e3a42ba8d
-	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:114)
+<h2>Utilipay Version 2</h2><h3 id="m0">UtilipayV2Hybrid.testCases.Api#emsVendTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: EMS Vend failed (bad status) expected [200] but found [400]
+	at UtilipayV2Hybrid.testCases.Api.emsVendTest(Api.java:92)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 26 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">UtilipayV2Hybrid.testCases.RegressionClean#regression</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Regression test failed: Expected condition failed: waiting for visibility of element located by By.xpath: //div[@class=&apos;toast-message&apos;] (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.35.0&apos;, revision: &apos;1c58e5028b&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\DEAN~1.ASC\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60998}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60998/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 6a7bbc00994c0ba7033b244e3a42ba8d
-	at UtilipayV2Hybrid.testCases.RegressionClean.regression(RegressionClean.java:114)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">UtilipayV2Hybrid.testCases.Api#switchVend</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Switch Vend failed with error: Newtonsoft.Json.JsonSerializationException: Error converting value {null} to type &apos;System.Int32&apos;. Path &apos;municipalID&apos;, line 1, position 17. ---&gt; System.InvalidCastException: Null object cannot be converted to a value type.
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at DataInterface.Logic.Integration_Utilipay.UP2LookupMunicipalID(String MeterNo, String BearerToken) in D:\a\1\s\DataInterface\Logic\Integration_Utilipay.cs:line 266
+   at DataInterface.Logic.APIFunctions.Product.Purchase(Query Info, User user, DataInterfaceModel db, RequestSource source, String UnallocatedFundsAccount) in D:\a\1\s\DataInterface\Logic\APIFunctions.cs:line 511 expected [true] but found [false]
+	at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:222)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 26 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">UtilipayV2Hybrid.testCases.Api#confirmTransactionTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method Api.confirmTransactionTest()[pri:0, instance:UtilipayV2Hybrid.testCases.Api@301ec38b] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">UtilipayV2Hybrid.testCases.Api#emsVendTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: EMS Vend failed (bad status) expected [200] but found [400]
+	at UtilipayV2Hybrid.testCases.Api.emsVendTest(Api.java:92)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">UtilipayV2Hybrid.testCases.Api#switchVend</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Switch Vend failed with error: Newtonsoft.Json.JsonSerializationException: Error converting value {null} to type &apos;System.Int32&apos;. Path &apos;municipalID&apos;, line 1, position 17. ---&gt; System.InvalidCastException: Null object cannot be converted to a value type.
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at DataInterface.Logic.Integration_Utilipay.UP2LookupMunicipalID(String MeterNo, String BearerToken) in D:\a\1\s\DataInterface\Logic\Integration_Utilipay.cs:line 266
+   at DataInterface.Logic.APIFunctions.Product.Purchase(Query Info, User user, DataInterfaceModel db, RequestSource source, String UnallocatedFundsAccount) in D:\a\1\s\DataInterface\Logic\APIFunctions.cs:line 511 expected [true] but found [false]
+	at UtilipayV2Hybrid.testCases.Api.switchVend(Api.java:222)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">UtilipayV2Hybrid.testCases.Api#switchMeterLookup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">UtilipayV2Hybrid.testCases.Api#switchMunLookup</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
