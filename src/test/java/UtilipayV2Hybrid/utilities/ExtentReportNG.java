@@ -40,7 +40,11 @@ public class ExtentReportNG extends Base implements  ITestListener{
 	reportName="Test Summary Report-" +currentTimeStamp+".html";
 	
 	//Creates UI of the report
-	sparkReporter=new ExtentSparkReporter(".\\reports\\"+reportName );  //location of the report
+	//sparkReporter=new ExtentSparkReporter(".\\reports\\"+reportName );  
+	String reportDir = System.getProperty("user.dir") + File.separator + "reports";
+	new File(reportDir).mkdirs(); // ensure folder exists
+	sparkReporter = new ExtentSparkReporter(reportDir + File.separator + reportName);
+
 	// title of the report
 	
 	sparkReporter.config().setReportName("UtilipayV2 Web Test Summary");
@@ -168,15 +172,19 @@ public class ExtentReportNG extends Base implements  ITestListener{
 	public void onFinish(ITestContext context) {  
 		extent.flush();
 		
-		String reportPath=System.getProperty("user.dir")+"\\reports\\"+reportName;
-		File extentReport=new File(reportPath);
+		String reportPath = System.getProperty("user.dir") + File.separator + "reports" + File.separator + reportName;
+		System.out.println("Extent report generated at: " + reportPath);
+
 		
-		//Code automatically opens html report
-		try {
-			Desktop.getDesktop().browse(extentReport.toURI());
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
+//		String reportPath=System.getProperty("user.dir")+"\\reports\\"+reportName;
+//		File extentReport=new File(reportPath);
+//		
+//		//Code automatically opens html report
+//		try {
+//			Desktop.getDesktop().browse(extentReport.toURI());
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	} 
 
 }

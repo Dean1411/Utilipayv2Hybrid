@@ -35,6 +35,7 @@ import pageObject.MunicipalMaintenancePage;
 import pageObject.NavigationPage;
 import pageObject.ReportBuilderPage;
 import pageObject.TransactPage;
+import pageObject.TransactionHistoryPage;
 import pageObject.UserManagementPage;
 
 public class RegressionClean extends Base {
@@ -57,6 +58,7 @@ public class RegressionClean extends Base {
     AuthUtils token;
     static ConfirmEMSTranUtil confirm;
     TransactPage transact;
+    TransactionHistoryPage tranHis;
     
     
 
@@ -78,6 +80,7 @@ public class RegressionClean extends Base {
         token = new AuthUtils();
         AuthUtils.authenticate();
         transact = new TransactPage(Base.getDriver());
+        tranHis = new TransactionHistoryPage(Base.getDriver());
         
 
         try {
@@ -99,6 +102,7 @@ public class RegressionClean extends Base {
             Thread.sleep(1000);           
             createTariffAndSteps(municipalityName);
             importExport("Import");
+            runTransactionHistory("Karoo Hoogland Municipality","1","31");
             createUser();
             generateReports();
             bulkEngineering();            
@@ -177,7 +181,7 @@ public class RegressionClean extends Base {
             String commission = channel[1];
             String flatRate = channel[2];
 
-            mun.addCommision(channelName, commission, flatRate);  // Handles clickAddCommission internally
+            mun.addCommision(channelName, commission, flatRate); 
             System.out.println("Added vending channel: " + channelName + " | Commission: " + commission + " | Flat Rate: " + flatRate);
         }
 
@@ -247,7 +251,7 @@ public class RegressionClean extends Base {
 
 
     private void createUser() throws InterruptedException {
-        nav.click_Admin();
+        //nav.click_Admin();
         nav.click_userMngmnt();
         usrMng.click_addNwUsr();
         usrMng.enter_FullName(getRandomString().toUpperCase() + " " + getRandomString().toUpperCase());
@@ -269,20 +273,81 @@ public class RegressionClean extends Base {
         }
     }
 
+//    private void generateReports() {
+//        nav.click_Reporting();
+//        nav.click_GenerateReport();
+//        String[] reportTypes = {"create custom report","automation report","prepaid sales", "day end", "month end", "low purchase", "free basic", "arrears recovered"};
+//        String expectedMsg = "Your report is being prepared. you will receive an email ones it is ready!";
+//        SoftAssert softAssert = new SoftAssert();
+//
+//        for (String report : reportTypes) {
+//            logger.info("=== Generating report: " + report + " ===");
+//            try {
+//                rBuilder.selectReport(report, null);
+//                String statusMsg = rBuilder.statusMessage();
+//                logger.info("Status message for [" + report + "]: " + statusMsg);
+//                softAssert.assertNotNull(statusMsg, "Status message is null for report: [" + report + "]");
+//                softAssert.assertEquals(statusMsg, expectedMsg, "Unexpected status message for report: [" + report + "]");
+//            } catch (Exception e) {
+//                logger.error("Exception for report [" + report + "]: " + e.getMessage());
+//                softAssert.fail("Exception while processing report [" + report + "]: " + e.getMessage());
+//            }
+//        }
+//
+//        softAssert.assertAll();
+//        logger.info("*** Reporting Test Completed ***");
+//    }
+    
     private void generateReports() {
         nav.click_Reporting();
-        String[] reportTypes = {"prepaid sales", "day end", "month end", "low purchase", "free basic", "arrears recovered"};
-        String expectedMsg = "Your report is being prepared. you will receive an email ones it is ready!";
+        nav.click_GenerateReport();
+
+        String[] reportTypes = {
+            "create custom report",
+            "automation report",
+            "prepaid sales",
+            "day end",
+            "month end",
+            "low purchase",
+            "free basic",
+            "arrears recovered"
+        };
+
         SoftAssert softAssert = new SoftAssert();
 
         for (String report : reportTypes) {
             logger.info("=== Generating report: " + report + " ===");
             try {
                 rBuilder.selectReport(report, null);
-                String statusMsg = rBuilder.statusMessage();
-                logger.info("Status message for [" + report + "]: " + statusMsg);
-                softAssert.assertNotNull(statusMsg, "Status message is null for report: [" + report + "]");
-                softAssert.assertEquals(statusMsg, expectedMsg, "Unexpected status message for report: [" + report + "]");
+
+                String actualMsg;
+                String expectedMsg;
+
+                if (report.equalsIgnoreCase("create custom report")) {
+                    actualMsg = rBuilder.customMessage();
+                    expectedMsg = "Preset successfully saved!";
+
+                    softAssert.assertEquals(
+                        actualMsg,
+                        expectedMsg,
+                        "Unexpected status message for create custom report"
+                    );
+                } else {
+                    actualMsg = rBuilder.statusMessage();
+                    expectedMsg = "Your report is being prepared. you will receive an email ones it is ready!";
+
+                    softAssert.assertEquals(
+                        actualMsg,
+                        expectedMsg,
+                        "Unexpected status message for report: " + report
+                    );
+                }
+
+                softAssert.assertNotNull(
+                    actualMsg,
+                    "Status message is null for report: [" + report + "]"
+                );
+
             } catch (Exception e) {
                 logger.error("Exception for report [" + report + "]: " + e.getMessage());
                 softAssert.fail("Exception while processing report [" + report + "]: " + e.getMessage());
@@ -292,6 +357,7 @@ public class RegressionClean extends Base {
         softAssert.assertAll();
         logger.info("*** Reporting Test Completed ***");
     }
+
 
     private void bulkEngineering() {
         nav.nav_Engineering();
@@ -316,7 +382,7 @@ public class RegressionClean extends Base {
     }
     
     private void importExport(String type) throws InterruptedException {
-    	nav.click_Admin();
+    	//nav.click_Admin();
 
         String importType = type;
         String navTarget = "Import".equals(importType) ? "Prepaid Import" 
@@ -342,6 +408,13 @@ public class RegressionClean extends Base {
             );
             System.out.println("Toaster Message: " + actualMsg);
         }
+    }
+    
+    public void runTransactionHistory(String mun, String from, String to) {
+    	nav.click_TransactHistory();
+    	tranHis.selectMunicipality(mun);
+    	tranHis.selectDate(from, to);
+    	tranHis.getTransactions();
     }
     
 //    public void purchase() throws InterruptedException, SQLException {
@@ -482,10 +555,10 @@ public class RegressionClean extends Base {
             if (lastTransactions.isEmpty()) {
                 System.out.println("No previous transactions found - using default purchase data.");
                 purchaseData = new Object[][] {
-                    {120, 20.6, "4 kl @ R 3 / kl 16.6 kl @ R 4 / kl", "UI", 6.0},
-                    {100, 16.4, "16.4 kl @ R 4 / kl", "API", null},
-                    {150, 24.5, "24.5 kl @ R 4 / kl", "UI", null},
-                    {100, 16.4, "16.4 kl @ R 4 / kl", "API", null}
+                    {120, 20.6, "4 kl @ R 3 / kl 16.6 kl @ R 4 / kl 6 kl @ R 1 / kl 0 kl @ R 3 / kl", "UI", 6.0},
+                    {100, 16.4, "16.4 kl @ R 4 / kl", "API", 0.0},
+                    {150, 24.5, "24.5 kl @ R 4 / kl", "UI", 0.0},
+                    {100, 16.4, "16.4 kl @ R 4 / kl", "API", 0.0}
                 };
             } else {
                 purchaseData = new Object[lastTransactions.size()][5];

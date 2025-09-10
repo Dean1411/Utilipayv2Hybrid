@@ -85,6 +85,5 @@ public class TransactionHistoryPage extends BaseComponent {
         } catch (TimeoutException e) {
             return "Transaction table not visible.";
         }
-    }
-    
+    }    
 }

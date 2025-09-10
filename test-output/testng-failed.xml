@@ -9,16 +9,14 @@
   </listeners>
   <test thread-count="5" name="Utilipay Version 2(failed)">
     <classes>
-      <class name="UtilipayV2Hybrid.testCases.Api">
+      <class name="UtilipayV2Hybrid.testCases.RegressionClean">
         <methods>
-          <include name="switchMeterLookup"/>
-          <include name="confirmTransactionTest"/>
-          <include name="switchMunLookup"/>
-          <include name="authentication"/>
-          <include name="switchVend"/>
-          <include name="emsVendTest"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="loginOnce"/>
+          <include name="regression"/>
         </methods>
-      </class> <!-- UtilipayV2Hybrid.testCases.Api -->
+      </class> <!-- UtilipayV2Hybrid.testCases.RegressionClean -->
     </classes>
   </test> <!-- Utilipay Version 2(failed) -->
 </suite> <!-- Failed suite [Suite] -->
