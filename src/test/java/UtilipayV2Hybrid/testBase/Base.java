@@ -98,7 +98,7 @@ public class Base {
 	        chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
 	        chromeOptions.addArguments("--disable-save-password-bubble");
 
-	        // Jenkins-friendly prefs
+	        // Use a normal HashMap for prefs
 	        java.util.Map<String, Object> prefs = new java.util.HashMap<>();
 	        prefs.put("credentials_enable_service", false);
 	        prefs.put("profile.password_manager_enabled", false);
@@ -109,16 +109,24 @@ public class Base {
 	        chromeOptions.addArguments("--disable-dev-shm-usage");
 	        chromeOptions.addArguments("--remote-allow-origins=*");
 
+	        // ✅ Always use a unique temp profile to avoid "already in use"
+	        Path chromeProfile = Files.createTempDirectory("chrome-" + java.util.UUID.randomUUID());
+	        chromeOptions.addArguments("--user-data-dir=" + chromeProfile.toAbsolutePath());
+
 	        driver.set(new ChromeDriver(chromeOptions));
 	        break;
 
 	    case "chromeheadless":
 	        ChromeOptions headlessOptions = new ChromeOptions();
-	        headlessOptions.addArguments("--headless=new"); 
+	        headlessOptions.addArguments("--headless=new"); // modern headless mode
 	        headlessOptions.addArguments("--no-sandbox");
 	        headlessOptions.addArguments("--disable-dev-shm-usage");
 	        headlessOptions.addArguments("--remote-allow-origins=*");
 	        headlessOptions.addArguments("--incognito");
+
+	        // ✅ Unique temp profile for headless too
+	        Path headlessProfile = Files.createTempDirectory("chrome-headless-" + java.util.UUID.randomUUID());
+	        headlessOptions.addArguments("--user-data-dir=" + headlessProfile.toAbsolutePath());
 
 	        driver.set(new ChromeDriver(headlessOptions));
 	        break;
