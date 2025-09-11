@@ -171,12 +171,22 @@ public class ExtentReportNG extends Base implements  ITestListener{
 		String reportPath=System.getProperty("user.dir")+"\\reports\\"+reportName;
 		File extentReport=new File(reportPath);
 		
-		//Code automatically opens html report
-		try {
-			Desktop.getDesktop().browse(extentReport.toURI());
-		}catch (Exception e) {
-			e.printStackTrace();
+		if (Desktop.isDesktopSupported()) {
+		    try {
+//		        Desktop.getDesktop().browse(new File(reportPath).toURI());
+		    	Desktop.getDesktop().browse(extentReport.toURI());
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
 		}
+
+		
+//		//Code automatically opens html report
+//		try {
+//			Desktop.getDesktop().browse(extentReport.toURI());
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	} 
 
 }
