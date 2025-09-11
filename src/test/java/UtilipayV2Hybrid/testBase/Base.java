@@ -78,7 +78,7 @@ public class Base {
 	        chromeOptions.addArguments("--disable-dev-shm-usage");
 	        chromeOptions.addArguments("--remote-allow-origins=*");
 
-	        // prevent "user data dir already in use"
+	        // Use a unique temp folder for user data
 	        chromeOptions.addArguments("--user-data-dir=/tmp/chrome-" + java.util.UUID.randomUUID());
 
 	        driver.set(new ChromeDriver(chromeOptions));
@@ -86,14 +86,14 @@ public class Base {
 
 	    case "chromeheadless":
 	        ChromeOptions headlessOptions = new ChromeOptions();
-	        headlessOptions.addArguments("--headless=new");   
+	        headlessOptions.addArguments("--headless=new");  // modern headless
 	        headlessOptions.addArguments("--no-sandbox");
 	        headlessOptions.addArguments("--disable-dev-shm-usage");
 	        headlessOptions.addArguments("--remote-allow-origins=*");
-	        headlessOptions.addArguments("--incognito");     
+	        headlessOptions.addArguments("--incognito");      // use incognito instead of a fixed profile
 
-	        // Only use a truly unique temp profile if you need it
-	        Path tempProfile = Files.createTempDirectory("chrome-profile-" + java.util.UUID.randomUUID());
+	        // Optional: Use a unique temp folder if needed
+	        Path tempProfile = Files.createTempDirectory("chrome-headless-" + java.util.UUID.randomUUID());
 	        headlessOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath());
 
 	        driver.set(new ChromeDriver(headlessOptions));
