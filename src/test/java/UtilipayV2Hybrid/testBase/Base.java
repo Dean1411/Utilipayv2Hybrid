@@ -64,13 +64,13 @@ public class Base {
 	    switch (browserName.toLowerCase()) {
 	        case "chrome":
 	            ChromeOptions chromeOptions = new ChromeOptions();
-	            chromeOptions.addArguments("--incognito");
-	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
-	            chromeOptions.addArguments("--disable-save-password-bubble");
-	            chromeOptions.setExperimentalOption("prefs", new java.util.HashMap<String, Object>() {{
-	                put("credentials_enable_service", false);
-	                put("profile.password_manager_enabled", false);
-	            }});
+//	            chromeOptions.addArguments("--incognito");
+//	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+//	            chromeOptions.addArguments("--disable-save-password-bubble");
+//	            chromeOptions.setExperimentalOption("prefs", new java.util.HashMap<String, Object>() {{
+//	                put("credentials_enable_service", false);
+//	                put("profile.password_manager_enabled", false);
+//	            }});
 	            driver.set(new ChromeDriver(chromeOptions));
 	            break;
 
