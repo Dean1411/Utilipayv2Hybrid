@@ -105,7 +105,7 @@ public class Base {
             chromeOptions.addArguments("--incognito");
             chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
             chromeOptions.addArguments("--disable-save-password-bubble");
-
+            //test
             Map<String, Object> prefs = new HashMap<>();
             prefs.put("credentials_enable_service", false);
             prefs.put("profile.password_manager_enabled", false);
