@@ -261,17 +261,51 @@ public class Base {
 	    FileUtils.copyFile(srcFile, targetFile);
 	    return targetFilePath;
 	}
-
 	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 	    if (getDriver() != null) {
 	        getDriver().quit();
-	        driver.remove(); 
+	        driver.remove();
+	    }
+
+	    // ✅ Clean up temp chrome profiles (user-data-dir)
+	    try {
+	        // Your JVM stores temp dirs in java.io.tmpdir (usually /tmp on Linux)
+	        Path tmpDir = Path.of(System.getProperty("java.io.tmpdir"));
+
+	        // Look for chrome-* or chrome-headless-* folders we created
+	        File[] oldProfiles = tmpDir.toFile().listFiles((dir, name) ->
+	                name.startsWith("chrome-") || name.startsWith("chrome-headless-")
+	        );
+
+	        if (oldProfiles != null) {
+	            for (File profile : oldProfiles) {
+	                try {
+	                    // Recursively delete the folder
+	                    org.apache.commons.io.FileUtils.deleteDirectory(profile);
+	                    System.out.println("Deleted temp profile: " + profile.getAbsolutePath());
+	                } catch (Exception e) {
+	                    System.out.println("Could not delete profile: " + profile.getAbsolutePath());
+	                }
+	            }
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Temp profile cleanup skipped: " + e.getMessage());
 	    }
 	}
 
-	
+
+	//Current one
+//	@AfterClass(alwaysRun = true)
+//	public void tearDown() {
+//	    if (getDriver() != null) {
+//	        getDriver().quit();
+//	        driver.remove(); 
+//	    }
+//	}
+
+	//Old one
 //	@AfterClass (alwaysRun=true)
 //	public void tearDown() throws InterruptedException{
 //		if (driver != null) {
