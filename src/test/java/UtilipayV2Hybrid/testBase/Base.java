@@ -98,7 +98,7 @@ public class Base {
 	        chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
 	        chromeOptions.addArguments("--disable-save-password-bubble");
 
-	        // Use a normal HashMap instead of double braces
+	        // Jenkins-friendly prefs
 	        java.util.Map<String, Object> prefs = new java.util.HashMap<>();
 	        prefs.put("credentials_enable_service", false);
 	        prefs.put("profile.password_manager_enabled", false);
@@ -120,12 +120,24 @@ public class Base {
 	        headlessOptions.addArguments("--remote-allow-origins=*");
 	        headlessOptions.addArguments("--incognito");
 
-	        // Use a unique temp folder for headless profile
+	        // Create a unique temp folder for headless session
 	        Path tempProfile = Files.createTempDirectory("chrome-headless-" + java.util.UUID.randomUUID());
 	        headlessOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath());
 
 	        driver.set(new ChromeDriver(headlessOptions));
 	        break;
+
+	    case "firefox":
+	        driver.set(new FirefoxDriver());
+	        break;
+
+	    case "edge":
+	        driver.set(new EdgeDriver());
+	        break;
+
+	    default:
+	        System.out.println("Browser does not exist");
+	        return;
 	}
 
 //	    }
