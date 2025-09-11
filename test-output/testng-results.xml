@@ -2,15 +2,15 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-11T14:17:17 SAST" name="Suite" finished-at="2025-09-11T14:17:51 SAST" duration-ms="34638">
+  <suite started-at="2025-09-11T15:34:56 SAST" name="Suite" finished-at="2025-09-11T15:35:22 SAST" duration-ms="26302">
     <groups>
       <group name="Regression">
-        <method signature="AddUser.create_New_User()[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@10ded6a9]" name="create_New_User" class="UtilipayV2Hybrid.testCases.AddUser"/>
+        <method signature="AddUser.create_New_User()[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@542e560f]" name="create_New_User" class="UtilipayV2Hybrid.testCases.AddUser"/>
       </group> <!-- Regression -->
     </groups>
-    <test started-at="2025-09-11T14:17:17 SAST" name="Utilipay Version 2" finished-at="2025-09-11T14:17:51 SAST" duration-ms="34638">
+    <test started-at="2025-09-11T15:34:56 SAST" name="Utilipay Version 2" finished-at="2025-09-11T15:35:22 SAST" duration-ms="26302">
       <class name="UtilipayV2Hybrid.testCases.AddUser">
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@10ded6a9]" started-at="2025-09-11T14:17:17 SAST" name="setUp" finished-at="2025-09-11T14:17:28 SAST" duration-ms="10804" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@542e560f]" started-at="2025-09-11T15:34:56 SAST" name="setUp" finished-at="2025-09-11T15:35:04 SAST" duration-ms="7926" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -26,11 +26,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="create_New_User()[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@10ded6a9]" started-at="2025-09-11T14:17:28 SAST" name="create_New_User" finished-at="2025-09-11T14:17:39 SAST" duration-ms="11308" status="PASS">
+        <test-method signature="create_New_User()[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@542e560f]" started-at="2025-09-11T15:35:04 SAST" name="create_New_User" finished-at="2025-09-11T15:35:22 SAST" duration-ms="17773" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- create_New_User -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@10ded6a9]" started-at="2025-09-11T14:17:39 SAST" name="tearDown" finished-at="2025-09-11T14:17:51 SAST" duration-ms="12157" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@542e560f]" started-at="2025-09-11T15:35:22 SAST" name="tearDown" finished-at="2025-09-11T15:35:22 SAST" duration-ms="309" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

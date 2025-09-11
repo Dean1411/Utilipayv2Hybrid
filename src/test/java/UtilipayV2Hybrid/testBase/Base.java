@@ -99,6 +99,7 @@ public class Base {
 	    switch (browserName.toLowerCase()) {
         case "chrome":
             ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.getBrowserVersion();
             chromeOptions.addArguments("--incognito");
             chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
             chromeOptions.addArguments("--disable-save-password-bubble");
