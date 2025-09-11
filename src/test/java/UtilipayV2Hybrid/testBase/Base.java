@@ -3,6 +3,8 @@ package UtilipayV2Hybrid.testBase;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -77,7 +79,9 @@ public class Base {
 	        chromeOptions.addArguments("--remote-allow-origins=*");
 
 	        // prevent "user data dir already in use"
-	        chromeOptions.addArguments("--user-data-dir=/tmp/chrome-" + java.util.UUID.randomUUID());
+	        //chromeOptions.addArguments("--user-data-dir=/tmp/chrome-" + java.util.UUID.randomUUID());
+	        Path tempProfile = Files.createTempDirectory("chrome-profile");
+	        chromeOptions.addArguments("--user-data-dir=" + tempProfile.toString());
 
 	        driver.set(new ChromeDriver(chromeOptions));
 	        break;
@@ -88,7 +92,9 @@ public class Base {
 	        headlessOptions.addArguments("--no-sandbox");
 	        headlessOptions.addArguments("--disable-dev-shm-usage");
 	        headlessOptions.addArguments("--remote-allow-origins=*");
-	        headlessOptions.addArguments("--user-data-dir=/tmp/chrome-" + java.util.UUID.randomUUID());
+	        
+	        Path tempProfile = Files.createTempDirectory("chrome-profile");
+	        headlessOptions.addArguments("--user-data-dir=" + tempProfile.toString());
 
 	        driver.set(new ChromeDriver(headlessOptions));
 	        break;
