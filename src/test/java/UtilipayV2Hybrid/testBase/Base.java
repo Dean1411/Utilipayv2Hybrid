@@ -118,7 +118,7 @@ public class Base {
 
 	    case "chromeheadless":
 	        ChromeOptions headlessOptions = new ChromeOptions();
-	        headlessOptions.addArguments("--headless=new"); // modern headless
+	        headlessOptions.addArguments("--headless=new"); 
 	        headlessOptions.addArguments("--no-sandbox");
 	        headlessOptions.addArguments("--disable-dev-shm-usage");
 	        headlessOptions.addArguments("--remote-allow-origins=*");
