@@ -173,8 +173,8 @@ public class ExtentReportNG extends Base implements  ITestListener{
 		
 		if (Desktop.isDesktopSupported()) {
 		    try {
-//		        Desktop.getDesktop().browse(new File(reportPath).toURI());
-		    	Desktop.getDesktop().browse(extentReport.toURI());
+		        Desktop.getDesktop().browse(new File(reportPath).toURI());
+//		    	Desktop.getDesktop().browse(extentReport.toURI());
 		    } catch (Exception e) {
 		        e.printStackTrace();
 		    }

@@ -86,13 +86,15 @@ public class Base {
 
 	    case "chromeheadless":
 	        ChromeOptions headlessOptions = new ChromeOptions();
-	        headlessOptions.addArguments("--headless=new"); // modern headless mode
+	        headlessOptions.addArguments("--headless=new");   
 	        headlessOptions.addArguments("--no-sandbox");
 	        headlessOptions.addArguments("--disable-dev-shm-usage");
 	        headlessOptions.addArguments("--remote-allow-origins=*");
-	        
-	        Path tempProfile = Files.createTempDirectory("chrome-profile");
-	        headlessOptions.addArguments("--user-data-dir=" + tempProfile.toString());
+	        headlessOptions.addArguments("--incognito");     
+
+	        // Only use a truly unique temp profile if you need it
+	        Path tempProfile = Files.createTempDirectory("chrome-profile-" + java.util.UUID.randomUUID());
+	        headlessOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath());
 
 	        driver.set(new ChromeDriver(headlessOptions));
 	        break;
