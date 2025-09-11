@@ -35,6 +35,9 @@ import org.testng.asserts.SoftAssert;
 import java.util.UUID;
 
 
+
+
+
 public class Base {
 	
 //	public static WebDriver driver;
@@ -99,26 +102,23 @@ public class Base {
 	    switch (browserName.toLowerCase()) {
         case "chrome":
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.getBrowserVersion();
             chromeOptions.addArguments("--incognito");
             chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
             chromeOptions.addArguments("--disable-save-password-bubble");
 
-            // disable password manager popups
             Map<String, Object> prefs = new HashMap<>();
             prefs.put("credentials_enable_service", false);
             prefs.put("profile.password_manager_enabled", false);
             chromeOptions.setExperimentalOption("prefs", prefs);
 
-            // Jenkins-friendly flags
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
             chromeOptions.addArguments("--remote-allow-origins=*");
 
-            // unique temp profile per session
-//            Path tempProfile = Files.createTempDirectory("chrome-" + UUID.randomUUID());
-//            chromeOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath());
-//            tempProfileDir.set(tempProfile);
+            // create a unique temp profile for Jenkins
+            Path tempProfile = Files.createTempDirectory("chrome-" + UUID.randomUUID());
+            chromeOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath());
+            tempProfileDir.set(tempProfile);
 
             driver.set(new ChromeDriver(chromeOptions));
             break;
@@ -126,14 +126,14 @@ public class Base {
         case "chromeheadless":
             ChromeOptions headlessOptions = new ChromeOptions();
             headlessOptions.addArguments("--headless=new");
+            headlessOptions.addArguments("--incognito");
             headlessOptions.addArguments("--no-sandbox");
             headlessOptions.addArguments("--disable-dev-shm-usage");
             headlessOptions.addArguments("--remote-allow-origins=*");
-            headlessOptions.addArguments("--incognito");
 
-//            Path headlessProfile = Files.createTempDirectory("chrome-headless-" + UUID.randomUUID());
-//            headlessOptions.addArguments("--user-data-dir=" + headlessProfile.toAbsolutePath());
-//            tempProfileDir.set(headlessProfile);
+            Path headlessProfile = Files.createTempDirectory("chrome-headless-" + UUID.randomUUID());
+            headlessOptions.addArguments("--user-data-dir=" + headlessProfile.toAbsolutePath());
+            tempProfileDir.set(headlessProfile);
 
             driver.set(new ChromeDriver(headlessOptions));
             break;
@@ -145,6 +145,9 @@ public class Base {
         case "edge":
             driver.set(new EdgeDriver());
             break;
+
+        default:
+            throw new IllegalArgumentException("Unsupported browser: " + browserName);
 	}
 
 //	    }
