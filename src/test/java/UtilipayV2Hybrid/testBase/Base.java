@@ -115,9 +115,9 @@ public class Base {
             chromeOptions.addArguments("--remote-allow-origins=*");
 
             // unique temp profile per session
-            Path tempProfile = Files.createTempDirectory("chrome-" + UUID.randomUUID());
-            chromeOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath());
-            tempProfileDir.set(tempProfile);
+//            Path tempProfile = Files.createTempDirectory("chrome-" + UUID.randomUUID());
+//            chromeOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath());
+//            tempProfileDir.set(tempProfile);
 
             driver.set(new ChromeDriver(chromeOptions));
             break;
@@ -130,9 +130,9 @@ public class Base {
             headlessOptions.addArguments("--remote-allow-origins=*");
             headlessOptions.addArguments("--incognito");
 
-            Path headlessProfile = Files.createTempDirectory("chrome-headless-" + UUID.randomUUID());
-            headlessOptions.addArguments("--user-data-dir=" + headlessProfile.toAbsolutePath());
-            tempProfileDir.set(headlessProfile);
+//            Path headlessProfile = Files.createTempDirectory("chrome-headless-" + UUID.randomUUID());
+//            headlessOptions.addArguments("--user-data-dir=" + headlessProfile.toAbsolutePath());
+//            tempProfileDir.set(headlessProfile);
 
             driver.set(new ChromeDriver(headlessOptions));
             break;
