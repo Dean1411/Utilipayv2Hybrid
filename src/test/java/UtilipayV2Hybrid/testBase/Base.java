@@ -35,6 +35,7 @@ public class Base {
 	
 //	public static WebDriver driver;
 	public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	private static ThreadLocal<Path> chromeProfilePath = new ThreadLocal<>();
 	public Properties prop;
 	public FileInputStream fs;
 	public static final Logger logger = LogManager.getLogger(Base.class);
@@ -92,56 +93,45 @@ public class Base {
 //	            System.out.println("Browser does not exist");
 //	            return;
 	    switch (browserName.toLowerCase()) {
-	    case "chrome":
-	        ChromeOptions chromeOptions = new ChromeOptions();
-	        chromeOptions.addArguments("--incognito");
-	        chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
-	        chromeOptions.addArguments("--disable-save-password-bubble");
+        case "chrome":
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--incognito");
+            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+            chromeOptions.addArguments("--disable-save-password-bubble");
+            chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
+            chromeOptions.addArguments("--remote-allow-origins=*");
 
-	        // Use a normal HashMap for prefs
-	        java.util.Map<String, Object> prefs = new java.util.HashMap<>();
-	        prefs.put("credentials_enable_service", false);
-	        prefs.put("profile.password_manager_enabled", false);
-	        chromeOptions.setExperimentalOption("prefs", prefs);
+            // ✅ unique profile per thread
+            Path profile = Files.createTempDirectory("chrome-" + UUID.randomUUID());
+            chromeProfilePath.set(profile);
+            chromeOptions.addArguments("--user-data-dir=" + profile.toAbsolutePath());
 
-	        // Jenkins-friendly flags
-	        chromeOptions.addArguments("--no-sandbox");
-	        chromeOptions.addArguments("--disable-dev-shm-usage");
-	        chromeOptions.addArguments("--remote-allow-origins=*");
+            driver.set(new ChromeDriver(chromeOptions));
+            break;
 
-	        // ✅ Always use a unique temp profile to avoid "already in use"
-	        Path chromeProfile = Files.createTempDirectory("chrome-" + java.util.UUID.randomUUID());
-	        chromeOptions.addArguments("--user-data-dir=" + chromeProfile.toAbsolutePath());
+        case "chromeheadless":
+            ChromeOptions headlessOptions = new ChromeOptions();
+            headlessOptions.addArguments("--headless=new");
+            headlessOptions.addArguments("--no-sandbox");
+            headlessOptions.addArguments("--disable-dev-shm-usage");
+            headlessOptions.addArguments("--remote-allow-origins=*");
+            headlessOptions.addArguments("--incognito");
 
-	        driver.set(new ChromeDriver(chromeOptions));
-	        break;
+            Path headlessProfile = Files.createTempDirectory("chrome-headless-" + UUID.randomUUID());
+            chromeProfilePath.set(headlessProfile);
+            headlessOptions.addArguments("--user-data-dir=" + headlessProfile.toAbsolutePath());
 
-	    case "chromeheadless":
-	        ChromeOptions headlessOptions = new ChromeOptions();
-	        headlessOptions.addArguments("--headless=new"); // modern headless mode
-	        headlessOptions.addArguments("--no-sandbox");
-	        headlessOptions.addArguments("--disable-dev-shm-usage");
-	        headlessOptions.addArguments("--remote-allow-origins=*");
-	        headlessOptions.addArguments("--incognito");
+            driver.set(new ChromeDriver(headlessOptions));
+            break;
 
-	        // ✅ Unique temp profile for headless too
-	        Path headlessProfile = Files.createTempDirectory("chrome-headless-" + java.util.UUID.randomUUID());
-	        headlessOptions.addArguments("--user-data-dir=" + headlessProfile.toAbsolutePath());
+        case "firefox":
+            driver.set(new FirefoxDriver());
+            break;
 
-	        driver.set(new ChromeDriver(headlessOptions));
-	        break;
-
-	    case "firefox":
-	        driver.set(new FirefoxDriver());
-	        break;
-
-	    case "edge":
-	        driver.set(new EdgeDriver());
-	        break;
-
-	    default:
-	        System.out.println("Browser does not exist");
-	        return;
+        case "edge":
+            driver.set(new EdgeDriver());
+            break;
 	}
 
 //	    }
