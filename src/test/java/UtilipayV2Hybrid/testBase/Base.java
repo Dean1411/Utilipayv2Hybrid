@@ -8,6 +8,8 @@ import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -37,7 +39,7 @@ public class Base {
 	
 //	public static WebDriver driver;
 	public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-	private static ThreadLocal<Path> chromeProfilePath = new ThreadLocal<>();
+	private static ThreadLocal<Path> tempProfileDir = new ThreadLocal<>();
 	public Properties prop;
 	public FileInputStream fs;
 	public static final Logger logger = LogManager.getLogger(Base.class);
@@ -100,14 +102,22 @@ public class Base {
             chromeOptions.addArguments("--incognito");
             chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
             chromeOptions.addArguments("--disable-save-password-bubble");
+
+            // disable password manager popups
+            Map<String, Object> prefs = new HashMap<>();
+            prefs.put("credentials_enable_service", false);
+            prefs.put("profile.password_manager_enabled", false);
+            chromeOptions.setExperimentalOption("prefs", prefs);
+
+            // Jenkins-friendly flags
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
             chromeOptions.addArguments("--remote-allow-origins=*");
 
-            // ✅ unique profile per thread
-            Path profile = Files.createTempDirectory("chrome-" + UUID.randomUUID());
-            chromeProfilePath.set(profile);
-            chromeOptions.addArguments("--user-data-dir=" + profile.toAbsolutePath());
+            // unique temp profile per session
+            Path tempProfile = Files.createTempDirectory("chrome-" + UUID.randomUUID());
+            chromeOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath());
+            tempProfileDir.set(tempProfile);
 
             driver.set(new ChromeDriver(chromeOptions));
             break;
@@ -121,8 +131,8 @@ public class Base {
             headlessOptions.addArguments("--incognito");
 
             Path headlessProfile = Files.createTempDirectory("chrome-headless-" + UUID.randomUUID());
-            chromeProfilePath.set(headlessProfile);
             headlessOptions.addArguments("--user-data-dir=" + headlessProfile.toAbsolutePath());
+            tempProfileDir.set(headlessProfile);
 
             driver.set(new ChromeDriver(headlessOptions));
             break;
@@ -255,37 +265,26 @@ public class Base {
 	}
 	
 	@AfterClass(alwaysRun = true)
-	public void tearDown() {
-	    if (getDriver() != null) {
-	        getDriver().quit();
-	        driver.remove();
-	    }
-
-	    // ✅ Clean up temp chrome profiles (user-data-dir)
-	    try {
-	        // Your JVM stores temp dirs in java.io.tmpdir (usually /tmp on Linux)
-	        Path tmpDir = Path.of(System.getProperty("java.io.tmpdir"));
-
-	        // Look for chrome-* or chrome-headless-* folders we created
-	        File[] oldProfiles = tmpDir.toFile().listFiles((dir, name) ->
-	                name.startsWith("chrome-") || name.startsWith("chrome-headless-")
-	        );
-
-	        if (oldProfiles != null) {
-	            for (File profile : oldProfiles) {
-	                try {
-	                    // Recursively delete the folder
-	                    org.apache.commons.io.FileUtils.deleteDirectory(profile);
-	                    System.out.println("Deleted temp profile: " + profile.getAbsolutePath());
-	                } catch (Exception e) {
-	                    System.out.println("Could not delete profile: " + profile.getAbsolutePath());
-	                }
-	            }
-	        }
-	    } catch (Exception e) {
-	        System.out.println("Temp profile cleanup skipped: " + e.getMessage());
-	    }
-	}
+    public void tearDown() {
+        try {
+            if (driver.get() != null) {
+                driver.get().quit();
+            }
+        } finally {
+            // cleanup temp profile
+            if (tempProfileDir.get() != null) {
+                try {
+                    Files.walk(tempProfileDir.get())
+                            .sorted((a, b) -> b.compareTo(a)) // delete children first
+                            .forEach(path -> path.toFile().delete());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            driver.remove();
+            tempProfileDir.remove();
+        }
+    }
 
 
 	//Current one
