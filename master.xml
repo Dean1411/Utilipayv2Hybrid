@@ -8,7 +8,7 @@
 		/>-->
 		<listener class-name="UtilipayV2Hybrid.utilities.TestTransformer"></listener>
 	</listeners>
-	<parameter name="Browser" value="chromeheadless"></parameter>
+	<parameter name="Browser" value="chrome"></parameter>
 	<parameter name="OS" value="windows"></parameter>
 	<!--<parameter name="OS" value="windows"></parameter>-->
 	<!-- Test -->
