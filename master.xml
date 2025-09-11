@@ -20,7 +20,7 @@
 			<!--						<class name="UtilipayV2Hybrid.testCases.ValidLoginTest" />-->
 			<!--			<class
 			name="UtilipayV2Hybrid.testCases.GenerateEngineeringToken" />-->
-<!--												<class name="UtilipayV2Hybrid.testCases.AddUser" />-->
+												<class name="UtilipayV2Hybrid.testCases.AddUser" />
 			<!--			<class name="UtilipayV2Hybrid.testCases.AddMunicipality" />-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.MtrLookup" />-->
 			<!--			<class name="UtilipayV2Hybrid.testCases.DatabaseTest" />-->
@@ -38,7 +38,7 @@
 			<!--			<class name="UtilipayV2Hybrid.testCases.VerifyLinks" />-->
 			<!--			<class
 			name="UtilipayV2Hybrid.testCases.BulkEngineeringTokens"></class>-->
-									<class name="UtilipayV2Hybrid.testCases.Api" />
+<!--									<class name="UtilipayV2Hybrid.testCases.Api" />-->
 <!--						<class name="UtilipayV2Hybrid.testCases.Reporting"></class>-->
 <!--							<class name="UtilipayV2Hybrid.testCases.RegressionClean" />-->
 			<!--				<class name="UtilipayV2Hybrid.testCases.OnlinePurchase" />-->
