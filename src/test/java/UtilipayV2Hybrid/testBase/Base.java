@@ -79,9 +79,7 @@ public class Base {
 	        chromeOptions.addArguments("--remote-allow-origins=*");
 
 	        // prevent "user data dir already in use"
-	        //chromeOptions.addArguments("--user-data-dir=/tmp/chrome-" + java.util.UUID.randomUUID());
-	        Path tempProfile = Files.createTempDirectory("chrome-profile");
-	        chromeOptions.addArguments("--user-data-dir=" + tempProfile.toString());
+	        chromeOptions.addArguments("--user-data-dir=/tmp/chrome-" + java.util.UUID.randomUUID());
 
 	        driver.set(new ChromeDriver(chromeOptions));
 	        break;
