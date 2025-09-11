@@ -108,10 +108,6 @@ public class Base {
 	        chromeOptions.addArguments("--no-sandbox");
 	        chromeOptions.addArguments("--disable-dev-shm-usage");
 	        chromeOptions.addArguments("--remote-allow-origins=*");
-	        
-	        // Create a unique temp folder for headless session
-	        Path tempProfile = Files.createTempDirectory("chrome-headless-" + java.util.UUID.randomUUID());
-	        chromeOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath());
 
 	        driver.set(new ChromeDriver(chromeOptions));
 	        break;
@@ -123,8 +119,6 @@ public class Base {
 	        headlessOptions.addArguments("--disable-dev-shm-usage");
 	        headlessOptions.addArguments("--remote-allow-origins=*");
 	        headlessOptions.addArguments("--incognito");
-
-
 
 	        driver.set(new ChromeDriver(headlessOptions));
 	        break;
