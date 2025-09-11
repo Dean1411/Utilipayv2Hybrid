@@ -60,35 +60,68 @@ public class Base {
 	    }
 
 	    switch (browserName.toLowerCase()) {
-	        case "chrome":
-	            ChromeOptions chromeOptions = new ChromeOptions();
-	            chromeOptions.addArguments("--incognito");
-	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
-	            chromeOptions.addArguments("--disable-save-password-bubble");
-	            chromeOptions.setExperimentalOption("prefs", new java.util.HashMap<String, Object>() {{
-	                put("credentials_enable_service", false);
-	                put("profile.password_manager_enabled", false);
-	            }});
-	            driver.set(new ChromeDriver(chromeOptions));
-	            break;
+	    case "chrome":
+	        ChromeOptions chromeOptions = new ChromeOptions();
+	        chromeOptions.addArguments("--incognito");
+	        chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+	        chromeOptions.addArguments("--disable-save-password-bubble");
 
-	        case "chromeheadless":
-	            ChromeOptions headlessOptions = new ChromeOptions();
-	            headlessOptions.addArguments("headless");
-	            driver.set(new ChromeDriver(headlessOptions));
-	            break;
+	        chromeOptions.setExperimentalOption("prefs", new java.util.HashMap<String, Object>() {{
+	            put("credentials_enable_service", false);
+	            put("profile.password_manager_enabled", false);
+	        }});
 
-	        case "firefox":
-	            driver.set(new FirefoxDriver());
-	            break;
+	        // Jenkins-friendly flags
+	        chromeOptions.addArguments("--no-sandbox");
+	        chromeOptions.addArguments("--disable-dev-shm-usage");
+	        chromeOptions.addArguments("--remote-allow-origins=*");
 
-	        case "edge":
-	            driver.set(new EdgeDriver());
-	            break;
+	        // prevent "user data dir already in use"
+	        chromeOptions.addArguments("--user-data-dir=/tmp/chrome-" + java.util.UUID.randomUUID());
 
-	        default:
-	            System.out.println("Browser does not exist");
-	            return;
+	        driver.set(new ChromeDriver(chromeOptions));
+	        break;
+
+	    case "chromeheadless":
+	        ChromeOptions headlessOptions = new ChromeOptions();
+	        headlessOptions.addArguments("--headless=new"); // modern headless mode
+	        headlessOptions.addArguments("--no-sandbox");
+	        headlessOptions.addArguments("--disable-dev-shm-usage");
+	        headlessOptions.addArguments("--remote-allow-origins=*");
+	        headlessOptions.addArguments("--user-data-dir=/tmp/chrome-" + java.util.UUID.randomUUID());
+
+	        driver.set(new ChromeDriver(headlessOptions));
+	        break;
+
+//	        case "chrome":
+//	            ChromeOptions chromeOptions = new ChromeOptions();
+//	            chromeOptions.addArguments("--incognito");
+//	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+//	            chromeOptions.addArguments("--disable-save-password-bubble");
+//	            chromeOptions.setExperimentalOption("prefs", new java.util.HashMap<String, Object>() {{
+//	                put("credentials_enable_service", false);
+//	                put("profile.password_manager_enabled", false);
+//	            }});
+//	            driver.set(new ChromeDriver(chromeOptions));
+//	            break;
+//
+//	        case "chromeheadless":
+//	            ChromeOptions headlessOptions = new ChromeOptions();
+//	            headlessOptions.addArguments("headless");
+//	            driver.set(new ChromeDriver(headlessOptions));
+//	            break;
+//
+//	        case "firefox":
+//	            driver.set(new FirefoxDriver());
+//	            break;
+//
+//	        case "edge":
+//	            driver.set(new EdgeDriver());
+//	            break;
+//
+//	        default:
+//	            System.out.println("Browser does not exist");
+//	            return;
 	    }
 
 	    this.currentBrowserName = browserName.toLowerCase();
