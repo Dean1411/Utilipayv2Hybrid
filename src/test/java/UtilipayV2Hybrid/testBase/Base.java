@@ -70,87 +70,86 @@ public class Base {
 	        return;
 	    }
 
-//	    switch (browserName.toLowerCase()) {
-//	        case "chrome":
-//	            ChromeOptions chromeOptions = new ChromeOptions();
-//	            chromeOptions.addArguments("--incognito");
-//	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
-//	            chromeOptions.addArguments("--disable-save-password-bubble");
-//	            chromeOptions.setExperimentalOption("prefs", new java.util.HashMap<String, Object>() {{
-//	                put("credentials_enable_service", false);
-//	                put("profile.password_manager_enabled", false);
-//	            }});
-//	            driver.set(new ChromeDriver(chromeOptions));
-//	            break;
-//
-//	        case "chromeheadless":
-//	            ChromeOptions headlessOptions = new ChromeOptions();
-//	            headlessOptions.addArguments("headless");
-//	            driver.set(new ChromeDriver(headlessOptions));
-//	            break;
-//
-//	        case "firefox":
-//	            driver.set(new FirefoxDriver());
-//	            break;
-//
-//	        case "edge":
-//	            driver.set(new EdgeDriver());
-//	            break;
-//
-//	        default:
-//	            System.out.println("Browser does not exist");
-//	            return;
 	    switch (browserName.toLowerCase()) {
-	    case "chrome":
-	        ChromeOptions chromeOptions = new ChromeOptions();
-	        chromeOptions.addArguments("--incognito");
-	        chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
-	        chromeOptions.addArguments("--disable-save-password-bubble");
-	        chromeOptions.addArguments("--no-sandbox");
-	        chromeOptions.addArguments("--disable-dev-shm-usage");
-	        chromeOptions.addArguments("--remote-allow-origins=*");
-	        chromeOptions.addArguments("--disable-gpu");
-	        chromeOptions.addArguments("--window-size=1920,1080");
+	        case "chrome":
+	            ChromeOptions chromeOptions = new ChromeOptions();
+	            chromeOptions.addArguments("--incognito");
+	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+	            chromeOptions.addArguments("--disable-save-password-bubble");
+	            chromeOptions.setExperimentalOption("prefs", new java.util.HashMap<String, Object>() {{
+	                put("credentials_enable_service", false);
+	                put("profile.password_manager_enabled", false);
+	            }});
+	            driver.set(new ChromeDriver(chromeOptions));
+	            break;
 
-	        Map<String, Object> prefs = new HashMap<>();
-	        prefs.put("credentials_enable_service", false);
-	        prefs.put("profile.password_manager_enabled", false);
-	        chromeOptions.setExperimentalOption("prefs", prefs);
+	        case "chromeheadless":
+	            ChromeOptions headlessOptions = new ChromeOptions();
+	            headlessOptions.addArguments("headless");
+	            driver.set(new ChromeDriver(headlessOptions));
+	            break;
 
-	        // create guaranteed unique profile dir (only for normal Chrome)
-	        String profilePath = System.getProperty("user.dir") + "/chrome-profile-" + UUID.randomUUID();
-	        Files.createDirectories(Paths.get(profilePath));
-	        chromeOptions.addArguments("--user-data-dir=" + profilePath);
-	        tempProfileDir.set(Paths.get(profilePath));
+	        case "firefox":
+	            driver.set(new FirefoxDriver());
+	            break;
 
-	        driver.set(new ChromeDriver(chromeOptions));
-	        break;
+	        case "edge":
+	            driver.set(new EdgeDriver());
+	            break;
 
-	    case "chromeheadless":
-	        ChromeOptions headlessOptions = new ChromeOptions();
-	        headlessOptions.addArguments("--headless=new");
-	        headlessOptions.addArguments("--incognito");
-	        headlessOptions.addArguments("--no-sandbox");
-	        headlessOptions.addArguments("--disable-dev-shm-usage");
-	        headlessOptions.addArguments("--remote-allow-origins=*");
-	        headlessOptions.addArguments("--disable-gpu");
-	        headlessOptions.addArguments("--window-size=1920,1080");
-
-	        // 🚨 No user-data-dir for headless (avoids session not created errors in Jenkins)
-
-	        driver.set(new ChromeDriver(headlessOptions));
-	        break;
-
-	    case "firefox":
-	        driver.set(new FirefoxDriver());
-	        break;
-
-	    case "edge":
-	        driver.set(new EdgeDriver());
-	        break;
-
-	    default:
-	        throw new IllegalArgumentException("Unsupported browser: " + browserName);
+	        default:
+	            System.out.println("Browser does not exist");
+	            return;
+	    
+//	    switch (browserName.toLowerCase()) {
+//	    case "chrome":
+//	        ChromeOptions chromeOptions = new ChromeOptions();
+//	        chromeOptions.addArguments("--incognito");
+//	        chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+//	        chromeOptions.addArguments("--disable-save-password-bubble");
+//	        chromeOptions.addArguments("--no-sandbox");
+//	        chromeOptions.addArguments("--disable-dev-shm-usage");
+//	        chromeOptions.addArguments("--remote-allow-origins=*");
+//	        chromeOptions.addArguments("--disable-gpu");
+//	        chromeOptions.addArguments("--window-size=1920,1080");
+//
+//	        Map<String, Object> prefs = new HashMap<>();
+//	        prefs.put("credentials_enable_service", false);
+//	        prefs.put("profile.password_manager_enabled", false);
+//	        chromeOptions.setExperimentalOption("prefs", prefs);
+//
+//	        String profilePath = System.getProperty("user.dir") + "/chrome-profile-" + UUID.randomUUID();
+//	        Files.createDirectories(Paths.get(profilePath));
+//	        chromeOptions.addArguments("--user-data-dir=" + profilePath);
+//	        tempProfileDir.set(Paths.get(profilePath));
+//
+//	        driver.set(new ChromeDriver(chromeOptions));
+//	        break;
+//
+//	    case "chromeheadless":
+//	        ChromeOptions headlessOptions = new ChromeOptions();
+//	        headlessOptions.addArguments("--headless=new");
+//	        headlessOptions.addArguments("--incognito");
+//	        headlessOptions.addArguments("--no-sandbox");
+//	        headlessOptions.addArguments("--disable-dev-shm-usage");
+//	        headlessOptions.addArguments("--remote-allow-origins=*");
+//	        headlessOptions.addArguments("--disable-gpu");
+//	        headlessOptions.addArguments("--window-size=1920,1080");
+//
+//
+//	        driver.set(new ChromeDriver(headlessOptions));
+//	        break;
+//
+//	    case "firefox":
+//	        driver.set(new FirefoxDriver());
+//	        break;
+//
+//	    case "edge":
+//	        driver.set(new EdgeDriver());
+//	        break;
+//
+//	    default:
+//	        throw new IllegalArgumentException("Unsupported browser: " + browserName);
 	}
 
 //	    }
@@ -282,7 +281,7 @@ public class Base {
             if (tempProfileDir.get() != null) {
                 try {
                     Files.walk(tempProfileDir.get())
-                            .sorted((a, b) -> b.compareTo(a)) // delete children first
+                            .sorted((a, b) -> b.compareTo(a)) 
                             .forEach(path -> path.toFile().delete());
                 } catch (IOException e) {
                     e.printStackTrace();
