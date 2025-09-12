@@ -109,7 +109,6 @@ public class Base {
 	        chromeOptions.addArguments("--no-sandbox");
 	        chromeOptions.addArguments("--disable-dev-shm-usage");
 	        chromeOptions.addArguments("--remote-allow-origins=*");
-	        chromeOptions.addArguments("--headless=new");   // recommended for CI
 	        chromeOptions.addArguments("--disable-gpu");
 	        chromeOptions.addArguments("--window-size=1920,1080");
 
@@ -118,7 +117,7 @@ public class Base {
 	        prefs.put("profile.password_manager_enabled", false);
 	        chromeOptions.setExperimentalOption("prefs", prefs);
 
-	        // create guaranteed unique profile dir under Jenkins workspace
+	        // create guaranteed unique profile dir (only for normal Chrome)
 	        String profilePath = System.getProperty("user.dir") + "/chrome-profile-" + UUID.randomUUID();
 	        Files.createDirectories(Paths.get(profilePath));
 	        chromeOptions.addArguments("--user-data-dir=" + profilePath);
@@ -137,10 +136,7 @@ public class Base {
 	        headlessOptions.addArguments("--disable-gpu");
 	        headlessOptions.addArguments("--window-size=1920,1080");
 
-	        String headlessProfilePath = System.getProperty("user.dir") + "/chrome-headless-" + UUID.randomUUID();
-	        Files.createDirectories(Paths.get(headlessProfilePath));
-	        headlessOptions.addArguments("--user-data-dir=" + headlessProfilePath);
-	        tempProfileDir.set(Paths.get(headlessProfilePath));
+	        // 🚨 No user-data-dir for headless (avoids session not created errors in Jenkins)
 
 	        driver.set(new ChromeDriver(headlessOptions));
 	        break;
