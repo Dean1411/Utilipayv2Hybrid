@@ -101,54 +101,60 @@ public class Base {
 //	            System.out.println("Browser does not exist");
 //	            return;
 	    switch (browserName.toLowerCase()) {
-        case "chrome":
-        	
-        	String uniqueProfile = "/tmp/jenkins-chrome-" + UUID.randomUUID();
-        	Files.createDirectories(Paths.get(uniqueProfile));
-        	
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--incognito");
-            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
-            chromeOptions.addArguments("--disable-save-password-bubble");
-            chromeOptions.addArguments("--no-sandbox");
-            chromeOptions.addArguments("--disable-dev-shm-usage");
-            chromeOptions.addArguments("--remote-allow-origins=*");
-            chromeOptions.addArguments("--headless=new");
-            chromeOptions.addArguments("--disable-gpu");
-            chromeOptions.addArguments("--window-size=1920,1080");
+	    case "chrome":
+	        ChromeOptions chromeOptions = new ChromeOptions();
+	        chromeOptions.addArguments("--incognito");
+	        chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+	        chromeOptions.addArguments("--disable-save-password-bubble");
+	        chromeOptions.addArguments("--no-sandbox");
+	        chromeOptions.addArguments("--disable-dev-shm-usage");
+	        chromeOptions.addArguments("--remote-allow-origins=*");
+	        chromeOptions.addArguments("--headless=new");   // recommended for CI
+	        chromeOptions.addArguments("--disable-gpu");
+	        chromeOptions.addArguments("--window-size=1920,1080");
 
+	        Map<String, Object> prefs = new HashMap<>();
+	        prefs.put("credentials_enable_service", false);
+	        prefs.put("profile.password_manager_enabled", false);
+	        chromeOptions.setExperimentalOption("prefs", prefs);
 
-            Map<String, Object> prefs = new HashMap<>();
-            prefs.put("credentials_enable_service", false);
-            prefs.put("profile.password_manager_enabled", false);
-            chromeOptions.setExperimentalOption("prefs", prefs);
-            
-            chromeOptions.addArguments("--user-data-dir=" + uniqueProfile);
+	        // create guaranteed unique profile dir under Jenkins workspace
+	        String profilePath = System.getProperty("user.dir") + "/chrome-profile-" + UUID.randomUUID();
+	        Files.createDirectories(Paths.get(profilePath));
+	        chromeOptions.addArguments("--user-data-dir=" + profilePath);
+	        tempProfileDir.set(Paths.get(profilePath));
 
-            driver.set(new ChromeDriver(chromeOptions));
-            break;
+	        driver.set(new ChromeDriver(chromeOptions));
+	        break;
 
-        case "chromeheadless":
-            ChromeOptions headlessOptions = new ChromeOptions();
-            headlessOptions.addArguments("--headless=new");
-            headlessOptions.addArguments("--incognito");
-            headlessOptions.addArguments("--no-sandbox");
-            headlessOptions.addArguments("--disable-dev-shm-usage");
-            headlessOptions.addArguments("--remote-allow-origins=*");
+	    case "chromeheadless":
+	        ChromeOptions headlessOptions = new ChromeOptions();
+	        headlessOptions.addArguments("--headless=new");
+	        headlessOptions.addArguments("--incognito");
+	        headlessOptions.addArguments("--no-sandbox");
+	        headlessOptions.addArguments("--disable-dev-shm-usage");
+	        headlessOptions.addArguments("--remote-allow-origins=*");
+	        headlessOptions.addArguments("--disable-gpu");
+	        headlessOptions.addArguments("--window-size=1920,1080");
 
-            driver.set(new ChromeDriver(headlessOptions));
-            break;
+	        String headlessProfilePath = System.getProperty("user.dir") + "/chrome-headless-" + UUID.randomUUID();
+	        Files.createDirectories(Paths.get(headlessProfilePath));
+	        headlessOptions.addArguments("--user-data-dir=" + headlessProfilePath);
+	        tempProfileDir.set(Paths.get(headlessProfilePath));
 
-        case "firefox":
-            driver.set(new FirefoxDriver());
-            break;
+	        driver.set(new ChromeDriver(headlessOptions));
+	        break;
 
-        case "edge":
-            driver.set(new EdgeDriver());
-            break;
+	    case "firefox":
+	        driver.set(new FirefoxDriver());
+	        break;
 
-        default:
-            throw new IllegalArgumentException("Unsupported browser: " + browserName);
+	    case "edge":
+	        driver.set(new EdgeDriver());
+	        break;
+
+	    default:
+	        throw new IllegalArgumentException("Unsupported browser: " + browserName);
 	}
 
 //	    }
