@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -101,6 +102,10 @@ public class Base {
 //	            return;
 	    switch (browserName.toLowerCase()) {
         case "chrome":
+        	
+        	String uniqueProfile = "/tmp/jenkins-chrome-" + UUID.randomUUID();
+        	Files.createDirectories(Paths.get(uniqueProfile));
+        	
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--incognito");
             chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
@@ -108,11 +113,17 @@ public class Base {
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
             chromeOptions.addArguments("--remote-allow-origins=*");
+            chromeOptions.addArguments("--headless=new");
+            chromeOptions.addArguments("--disable-gpu");
+            chromeOptions.addArguments("--window-size=1920,1080");
+
 
             Map<String, Object> prefs = new HashMap<>();
             prefs.put("credentials_enable_service", false);
             prefs.put("profile.password_manager_enabled", false);
             chromeOptions.setExperimentalOption("prefs", prefs);
+            
+            chromeOptions.addArguments("--user-data-dir=" + uniqueProfile);
 
             driver.set(new ChromeDriver(chromeOptions));
             break;
