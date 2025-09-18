@@ -45,7 +45,8 @@ public class Reporting extends Base {
             "low purchase",
             "free basic",
             "arrears recovered",
-            "prepaid sales"            
+            "prepaid sales",
+            "meter breakdown"
         };
 
         SoftAssert softAssert = new SoftAssert();
