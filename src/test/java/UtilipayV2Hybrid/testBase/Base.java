@@ -81,7 +81,13 @@ public class Base {
 
 	        case "chromeheadless":
 	            ChromeOptions headlessOptions = new ChromeOptions();
-	            headlessOptions.addArguments("headless");
+	            headlessOptions.addArguments("--headless=new"); 
+	            headlessOptions.addArguments("--incognito");
+	            headlessOptions.addArguments("--no-sandbox");
+	            headlessOptions.addArguments("--disable-dev-shm-usage");
+	            headlessOptions.addArguments("--remote-allow-origins=*");
+	            headlessOptions.addArguments("--disable-gpu");
+	            headlessOptions.addArguments("--window-size=1920,1080");
 	            driver.set(new ChromeDriver(headlessOptions));
 	            break;
 
