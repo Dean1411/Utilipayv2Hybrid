@@ -91,7 +91,7 @@ public class ReportBuilderPage extends BaseComponent {
     @FindBy(xpath = "//div[contains(@class, 'toast-message')]")
     WebElement statusMsg;
     
-    //Custome Report
+    //Custom Report
     @FindBy(xpath = "//select[@id='OrderBy']")
     WebElement orderBy;
 
@@ -125,6 +125,15 @@ public class ReportBuilderPage extends BaseComponent {
     
     @FindBy(xpath = "//input[@placeholder='Select value']")
     WebElement channels;
+    
+    //Meter breakdown report
+    @FindBy(xpath = "//span[normalize-space()='MeterBreakdown']")
+    WebElement mtrBreakdown; 
+    
+    @FindBy(xpath = "///div[@id='meterAccordion']")
+    WebElement mtrDetails;
+    
+    
     
 
 //    public void selectReport(String report, String reportName) {
@@ -273,7 +282,8 @@ public class ReportBuilderPage extends BaseComponent {
                     break;
 
                 case "create custom report":
-                    scrollToElement(customReport);
+//                    scrollToElement(customReport);
+                    scrollToBottom();
                     wait.until(ExpectedConditions.elementToBeClickable(customReport)).click();
                     List<String> selectedColumns = Arrays.asList(
                         "Customer Name",
@@ -285,6 +295,11 @@ public class ReportBuilderPage extends BaseComponent {
                         "Tendered Amount (R)"
                     );
                     organizeCustomeReportColumns(selectedColumns);
+                    break;
+                    
+                case "meter breakdown":
+                    wait.until(ExpectedConditions.elementToBeClickable(mtrBreakdown)).click();
+                    meterBreakdown("Active Meters");
                     break;
 
                 default:
@@ -399,7 +414,7 @@ public class ReportBuilderPage extends BaseComponent {
     // Free Basic Issued Report
     public void freeBasicIssued(String month) {
         try {
-            selectMunicipality("Karoo Hoogland");
+            selectMunicipality("Karoo Hoogland Municipality");
             wait.until(ExpectedConditions.elementToBeClickable(selectMonth)).click();
             selectMonth(month);
             wait.until(ExpectedConditions.elementToBeClickable(generatePreview)).click();
@@ -445,6 +460,13 @@ public class ReportBuilderPage extends BaseComponent {
             System.out.println("Error in arrearsRecovered: " + e.getMessage());
         }
     }
+    
+    public void meterBreakdown(String option) {
+    	selectMunicipality("Karoo Hoogland");
+    	clickGeneratePreview(option);
+    	scrollToBottom();
+    	generateReportIfTransactionsExist(generateReport, "CSV");
+    }
 
     // Support Methods
     public void monthPicker(String month) {
@@ -457,6 +479,35 @@ public class ReportBuilderPage extends BaseComponent {
             }
         }
     }
+    
+    public void clickGeneratePreview(String showOption) {
+
+        wait.until(ExpectedConditions.elementToBeClickable(generatePreview)).click();
+
+        // Locate the correct accordion button by text
+        WebElement accordionButton = driver.findElement(By.xpath("//button[contains(text(),'" + showOption + "')]"));
+        accordionButton.click(); // expand section
+
+        // Now locate the corresponding accordion body (next sibling div)
+        WebElement accordionBody = accordionButton.findElement(By.xpath("./ancestor::h2/following-sibling::div"));
+
+        // Wait until the body is expanded (has class 'show')
+        wait.until(ExpectedConditions.attributeContains(accordionBody, "class", "show"));
+
+        // Get the table body inside that section
+        WebElement tableBody = accordionBody.findElement(By.tagName("tbody"));
+        List<WebElement> rows = tableBody.findElements(By.tagName("tr"));
+
+        System.out.println(showOption + " list:");
+
+        for (WebElement row : rows) {
+            List<WebElement> cols = row.findElements(By.tagName("td"));
+            List<String> values = cols.stream().map(WebElement::getText).toList();
+            System.out.println(values);
+        }
+    }
+
+
 
     public void toAndFromDateSelector() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(datePicker)).click();

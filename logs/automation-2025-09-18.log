@@ -1,0 +1,46 @@
+2025-09-18 16:18:07.150 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-18 16:18:45.465 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-18 16:18:45.529 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-09-18 16:18:46.367 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-09-18 16:18:47.966 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-18 16:18:59.313 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: automation report ===
+2025-09-18 16:20:48.285 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-18 16:20:48.387 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-09-18 16:20:48.826 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-09-18 16:20:50.697 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-18 16:21:39.079 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: automation report ===
+2025-09-18 16:21:44.986 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-09-18 16:21:53.140 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-09-18 16:21:56.124 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-09-18 16:22:01.491 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-09-18 16:22:24.122 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-09-18 16:23:27.587 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-18 16:23:27.677 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-09-18 16:23:28.318 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-09-18 16:23:30.012 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-18 16:23:49.472 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: automation report ===
+2025-09-18 16:23:58.420 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-09-18 16:24:06.377 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-09-18 16:24:09.351 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-09-18 16:24:14.208 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-09-18 16:24:36.706 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-09-18 16:26:26.414 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-18 16:26:26.459 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-09-18 16:26:26.889 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-09-18 16:26:29.123 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-18 16:26:51.622 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: automation report ===
+2025-09-18 16:26:59.601 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-09-18 16:27:07.452 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-09-18 16:27:10.667 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-09-18 16:27:15.858 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-09-18 16:27:20.232 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-09-18 16:27:24.113 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-09-18 16:27:30.134 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: meter breakdown ===
+2025-09-18 16:27:49.357 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-18 16:28:59.214 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Setting up Reporting Test ***
+2025-09-18 16:28:59.281 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Logging in ***
+2025-09-18 16:28:59.690 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Navigating to Reporting Section ***
+2025-09-18 16:29:01.773 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-18 16:29:23.387 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: automation report ===
+2025-09-18 16:29:28.816 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-09-18 16:29:35.346 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===

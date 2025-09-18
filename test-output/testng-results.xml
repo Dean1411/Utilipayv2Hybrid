@@ -2,15 +2,15 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-18T10:40:12 SAST" name="Suite" finished-at="2025-09-18T10:40:30 SAST" duration-ms="18008">
+  <suite started-at="2025-09-18T16:28:54 SAST" name="Suite" finished-at="2025-09-18T16:30:08 SAST" duration-ms="73701">
     <groups>
       <group name="Regression">
-        <method signature="AddUser.create_New_User()[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@18920cc]" name="create_New_User" class="UtilipayV2Hybrid.testCases.AddUser"/>
+        <method signature="Reporting.generateAllReportsAndAssertStatusMessages()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@48d5f34e]" name="generateAllReportsAndAssertStatusMessages" class="UtilipayV2Hybrid.testCases.Reporting"/>
       </group> <!-- Regression -->
     </groups>
-    <test started-at="2025-09-18T10:40:12 SAST" name="Utilipay Version 2" finished-at="2025-09-18T10:40:30 SAST" duration-ms="18008">
-      <class name="UtilipayV2Hybrid.testCases.AddUser">
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@18920cc]" started-at="2025-09-18T10:40:12 SAST" name="setUp" finished-at="2025-09-18T10:40:19 SAST" duration-ms="7090" status="PASS">
+    <test started-at="2025-09-18T16:28:54 SAST" name="Utilipay Version 2" finished-at="2025-09-18T16:30:08 SAST" duration-ms="73701">
+      <class name="UtilipayV2Hybrid.testCases.Reporting">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@48d5f34e]" started-at="2025-09-18T16:28:54 SAST" name="setUp" finished-at="2025-09-18T16:28:59 SAST" duration-ms="4332" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -26,15 +26,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="create_New_User()[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@18920cc]" started-at="2025-09-18T10:40:19 SAST" name="create_New_User" finished-at="2025-09-18T10:40:29 SAST" duration-ms="10285" status="PASS">
+        <test-method is-config="true" signature="setupReportingModule()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@48d5f34e]" started-at="2025-09-18T16:28:59 SAST" name="setupReportingModule" finished-at="2025-09-18T16:29:01 SAST" duration-ms="2538" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- create_New_User -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.AddUser@18920cc]" started-at="2025-09-18T10:40:30 SAST" name="tearDown" finished-at="2025-09-18T10:40:30 SAST" duration-ms="369" status="PASS">
+        </test-method> <!-- setupReportingModule -->
+        <test-method signature="generateAllReportsAndAssertStatusMessages()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@48d5f34e]" started-at="2025-09-18T16:29:01 SAST" name="generateAllReportsAndAssertStatusMessages" finished-at="2025-09-18T16:30:08 SAST" duration-ms="66351" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateAllReportsAndAssertStatusMessages -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:UtilipayV2Hybrid.testCases.Reporting@48d5f34e]" started-at="2025-09-18T16:30:08 SAST" name="tearDown" finished-at="2025-09-18T16:30:08 SAST" duration-ms="252" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- UtilipayV2Hybrid.testCases.AddUser -->
+      </class> <!-- UtilipayV2Hybrid.testCases.Reporting -->
     </test> <!-- Utilipay Version 2 -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -1,8 +1,6 @@
-2025-09-16 11:45:19.741 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
-2025-09-16 11:45:34.652 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
-2025-09-16 11:45:49.246 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing mngt function token
-2025-09-16 11:46:03.416 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: key change token
-2025-09-16 11:46:17.895 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: management function token
-2025-09-18 10:30:37.552 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Click Developer/Tester Login***
-2025-09-18 10:30:37.562 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
-2025-09-18 10:40:19.826 [main] INFO  UtilipayV2Hybrid.testBase.Base - ***Enter login credentials/Click Login***
+2025-09-18 16:29:38.103 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-09-18 16:29:43.661 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-09-18 16:29:47.544 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-09-18 16:29:51.646 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-09-18 16:29:57.705 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: meter breakdown ===
+2025-09-18 16:30:08.107 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
