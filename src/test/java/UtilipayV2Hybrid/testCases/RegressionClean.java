@@ -546,7 +546,7 @@ public class RegressionClean extends Base {
 
             String emsVendEndpoint = ConfigReader.get("emsWater");
 
-            // Fetch last 4 transactions dynamically from DB instead of hardcoded purchaseData
+            // Fetch last 4 transactions dynamically from DB 
             List<DatabaseUtilsEnd2End.MeterTransactionInfo> lastTransactions = 
                 DatabaseUtilsEnd2End.getLastNTransactionDetails(meterId, 4);
 
@@ -673,6 +673,7 @@ public class RegressionClean extends Base {
             }
 
             DatabaseCleanupHelper.collectAndRunCleanupForMeter(meterNumber);
+            DatabaseCleanupHelper.deleteTestUsersCreated();
             softAssert.assertAll();
 
         } catch (Exception ex) {

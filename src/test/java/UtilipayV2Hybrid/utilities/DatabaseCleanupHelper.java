@@ -9,7 +9,12 @@ import java.util.stream.Collectors;
 
 public class DatabaseCleanupHelper {
 
-    private static Properties getDatabaseProperties() {
+    private static final Properties props = loadDatabaseProperties();
+    private static final String url = props != null ? props.getProperty("DB_CONNECTION_STRING") : null;
+    private static final String user = props != null ? props.getProperty("DB_USERNAME") : null;
+    private static final String pass = props != null ? props.getProperty("DB_PASSWORD") : null;
+
+    private static Properties loadDatabaseProperties() {
         Properties properties = new Properties();
         try (InputStream input = DatabaseCleanupHelper.class.getClassLoader().getResourceAsStream("data.properties")) {
             if (input == null) {
@@ -22,22 +27,40 @@ public class DatabaseCleanupHelper {
         }
         return properties;
     }
-    
+
+    private static Connection getConnection() throws SQLException {
+        if (url == null || user == null || pass == null) {
+            throw new SQLException("Database connection details not loaded.");
+        }
+        return DriverManager.getConnection(url, user, pass);
+    }
+
+    //Delete test users
+    public static void deleteTestUsersCreated() {
+        String sql = "DELETE FROM [dbo].[User] WHERE UserName LIKE ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, "%test%");
+            int deletedRows = stmt.executeUpdate();
+            System.out.println("Deleted " + deletedRows + " test users.");
+
+        } catch (SQLException e) {
+            System.err.println("Error deleting test users: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    //Existing meter cleanup logic
     public static void collectAndRunCleanupForMeter(String meterNumber) {
-        Properties props = getDatabaseProperties();
-        if (props == null) return;
-
-        String url = props.getProperty("DB_CONNECTION_STRING");
-        String user = props.getProperty("DB_USERNAME");
-        String pass = props.getProperty("DB_PASSWORD");
-
         List<Integer> standIds = new ArrayList<>();
         List<Integer> meterIds = new ArrayList<>();
         List<Integer> municipalityIds = new ArrayList<>();
 
-        try (Connection conn = DriverManager.getConnection(url, user, pass)) {
+        try (Connection conn = getConnection()) {
 
-            // 1. Get stand IDs for the meter number
+            // Get stand IDs for the meter number
             String sqlStand = "SELECT DISTINCT s.Id FROM Meters m " +
                               "JOIN Stands s ON m.StandId = s.Id " +
                               "WHERE m.MeterNumber = ?";
@@ -54,11 +77,7 @@ public class DatabaseCleanupHelper {
                 return;
             }
 
-
-           // runCleanupWithStands(conn, standIds);
-            //runCleanupWithStands(conn, standIds);
-
-            // 2. Get meter IDs belonging to those stands
+            // Get meter IDs belonging to those stands
             String sqlMeters = "SELECT Id FROM Meters WHERE StandId IN (" + toSqlList(standIds) + ")";
             try (Statement stmt = conn.createStatement()) {
                 ResultSet rs = stmt.executeQuery(sqlMeters);
@@ -67,6 +86,7 @@ public class DatabaseCleanupHelper {
                 }
             }
 
+            // Get municipality IDs
             String sqlMunicipality = "SELECT DISTINCT MunicipalityId FROM Stands WHERE Id IN (" + toSqlList(standIds) + ")";
             try (Statement stmt = conn.createStatement()) {
                 ResultSet rs = stmt.executeQuery(sqlMunicipality);
@@ -80,18 +100,13 @@ public class DatabaseCleanupHelper {
             if (!meterIds.isEmpty()) {
                 executeDelete(conn, "Transactions", "MeterId", meterIds);
             }
-            
+
             executeDelete(conn, "MeterInstallationHistory", "StandId", standIds);
-
             executeDelete(conn, "Meters", "StandId", standIds);
-
             executeDelete(conn, "Accounts", "StandId", standIds);
 
             if (!municipalityIds.isEmpty()) {
                 executeDelete(conn, "SystemLogEntries", "MunicipalityId", municipalityIds);
-            }
-
-            if (!municipalityIds.isEmpty()) {
                 executeDelete(conn, "Municipality", "Id", municipalityIds);
             }
 
@@ -118,5 +133,4 @@ public class DatabaseCleanupHelper {
             System.out.println("Executed: [" + sql + "] → Rows affected: " + deletedRows);
         }
     }
-
 }

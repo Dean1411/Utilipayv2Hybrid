@@ -87,7 +87,7 @@ public class Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic extends Base {
                 transact.paymentMethod("Cash");
                 transact.purchase();
 
-                //Check free basic token immediately after first purchase
+                //Check free basic token after first purchase
                 if (i == 0) {
                     String freeBasicToken = transact.fbToken();
                     if (freeBasicToken == null) {
@@ -99,7 +99,7 @@ public class Verify_StepThrough_PrepaidTariffUnits_WithFreeBasic extends Base {
                     }
                 }
 
-                //Free basic should NOT appear on purchases 2 and 3
+                //No FB should appear on purchases 2 and 3
                 if (i > 0) {
                     String freeBasicToken = transact.fbToken();
                     if (freeBasicToken != null) {

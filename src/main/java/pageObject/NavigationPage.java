@@ -115,7 +115,6 @@ public class NavigationPage extends BaseComponent {
 	//Cashier Management
 	public void click_CashierManagement() throws InterruptedException {
 		
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); 
 	    wait.until(ExpectedConditions.elementToBeClickable(cashierManagement));
 		cashierManagement.click();
 		
@@ -159,7 +158,7 @@ public class NavigationPage extends BaseComponent {
 	                prepaidExport.click();
 	                break;
 	                
-	            case "Consumer Records":
+	            case "consumer records":
 	                wait.until(ExpectedConditions.elementToBeClickable(consumerRecords));
 	                consumerRecords.click();
 	                break;
@@ -193,7 +192,4 @@ public class NavigationPage extends BaseComponent {
 	                throw new IllegalArgumentException("Invalid section: " + section);
 	        }
 	 }
-	
-	
-
 }

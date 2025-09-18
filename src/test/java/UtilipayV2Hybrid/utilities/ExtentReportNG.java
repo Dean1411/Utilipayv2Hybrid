@@ -163,30 +163,57 @@ public class ExtentReportNG extends Base implements  ITestListener{
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {  
 	  
 	}  
-	  
-	@Override  
-	public void onFinish(ITestContext context) {  
-		extent.flush();
-		
-		String reportPath=System.getProperty("user.dir")+"\\reports\\"+reportName;
-		File extentReport=new File(reportPath);
-		
-		if (Desktop.isDesktopSupported()) {
-		    try {
-		        Desktop.getDesktop().browse(new File(reportPath).toURI());
-//		    	Desktop.getDesktop().browse(extentReport.toURI());
-		    } catch (Exception e) {
-		        e.printStackTrace();
-		    }
-		}
+	
+	@Override
+	public void onFinish(ITestContext context) {
+	    extent.flush();
 
-		
-//		//Code automatically opens html report
-//		try {
-//			Desktop.getDesktop().browse(extentReport.toURI());
-//		}catch (Exception e) {
-//			e.printStackTrace();
+	    // Generate report path
+	    String reportPath = System.getProperty("user.dir") + "/reports/" + reportName;
+	    File extentReport = new File(reportPath);
+
+	    if (extentReport.exists()) {
+	        System.out.println("Extent report generated at: " + extentReport.getAbsolutePath());
+	    } else {
+	        System.err.println("Extent report not found at: " + reportPath);
+	        return;
+	    }
+
+	    // Local
+	    if (Desktop.isDesktopSupported() && System.getenv("JENKINS_HOME") == null && System.getenv("TF_BUILD") == null) {
+	        try {
+	            Desktop.getDesktop().browse(extentReport.toURI());
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	}
+
+
+	  
+//	@Override  
+//	public void onFinish(ITestContext context) {  
+//		extent.flush();
+//		
+//		String reportPath=System.getProperty("user.dir")+"\\reports\\"+reportName;
+//		File extentReport=new File(reportPath);
+//		
+//		if (Desktop.isDesktopSupported()) {
+//		    try {
+////		        Desktop.getDesktop().browse(new File(reportPath).toURI());
+//		    	Desktop.getDesktop().browse(extentReport.toURI());
+//		    } catch (Exception e) {
+//		        e.printStackTrace();
+//		    }
 //		}
-	} 
+//
+//		
+////		//Code automatically opens html report
+////		try {
+////			Desktop.getDesktop().browse(extentReport.toURI());
+////		}catch (Exception e) {
+////			e.printStackTrace();
+////		}
+//	} 
 
 }

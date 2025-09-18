@@ -1,0 +1,46 @@
+2025-09-16 08:50:02.818 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
+2025-09-16 08:51:37.197 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-16 08:51:56.688 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: automation report ===
+2025-09-16 08:52:02.479 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-09-16 08:52:06.523 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-09-16 08:52:13.208 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-09-16 08:52:17.876 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-09-16 08:52:24.989 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-09-16 08:52:29.697 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-09-16 08:52:34.360 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
+2025-09-16 08:52:35.721 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
+2025-09-16 08:52:50.613 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token
+2025-09-16 08:53:05.178 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
+2025-09-16 08:53:19.083 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
+2025-09-16 08:53:33.467 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing mngt function token
+2025-09-16 08:53:47.622 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: key change token
+2025-09-16 08:54:01.813 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: management function token
+2025-09-16 11:26:35.019 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
+2025-09-16 11:28:24.132 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-16 11:28:44.225 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: automation report ===
+2025-09-16 11:28:49.971 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-09-16 11:28:55.620 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-09-16 11:29:02.862 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-09-16 11:29:06.288 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-09-16 11:29:10.955 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-09-16 11:29:14.232 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-09-16 11:29:18.201 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
+2025-09-16 11:29:19.278 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
+2025-09-16 11:29:33.936 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token
+2025-09-16 11:29:48.624 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing token
+2025-09-16 11:30:02.906 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing key change token
+2025-09-16 11:30:18.409 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: manufacturing mngt function token
+2025-09-16 11:30:34.294 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: key change token
+2025-09-16 11:30:48.766 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: management function token
+2025-09-16 11:42:39.753 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Verifying toaster message ***
+2025-09-16 11:43:54.017 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: create custom report ===
+2025-09-16 11:44:13.035 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: automation report ===
+2025-09-16 11:44:18.445 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: prepaid sales ===
+2025-09-16 11:44:23.988 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: day end ===
+2025-09-16 11:44:31.284 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: month end ===
+2025-09-16 11:44:34.413 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: low purchase ===
+2025-09-16 11:44:39.544 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: free basic ===
+2025-09-16 11:44:44.006 [main] INFO  UtilipayV2Hybrid.testBase.Base - === Generating report: arrears recovered ===
+2025-09-16 11:44:49.430 [main] INFO  UtilipayV2Hybrid.testBase.Base - *** Reporting Test Completed ***
+2025-09-16 11:44:50.628 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: encrypt credit token
+2025-09-16 11:45:05.640 [main] INFO  UtilipayV2Hybrid.testBase.Base - Processing: verify encrypted token

@@ -14,11 +14,11 @@ public class DatePickerUtils {
         this.wait = new WebDriverWait(driver, timeoutSeconds);
     }
 
-    // ✅ Combined method: select date range + month
+    //Combined method: select date range + month
     public void selectDate(WebElement datePicker, WebElement monthSelector, WebElement flatpickerContainer,
                            String fromDay, String toDay, String month) throws InterruptedException {
 
-        // --- Select the month first ---
+        // Select the month first
         if (monthSelector != null) {
             // Dropdown month picker
             Select monthDropdown = new Select(monthSelector);
@@ -42,7 +42,7 @@ public class DatePickerUtils {
             }
         }
 
-        // --- Select the day range ---
+        // Select the day range 
         wait.until(ExpectedConditions.elementToBeClickable(datePicker)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("flatpickr-calendar")));
 
@@ -63,7 +63,7 @@ public class DatePickerUtils {
         }
     }
 
-    // ✅ Single day selection (with navigation)
+    //Single day selection (with navigation)
     public void selectSingleDay(WebElement datePicker, String targetDay, String targetMonth) throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(datePicker)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("flatpickr-calendar")));

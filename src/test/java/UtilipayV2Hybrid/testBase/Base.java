@@ -35,10 +35,6 @@ import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 import java.util.UUID;
 
-
-
-
-
 public class Base {
 	
 //	public static WebDriver driver;
@@ -255,7 +251,6 @@ public class Base {
 	        return null;
 	    }
 	    
-	    // Check if WebDriver session is active (works if you use RemoteWebDriver)
 	    if (((RemoteWebDriver) getDriver()).getSessionId() == null) {
 	        System.out.println("Screenshot skipped: WebDriver session is closed.");
 	        return null;

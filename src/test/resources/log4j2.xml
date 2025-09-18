@@ -24,8 +24,7 @@
 					<IfLastModified age="30d" />
 				</Delete>
 			</DefaultRolloverStrategy>
-        </RollingFile>
-        
+        </RollingFile>        
     </Appenders>
     
     <Loggers>
